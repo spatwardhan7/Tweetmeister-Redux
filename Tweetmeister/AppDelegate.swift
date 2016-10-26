@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         if User.currentUser != nil {
-            print("---- current user found")
+            print("---- App Delegate : current user found")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
             
@@ -63,10 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("--- App Delegate :  urldescription : \(url.description)")
 
         TwitterClient.sharedInstance?.handleOpenUrl(url: url)
-        
-        
 
-        
         return true
     }
     

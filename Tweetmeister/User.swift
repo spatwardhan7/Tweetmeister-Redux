@@ -16,14 +16,9 @@ class User: NSObject {
     var screenName : String?
     var profileUrl : URL?
     var tagline : String?
-    //var dictionary : NSDictionary?
-    
     var dictionary : NSDictionary?
     
-    
     init(dictionary: NSDictionary){
-        //self.dictionary = dictionary
-        
         self.dictionary = dictionary
         
         name = dictionary["name"] as? String
@@ -39,26 +34,10 @@ class User: NSObject {
     
     
     // _ hidden by convention
-    //static var _currentUser: User?
-    
     static var _currentUser: User?
     
     class var currentUser: User? {
         get {
-            /*
-             if _currentUser == nil {
-             let defaults = UserDefaults.standard
-             let userData = defaults.object(forKey: "currentUserData") as? Data
-             
-             if let userData = userData {
-             let dictionary = try! JSONSerialization.jsonObject(with: userData, options: []) as! NSDictionary
-             _currentUser = User(dictionary: dictionary)
-             
-             }
-             }
-             return _currentUser
-             */
-            
             if _currentUser == nil  {
                 let defaults = UserDefaults.standard
                 let userData = defaults.object(forKey: "currentUserData") as? NSData
@@ -76,7 +55,6 @@ class User: NSObject {
             
             let defaults = UserDefaults.standard
             
-            
             if let user = user {
                 let data = try!  JSONSerialization.data(withJSONObject: user.dictionary!, options: [])
                 
@@ -88,23 +66,4 @@ class User: NSObject {
             defaults.synchronize()
         }
     }
-    
-    /*
-     set(user){
-     _currentUser = user
-     
-     let defaults = UserDefaults.standard
-     
-     if let user = user {
-     let data = try! JSONSerialization.data(withJSONObject: user.dictionary, options: [])
-     
-     defaults.set(data, forKey: "currentUserData")
-     } else {
-     defaults.set(nil, forKey: "currentUserData")
-     }
-     
-     defaults.synchronize()
-     }
-     }
-     */
 }

@@ -11,20 +11,23 @@ import UIKit
 class TweetsViewController: UIViewController {
 
     var tweets : [Tweet]!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationbar()
-
-        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets : [Tweet]) in
+        let client = TwitterClient.sharedInstance!
+        
+        print("--- Tweets VC : calling home time line")
+        client.homeTimeline(success: { (tweets : [Tweet]) in
             self.tweets = tweets
             
-            for tweet in tweets{
-                print(tweet.text)
-            }
+            print("--- Tweets VC : home time line success")
+//            for tweet in tweets{
+//                print(tweet.text)
+//            }
             }, failure: { (error : Error) in
-                // error
+                print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
         })
         
         // Do any additional setup after loading the view.
