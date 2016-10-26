@@ -14,10 +14,11 @@ class TweetsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationbar()
 
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets : [Tweet]) in
             self.tweets = tweets
-            
             
             for tweet in tweets{
                 print(tweet.text)
@@ -27,6 +28,14 @@ class TweetsViewController: UIViewController {
         })
         
         // Do any additional setup after loading the view.
+    }
+    
+    func setupNavigationbar(){
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 2 , height: 2))
+        imageView.contentMode = UIViewContentMode.center
+        let image = UIImage(named: "Twitter_Logo_Blue_Small")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
 
     @IBAction func onLogoutButton(_ sender: AnyObject) {
