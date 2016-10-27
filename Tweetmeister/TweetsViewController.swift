@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tweets : [Tweet]!
     let client = TwitterClient.sharedInstance!
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTableView()
         setupNavigationbar()
-        loadHomeTimelineTweets()
+        loadHomeTimelineTweets(withProgressHUD: true)
         
         // Do any additional setup after loading the view.
     }
@@ -29,6 +35,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160
+        tableView.insertSubview(refreshControl, at: 0)
     }
     
     func setupNavigationbar(){
@@ -55,18 +62,34 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        loadHomeTimelineTweets(withProgressHUD: false)
+    }
     
-    
-    func loadHomeTimelineTweets(){
+    func loadHomeTimelineTweets(withProgressHUD : Bool){
         print("--- Tweets VC : calling home time line")
+        
+        if withProgressHUD{
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
+        
         client.homeTimeline(success: { (tweets : [Tweet]) in
             print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
             
             self.tweets = tweets
             self.tableView.reloadData()
+            self.cleanUpUI()
+            
             }, failure: { (error : Error) in
+                self.cleanUpUI()
                 print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
         })
+        
+    }
+    
+    func cleanUpUI(){
+        self.refreshControl.endRefreshing()
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     @IBAction func onLogoutButton(_ sender: AnyObject) {

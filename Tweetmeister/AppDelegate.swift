@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // For Launch Screen
-        sleep(2)
+        sleep(1)
         
         if User.currentUser != nil {
             print("---- App Delegate : current user : \(User.currentUser?.name)")
