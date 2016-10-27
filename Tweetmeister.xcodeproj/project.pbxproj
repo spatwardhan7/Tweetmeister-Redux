@@ -34,6 +34,7 @@
 		EE48CB6A1DBFDDEE00BC241A /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		EE48CB6C1DC0302B00BC241A /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		EE48CB6E1DC03E5600BC241A /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		EEAF75701DC1BAEA009D068D /* Tweetmeister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tweetmeister.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		EE2147341DBFAB2D00CBF9AF /* Tweetmeister */ = {
 			isa = PBXGroup;
 			children = (
+				EEAF75701DC1BAEA009D068D /* Tweetmeister.entitlements */,
 				EE48CB671DBFDDA600BC241A /* API */,
 				EE48CB661DBFDD9300BC241A /* Models */,
 				EE2147471DBFB57600CBF9AF /* View Controllers */,
@@ -161,6 +163,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = SDLRJDJ3R5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -375,6 +382,7 @@
 			baseConfigurationReference = DC0E5EC690E4905FED630134 /* Pods-Tweetmeister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tweetmeister/Tweetmeister.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEVELOPMENT_TEAM = SDLRJDJ3R5;
@@ -391,6 +399,7 @@
 			baseConfigurationReference = 9C4B84259AD41CB4A25CF0F8 /* Pods-Tweetmeister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tweetmeister/Tweetmeister.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				DEVELOPMENT_TEAM = SDLRJDJ3R5;
 				INFOPLIST_FILE = Tweetmeister/Info.plist;
