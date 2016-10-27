@@ -22,10 +22,12 @@ class TweetsViewController: UIViewController {
         client.homeTimeline(success: { (tweets : [Tweet]) in
             self.tweets = tweets
             
-            print("--- Tweets VC : home time line success")
-//            for tweet in tweets{
-//                print(tweet.text)
-//            }
+            print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
+            
+            for tweet in tweets{
+                print(tweet.text)
+            }
+            
             }, failure: { (error : Error) in
                 print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
         })

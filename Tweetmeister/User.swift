@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class User: NSObject {
     
@@ -17,19 +18,22 @@ class User: NSObject {
     var profileUrl : URL?
     var tagline : String?
     var dictionary : NSDictionary?
+    var userJSON : JSON?
     
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
+        self.userJSON = JSON(dictionary)
         
-        name = dictionary["name"] as? String
-        screenName = dictionary["screen_name"] as? String
+        name = userJSON?["name"].string
+        screenName = userJSON?["screen_name"].string
         
-        let profileUrlString = dictionary["profile_image_url_https"] as? String
-        if let profileUrlString = profileUrlString {
-            profileUrl = URL(string : profileUrlString)
+        if let profileUrlString = userJSON?["profile_image_url_https"].string{
+        profileUrl = URL(string : profileUrlString)
         }
         
-        tagline = dictionary["description"] as? String
+        if let taglineString = userJSON?["description"].string{
+            tagline = taglineString
+        }
     }
     
     

@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Tweet: NSObject {
     var text : String?
     var timestamp : Date?
     var retweetCount : Int = 0
     var favoritesCount : Int = 0
+    var tweetJSON : JSON?
     
     init(dictionary: NSDictionary) {
-        text = dictionary["text"] as? String
-        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        self.tweetJSON = JSON(dictionary)
         
-        let timestampString = dictionary["created_at"] as? String
+        text = tweetJSON?["text"].string
+        retweetCount = (tweetJSON?["retweet_count"].int) ?? 0
+        favoritesCount = (tweetJSON?["favourites_count"].int) ?? 0
+        
+        let timestampString = tweetJSON?["created_at"].string
     
         if let timestampString = timestampString {
             let formatter = DateFormatter()
@@ -33,10 +37,8 @@ class Tweet: NSObject {
         
         for dictionary in dictionaries{
             let tweet = Tweet(dictionary: dictionary)
-            
             tweets.append(tweet)
         }
-        
         return tweets
     }
 }

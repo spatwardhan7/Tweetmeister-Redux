@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(2)
         
         if User.currentUser != nil {
-            print("---- App Delegate : current user found")
+            print("---- App Delegate : current user : \(User.currentUser?.name)")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
             
