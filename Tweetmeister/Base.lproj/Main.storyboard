@@ -53,18 +53,74 @@
         <scene sceneID="Kd9-Ds-QCc">
             <objects>
                 <viewController id="POk-fk-WF1" customClass="TweetsViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="uHK-7D-EtQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="uHK-7D-EtQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="108" id="i5h-29-PdY" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="108"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="95" id="i5h-29-PdY" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5h-29-PdY" id="9So-Ij-jhV">
-                                    <frame key="frameInset" width="375" height="107"/>
+                                    <frame key="frameInset" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-PV-qtF">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="IaA-Hz-RVj"/>
+                                                <constraint firstAttribute="width" constant="36" id="svZ-dm-bhe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Manchester United" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO6-Zf-nwi">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ManUtd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdD-2E-yRs">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" red="0.396078431372549" green="0.46666666666666667" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="iih-KH-abp"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCc-X3-VWW">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="This is a tweet which could be really long really really long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXt-yu-jQi">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="QXt-yu-jQi" secondAttribute="trailing" constant="8" id="C9r-Vp-egf"/>
+                                        <constraint firstItem="UCc-X3-VWW" firstAttribute="centerY" secondItem="fdD-2E-yRs" secondAttribute="centerY" id="HXe-xJ-DJG"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UCc-X3-VWW" secondAttribute="trailing" constant="8" id="KeB-oV-Ek3"/>
+                                        <constraint firstItem="fO6-Zf-nwi" firstAttribute="top" secondItem="9So-Ij-jhV" secondAttribute="top" constant="8" id="LK8-Qb-uZz"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oAi-PV-qtF" secondAttribute="bottom" constant="8" id="LcP-Ig-QH9"/>
+                                        <constraint firstItem="iih-KH-abp" firstAttribute="centerY" secondItem="fdD-2E-yRs" secondAttribute="centerY" id="Lwn-ib-r8w"/>
+                                        <constraint firstItem="iih-KH-abp" firstAttribute="leading" secondItem="fdD-2E-yRs" secondAttribute="trailing" constant="2" id="Lyc-rj-z8s"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QXt-yu-jQi" secondAttribute="bottom" constant="8" id="W3w-bi-Unc"/>
+                                        <constraint firstItem="QXt-yu-jQi" firstAttribute="top" secondItem="fO6-Zf-nwi" secondAttribute="bottom" constant="4" id="bvc-la-hWN"/>
+                                        <constraint firstItem="fO6-Zf-nwi" firstAttribute="leading" secondItem="oAi-PV-qtF" secondAttribute="trailing" constant="8" id="cXN-Pc-S8X"/>
+                                        <constraint firstItem="fdD-2E-yRs" firstAttribute="baseline" secondItem="fO6-Zf-nwi" secondAttribute="baseline" id="dJ9-2O-a3T"/>
+                                        <constraint firstItem="QXt-yu-jQi" firstAttribute="leading" secondItem="oAi-PV-qtF" secondAttribute="trailing" constant="8" id="dXK-nj-mBW"/>
+                                        <constraint firstItem="oAi-PV-qtF" firstAttribute="top" secondItem="9So-Ij-jhV" secondAttribute="top" constant="8" id="e9v-9E-NE4"/>
+                                        <constraint firstItem="UCc-X3-VWW" firstAttribute="leading" secondItem="iih-KH-abp" secondAttribute="trailing" constant="2" id="gB5-VQ-02d"/>
+                                        <constraint firstItem="oAi-PV-qtF" firstAttribute="leading" secondItem="9So-Ij-jhV" secondAttribute="leading" constant="8" id="knp-vv-LCZ"/>
+                                        <constraint firstItem="UCc-X3-VWW" firstAttribute="baseline" secondItem="fO6-Zf-nwi" secondAttribute="baseline" id="lBl-z1-hMf"/>
+                                        <constraint firstItem="fdD-2E-yRs" firstAttribute="leading" secondItem="fO6-Zf-nwi" secondAttribute="trailing" constant="5" id="sDS-yT-oTI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="fO6-Zf-nwi" id="Dce-5R-7VX"/>
+                                    <outlet property="posterImageView" destination="oAi-PV-qtF" id="pwp-Sa-MBg"/>
+                                    <outlet property="separatorDotImageView" destination="iih-KH-abp" id="jKd-AM-TcA"/>
+                                    <outlet property="timeLabel" destination="UCc-X3-VWW" id="mIS-pa-mhe"/>
+                                    <outlet property="tweetTextLabel" destination="QXt-yu-jQi" id="tq5-tY-l0h"/>
+                                    <outlet property="usernameLabel" destination="fdD-2E-yRs" id="nZA-6c-Zof"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -82,24 +138,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4I-eE-u5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1597.5999999999999" y="35.532233883058474"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="JKV-B5-upA">
-            <objects>
-                <viewController id="bj1-fV-X7Q" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C1F-Mv-F2N"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qqg-xS-6AL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NJF-iS-lbz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fm-tb-vTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2719" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LJp-YF-LnC">
@@ -122,5 +160,6 @@
     </scenes>
     <resources>
         <image name="Twitter_Logo_Blue" width="400" height="400"/>
+        <image name="dot" width="7" height="7"/>
     </resources>
 </document>

@@ -15,6 +15,7 @@ import SwiftyJSON
 class Tweet: NSObject {
     
     var name : String
+    var username: String
     var text : String?
     var profileImageUrl : URL?
     var timestamp : Date?
@@ -29,6 +30,7 @@ class Tweet: NSObject {
     init(dictionary: NSDictionary) {
         self.tweetJSON = JSON(dictionary)
         self.name = tweetJSON["user"]["name"].string!
+        self.username = "@" + tweetJSON["user"]["screen_name"].string!
         text = tweetJSON["text"].string
         retweetCount = (tweetJSON["retweet_count"].int) ?? 0
         favoritesCount = (tweetJSON["favourites_count"].int) ?? 0
