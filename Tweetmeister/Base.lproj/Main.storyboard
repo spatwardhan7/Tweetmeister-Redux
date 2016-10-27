@@ -42,7 +42,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="CtU-AF-xut" kind="presentation" identifier="loginSegueDPC" id="bUe-j7-bF2"/>
                         <segue destination="OId-HQ-ahW" kind="presentation" identifier="loginSegue" id="ddK-6K-P0u"/>
                     </connections>
                 </viewController>
@@ -51,40 +50,9 @@
             <point key="canvasLocation" x="-97" y="36"/>
         </scene>
         <!--Tweets View Controller-->
-        <scene sceneID="Kd9-Ds-QCc">
-            <objects>
-                <viewController id="POk-fk-WF1" customClass="TweetsViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="uHK-7D-EtQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="95" id="i5h-29-PdY" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="95"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5h-29-PdY" id="9So-Ij-jhV">
-                                    <frame key="frameInset" width="375" height="95"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="8QI-ls-4pJ">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ZNr-gH-JVm">
-                            <connections>
-                                <action selector="onLogoutButton:" destination="POk-fk-WF1" id="LXK-hW-OHj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w4I-eE-u5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1597.5999999999999" y="35.532233883058474"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="gFz-kb-Ivo">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Q1u-vH-z0k" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Q1u-vH-z0k" customClass="TweetsViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="axQ-zO-AO7"/>
                         <viewControllerLayoutGuide type="bottom" id="CyM-3e-8sZ"/>
@@ -93,14 +61,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-WG-bxJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-WG-bxJ">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="uuG-s9-MES">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="128"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="99" id="uuG-s9-MES" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuG-s9-MES" id="RyO-K6-yhN">
-                                            <frame key="frameInset" width="375" height="127"/>
+                                            <frame key="frameInset" width="375" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-PV-qtF">
@@ -150,6 +118,14 @@
                                                 <constraint firstItem="fdD-2E-yRs" firstAttribute="leading" secondItem="fO6-Zf-nwi" secondAttribute="trailing" constant="5" id="vvA-Ha-Tw8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="fO6-Zf-nwi" id="zll-LO-GOv"/>
+                                            <outlet property="posterImageView" destination="oAi-PV-qtF" id="5jL-oy-2qe"/>
+                                            <outlet property="separatorDotImageView" destination="iih-KH-abp" id="YNU-Bh-cWs"/>
+                                            <outlet property="timeLabel" destination="UCc-X3-VWW" id="9rg-Nk-nRD"/>
+                                            <outlet property="tweetTextLabel" destination="QXt-yu-jQi" id="h7I-ev-b0n"/>
+                                            <outlet property="usernameLabel" destination="fdD-2E-yRs" id="01M-gu-Xh4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -162,34 +138,25 @@
                             <constraint firstItem="CyM-3e-8sZ" firstAttribute="top" secondItem="IgG-WG-bxJ" secondAttribute="bottom" id="ql8-7L-yNC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nky-Q2-YdL"/>
+                    <navigationItem key="navigationItem" id="nky-Q2-YdL">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9zR-gm-IVl">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="Q1u-vH-z0k" id="biR-od-kgM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="IgG-WG-bxJ" id="kN1-iL-W4B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv3-yy-mOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="-718"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="LJp-YF-LnC">
-            <objects>
-                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CtU-AF-xut" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S4k-5d-izV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="POk-fk-WF1" kind="relationship" relationship="rootViewController" id="45P-4B-yEH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ha-GF-7d1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="894" y="36"/>
+            <point key="canvasLocation" x="1589.5999999999999" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iBX-DC-RX8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OId-HQ-ahW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="OId-HQ-ahW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PXV-dZ-gk0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -202,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ML2-4w-fdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="-718"/>
+            <point key="canvasLocation" x="742" y="36"/>
         </scene>
     </scenes>
     <resources>
