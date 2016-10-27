@@ -53,15 +53,21 @@
         <scene sceneID="Kd9-Ds-QCc">
             <objects>
                 <viewController id="POk-fk-WF1" customClass="TweetsViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MT5-c8-i8m"/>
-                        <viewControllerLayoutGuide type="bottom" id="wL3-Pu-IAI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TdS-Ld-TXS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="uHK-7D-EtQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="108" id="i5h-29-PdY" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="108"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5h-29-PdY" id="9So-Ij-jhV">
+                                    <frame key="frameInset" width="375" height="107"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" id="8QI-ls-4pJ">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ZNr-gH-JVm">
                             <connections>
@@ -69,10 +75,31 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="uHK-7D-EtQ" id="ErT-km-jqD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4I-eE-u5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="36"/>
+            <point key="canvasLocation" x="1597.5999999999999" y="35.532233883058474"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JKV-B5-upA">
+            <objects>
+                <viewController id="bj1-fV-X7Q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C1F-Mv-F2N"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qqg-xS-6AL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NJF-iS-lbz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fm-tb-vTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2719" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LJp-YF-LnC">
