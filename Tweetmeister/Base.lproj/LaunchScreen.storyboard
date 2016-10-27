@@ -17,7 +17,19 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_Logo_White_On_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="gEP-Y5-WZ2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="l4q-Il-6Md"/>
+                                    <constraint firstAttribute="height" constant="72" id="pcA-hO-ij9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gEP-Y5-WZ2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eFe-Xu-BdB"/>
+                            <constraint firstItem="gEP-Y5-WZ2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="phH-2l-c97"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +37,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Twitter_Logo_White_On_Blue" width="400" height="400"/>
+    </resources>
 </document>
