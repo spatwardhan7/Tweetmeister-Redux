@@ -20,9 +20,9 @@ class Tweet: NSObject {
     var profileImageUrl : URL?
     var timestamp : Date?
     var retweetCount : Int = 0
-    var retweeted : Bool?
+    var retweeted : Int? = 0
     var favoritesCount : Int = 0
-    var favorited : Bool?
+    var favorited : Int? = 0
     var id : Int64 = 0
     
     var tweetJSON : JSON
@@ -33,10 +33,16 @@ class Tweet: NSObject {
         self.username = "@" + tweetJSON["user"]["screen_name"].string!
         text = tweetJSON["text"].string
         retweetCount = (tweetJSON["retweet_count"].int) ?? 0
-        favoritesCount = (tweetJSON["favourites_count"].int) ?? 0
-        favorited = tweetJSON["favorited"].bool
+        favoritesCount = (tweetJSON["favorite_count"].int) ?? 0
+        favorited = tweetJSON["favorited"].int
         id = (tweetJSON["id"].int64)!
-        retweeted = tweetJSON["retweeted"].bool
+        retweeted = tweetJSON["retweeted"].int
+        
+        if let retweeted = retweeted{
+            if(retweeted == 1){
+                print("--- Retweeted  by user")
+            }
+        }
         
         if let profileUrlString = tweetJSON["user"]["profile_image_url_https"].string{
             profileImageUrl = URL(string : profileUrlString)
@@ -49,6 +55,12 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
         }
+        
+        print("-- tweet : name : \(name)")
+        print("-- tweet : username : \(username)")
+        print("-- tweet : text : \(text)")
+        print("-- tweet : image url : \(profileImageUrl)")
+        print("-- tweet : timestamp : \(timestamp)")
     }
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet]{

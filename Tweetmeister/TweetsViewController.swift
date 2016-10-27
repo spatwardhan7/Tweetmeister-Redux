@@ -61,15 +61,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("--- Tweets VC : calling home time line")
         client.homeTimeline(success: { (tweets : [Tweet]) in
             print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
+            
             self.tweets = tweets
-            
-    
-            
-            for tweet in tweets{
-                print("-- Tweet from: \(tweet.name) screen name: \(tweet.username)")
-            }
             self.tableView.reloadData()
-            
             }, failure: { (error : Error) in
                 print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
         })
