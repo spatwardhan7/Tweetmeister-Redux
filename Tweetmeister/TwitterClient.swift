@@ -16,7 +16,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                                               consumerKey: "OG97Dv5gaqvQG7cHs068NJ19G",
                                               consumerSecret: "Zvid40WID75Dr21UoZe6JfJDD12EvZfBKMEhZNQJV0sQB3uRAh")
     
-    /*
+    /* Secondary App in case of emergency
     static let sharedInstance = TwitterClient(baseURL : URL(string: "https://api.twitter.com")!,
                                               consumerKey: "mZeAHcBI5hezYEoHcvxbb4osj",
                                               consumerSecret: "NUDMoX6AHRxckNbsDNnwvNQyrWmNakjV0SFvBXMcq4DA43TGjs")

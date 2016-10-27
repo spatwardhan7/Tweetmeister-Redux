@@ -25,7 +25,7 @@ class TweetsViewController: UIViewController {
             print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
             
             for tweet in tweets{
-                print(tweet.text)
+                print("-- Tweet from: \(tweet.name)")
             }
             
             }, failure: { (error : Error) in
