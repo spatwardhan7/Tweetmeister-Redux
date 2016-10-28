@@ -52,7 +52,7 @@
         <!--Tweet-->
         <scene sceneID="b3Q-di-gVK">
             <objects>
-                <viewController id="UnS-SA-dxL" sceneMemberID="viewController">
+                <viewController id="UnS-SA-dxL" customClass="TweetDetailsViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9lg-Z6-Tg5"/>
                         <viewControllerLayoutGuide type="bottom" id="ZF0-If-lou"/>
@@ -77,7 +77,7 @@
                                 <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified-6-12" translatesAutoresizingMaskIntoConstraints="NO" id="rPO-tb-nb7"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified-6-12" translatesAutoresizingMaskIntoConstraints="NO" id="rPO-tb-nb7"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="This is a tweet which could be really long really really long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edH-Cc-VrI">
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.078431372550000003" green="0.090196078430000007" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcK-0g-cGh">
-                                <color key="backgroundColor" red="0.396078431372549" green="0.46666666666666667" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="spn-yh-Fd8"/>
                                 </constraints>
@@ -115,7 +115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oF-ey-PCv">
-                                <color key="backgroundColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="prF-ng-7fD"/>
                                 </constraints>
@@ -131,13 +131,13 @@
                             <constraint firstAttribute="trailing" secondItem="8oF-ey-PCv" secondAttribute="trailing" constant="8" id="EpI-Ze-gRA"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="baseline" secondItem="eft-wH-lot" secondAttribute="baseline" id="Far-TJ-fRJ"/>
                             <constraint firstItem="zmf-8d-5Xn" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="Nip-OJ-EE7"/>
-                            <constraint firstItem="8oF-ey-PCv" firstAttribute="top" secondItem="eft-wH-lot" secondAttribute="bottom" constant="16" id="OVH-mR-OSY"/>
+                            <constraint firstItem="8oF-ey-PCv" firstAttribute="top" secondItem="eft-wH-lot" secondAttribute="bottom" constant="12" id="OVH-mR-OSY"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="PYa-kQ-AA7"/>
                             <constraint firstItem="8N3-kp-BBW" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="QNr-82-J4N"/>
                             <constraint firstAttribute="trailing" secondItem="edH-Cc-VrI" secondAttribute="trailing" constant="8" id="QOR-tj-UZL"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="U0f-qn-FWX"/>
                             <constraint firstItem="8oF-ey-PCv" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="YsX-49-PjC"/>
-                            <constraint firstItem="jcK-0g-cGh" firstAttribute="top" secondItem="zmf-8d-5Xn" secondAttribute="bottom" constant="16" id="aNc-fz-g7z"/>
+                            <constraint firstItem="jcK-0g-cGh" firstAttribute="top" secondItem="zmf-8d-5Xn" secondAttribute="bottom" constant="12" id="aNc-fz-g7z"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="leading" secondItem="eft-wH-lot" secondAttribute="trailing" constant="8" id="cev-wW-xed"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="baseline" secondItem="Tgm-Dj-Zyy" secondAttribute="baseline" id="fnh-Nx-ThU"/>
                             <constraint firstItem="edH-Cc-VrI" firstAttribute="top" secondItem="h3Q-hv-T6o" secondAttribute="bottom" constant="21" id="g49-wD-jWa"/>
@@ -147,17 +147,27 @@
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="omh-H5-b5q"/>
                             <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="r7K-Uc-J7Z"/>
                             <constraint firstItem="eft-wH-lot" firstAttribute="leading" secondItem="xbR-jZ-6Zp" secondAttribute="trailing" constant="16" id="s4s-VX-Hgs"/>
-                            <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="top" secondItem="jcK-0g-cGh" secondAttribute="bottom" constant="16" id="uwu-LU-Xi9"/>
+                            <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="top" secondItem="jcK-0g-cGh" secondAttribute="bottom" constant="12" id="uwu-LU-Xi9"/>
                             <constraint firstItem="edH-Cc-VrI" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="uzc-m0-vv0"/>
                             <constraint firstItem="eft-wH-lot" firstAttribute="baseline" secondItem="xbR-jZ-6Zp" secondAttribute="baseline" id="wbQ-rj-jXI"/>
                             <constraint firstItem="jcK-0g-cGh" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="wrV-w8-Ywt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="yCP-cI-3gD"/>
+                    <connections>
+                        <outlet property="likeCountLabel" destination="eft-wH-lot" id="i4U-iw-AsC"/>
+                        <outlet property="nameLabel" destination="Z9N-8D-kdq" id="lMO-n0-XNe"/>
+                        <outlet property="posterImageView" destination="8N3-kp-BBW" id="xRX-D6-i6B"/>
+                        <outlet property="retweetCountLabel" destination="Tgm-Dj-Zyy" id="fr3-Yb-lwg"/>
+                        <outlet property="timeLabel" destination="zmf-8d-5Xn" id="GDe-vz-vhU"/>
+                        <outlet property="tweetTextLabel" destination="edH-Cc-VrI" id="dwm-3m-tJe"/>
+                        <outlet property="usernameLabel" destination="h3Q-hv-T6o" id="Niu-tA-nMb"/>
+                        <outlet property="verifiedImageView" destination="rPO-tb-nb7" id="Dgu-hP-21C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQa-af-JlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480.8000000000002" y="35.532233883058474"/>
+            <point key="canvasLocation" x="2481" y="36"/>
         </scene>
         <!--Tweets View Controller-->
         <scene sceneID="gFz-kb-Ivo">
@@ -235,7 +245,7 @@
                                             <outlet property="timeLabel" destination="UCc-X3-VWW" id="9rg-Nk-nRD"/>
                                             <outlet property="tweetTextLabel" destination="QXt-yu-jQi" id="h7I-ev-b0n"/>
                                             <outlet property="usernameLabel" destination="fdD-2E-yRs" id="01M-gu-Xh4"/>
-                                            <segue destination="UnS-SA-dxL" kind="push" id="kT5-Dh-6Gl"/>
+                                            <segue destination="UnS-SA-dxL" kind="push" identifier="tweetDetailsSegue" id="kT5-Dh-6Gl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
