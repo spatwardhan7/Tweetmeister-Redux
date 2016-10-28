@@ -19,6 +19,9 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    
     
     var tweet : Tweet!
     let client = TwitterClient.sharedInstance
@@ -57,6 +60,25 @@ class TweetDetailsViewController: UIViewController {
         
         isFav = (tweet.favorited) ?? 0
         isRetweeted = (tweet.retweeted) ?? 0
+        
+        setFavImage()
+        setRetweetImage()
+    }
+    
+    func setRetweetImage(){
+        if(isRetweeted == 0){
+            retweetButton.setImage(UIImage(named: "retweet"), for: .normal)
+        }else {
+            retweetButton.setImage(UIImage(named: "retweet_green"), for: .normal)
+        }
+    }
+    
+    func setFavImage(){
+        if(isFav == 0){
+            likeButton.setImage(UIImage(named: "heart"), for: .normal)
+        }else {
+            likeButton.setImage(UIImage(named: "heart_red"), for: .normal)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,6 +128,7 @@ class TweetDetailsViewController: UIViewController {
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
             isRetweeted = 0
         }
+        setRetweetImage()
     }
     
     @IBAction func onLikeButton(_ sender: AnyObject) {
@@ -131,6 +154,7 @@ class TweetDetailsViewController: UIViewController {
             likeCountLabel.text = "\(Int(likeCountLabel.text!)! - 1)"
             isFav = 0
         }
+        setFavImage()
     }
     
      // MARK: - Navigation

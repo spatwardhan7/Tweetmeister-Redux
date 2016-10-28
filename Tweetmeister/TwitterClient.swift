@@ -65,6 +65,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    /* showStatus has to be called before calling unretweet to get
+     * the correct retweed id in case a tweet has been retweeted by
+     * a bunch of people
+     */
     func showStatuses(params: String, success: @escaping(NSDictionary) -> (), failure: @escaping (Error) -> ()){
         let showStatusesBaseUrl = "1.1/statuses/show/{id}.json?include_my_retweet=1"
         let showStatusUrl = showStatusesBaseUrl.replacingOccurrences(of: "{id}", with: params)

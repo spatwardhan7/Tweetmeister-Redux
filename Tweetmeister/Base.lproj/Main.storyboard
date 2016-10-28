@@ -202,9 +202,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="yCP-cI-3gD"/>
                     <connections>
+                        <outlet property="likeButton" destination="XPo-rG-K2Z" id="a9l-km-ryQ"/>
                         <outlet property="likeCountLabel" destination="eft-wH-lot" id="i4U-iw-AsC"/>
                         <outlet property="nameLabel" destination="Z9N-8D-kdq" id="lMO-n0-XNe"/>
                         <outlet property="posterImageView" destination="8N3-kp-BBW" id="xRX-D6-i6B"/>
+                        <outlet property="retweetButton" destination="Abe-EI-Uwy" id="28v-vI-caI"/>
                         <outlet property="retweetCountLabel" destination="Tgm-Dj-Zyy" id="fr3-Yb-lwg"/>
                         <outlet property="timeLabel" destination="zmf-8d-5Xn" id="GDe-vz-vhU"/>
                         <outlet property="tweetTextLabel" destination="edH-Cc-VrI" id="dwm-3m-tJe"/>
