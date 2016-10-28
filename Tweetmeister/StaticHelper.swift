@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AFNetworking
 
-class FadeInImage{
+class StaticHelper{
     
     static func fadeInImage(posterImageView : UIImageView, posterImageUrl : URL){
         

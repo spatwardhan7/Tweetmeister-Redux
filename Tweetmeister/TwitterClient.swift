@@ -40,6 +40,14 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
+    func postTweet(params: Any, success: @escaping() -> (), failure: @escaping (Error) -> ()){
+        post("1.1/statuses/update.json", parameters: params, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            success()
+        }) { (task : URLSessionDataTask?,error: Error) in
+                failure(error)
+        }
+    }
+    
     func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()){
         get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response: Any?) in
             print("--- TwitterClient : home time line response  success")

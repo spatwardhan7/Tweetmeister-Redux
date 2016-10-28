@@ -24,7 +24,7 @@ class TweetCell: UITableViewCell {
             tweetTextLabel.text = tweet.text
             
             if(tweet.profileImageUrl != nil){
-                FadeInImage.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
+                StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
             }
             
         
