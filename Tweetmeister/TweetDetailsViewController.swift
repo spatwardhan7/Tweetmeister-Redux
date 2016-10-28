@@ -21,7 +21,6 @@ class TweetDetailsViewController: UIViewController {
     
     var tweet : Tweet!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +33,7 @@ class TweetDetailsViewController: UIViewController {
     func setDetails(){
         StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
         nameLabel.text = tweet.name
-        usernameLabel.text = "@" + tweet.username
+        usernameLabel.text = tweet.username
         tweetTextLabel.text = tweet.text
         
         
@@ -51,15 +50,27 @@ class TweetDetailsViewController: UIViewController {
         if (tweet.verified == true){
             verifiedImageView.isHidden = false
         }
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func onReplyButton(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func onRetweetButton(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func onLikeButton(_ sender: AnyObject) {
+        
+    }
+    
     
 
     /*

@@ -32,7 +32,7 @@ class Tweet: NSObject {
         self.tweetJSON = JSON(dictionary)
         self.name = tweetJSON["user"]["name"].string!
         self.username = "@" + tweetJSON["user"]["screen_name"].string!
-        text = tweetJSON["text"].string
+        text = tweetJSON["text"].string?.replacingOccurrences(of: "&amp;", with: "&")
         retweetCount = (tweetJSON["retweet_count"].int) ?? 0
         favoritesCount = (tweetJSON["favorite_count"].int) ?? 0
         favorited = tweetJSON["favorited"].int
@@ -40,7 +40,6 @@ class Tweet: NSObject {
         retweeted = tweetJSON["retweeted"].int
         
         verified = tweetJSON["user"]["verified"].bool
-
         
         if let retweeted = retweeted{
             if(retweeted == 1){

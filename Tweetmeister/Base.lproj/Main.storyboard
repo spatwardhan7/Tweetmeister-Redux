@@ -79,7 +79,7 @@
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified-6-12" translatesAutoresizingMaskIntoConstraints="NO" id="rPO-tb-nb7"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="This is a tweet which could be really long really really long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edH-Cc-VrI">
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.078431372550000003" green="0.090196078430000007" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,32 +120,79 @@
                                     <constraint firstAttribute="height" constant="1" id="prF-ng-7fD"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptS-mR-j9U">
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Yok-cX-2KA"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-EI-Uwy">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="OWj-sc-vsI"/>
+                                    <constraint firstAttribute="height" constant="24" id="aJf-Ur-URL"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="retweet"/>
+                                <connections>
+                                    <action selector="onRetweetButton:" destination="UnS-SA-dxL" eventType="touchUpInside" id="Dq4-1C-9q6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-rG-K2Z">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ONU-dr-R7w"/>
+                                    <constraint firstAttribute="width" constant="24" id="g9r-Yx-6LI"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="heart"/>
+                                <connections>
+                                    <action selector="onLikeButton:" destination="UnS-SA-dxL" eventType="touchUpInside" id="iUc-ek-rOn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qad-Xj-7FV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="dXQ-Yz-4Gr"/>
+                                    <constraint firstAttribute="height" constant="24" id="yCW-43-kf2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="reply"/>
+                                <connections>
+                                    <action selector="onReplyButton:" destination="UnS-SA-dxL" eventType="touchUpInside" id="hYj-dB-Ugb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="5fH-99-pDt"/>
+                            <constraint firstItem="ptS-mR-j9U" firstAttribute="top" secondItem="XPo-rG-K2Z" secondAttribute="bottom" constant="8" id="6w2-t3-YNe"/>
                             <constraint firstItem="h3Q-hv-T6o" firstAttribute="top" secondItem="Z9N-8D-kdq" secondAttribute="bottom" constant="6" id="7AV-bk-AtI"/>
+                            <constraint firstItem="XPo-rG-K2Z" firstAttribute="leading" secondItem="Abe-EI-Uwy" secondAttribute="trailing" constant="72" id="7xU-9L-Kww"/>
+                            <constraint firstItem="Abe-EI-Uwy" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="8z5-8s-fvx"/>
+                            <constraint firstItem="Abe-EI-Uwy" firstAttribute="leading" secondItem="Qad-Xj-7FV" secondAttribute="trailing" constant="72" id="Amp-lV-a60"/>
                             <constraint firstItem="zmf-8d-5Xn" firstAttribute="top" secondItem="edH-Cc-VrI" secondAttribute="bottom" constant="8" id="C5x-4r-6yt"/>
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="leading" secondItem="Z9N-8D-kdq" secondAttribute="trailing" constant="8" id="Co4-6k-tFw"/>
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="centerY" secondItem="Z9N-8D-kdq" secondAttribute="centerY" id="DHS-ZU-oiL"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="leading" secondItem="Tgm-Dj-Zyy" secondAttribute="trailing" constant="8" id="DpS-Qh-bpy"/>
                             <constraint firstAttribute="trailing" secondItem="8oF-ey-PCv" secondAttribute="trailing" constant="8" id="EpI-Ze-gRA"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="baseline" secondItem="eft-wH-lot" secondAttribute="baseline" id="Far-TJ-fRJ"/>
+                            <constraint firstItem="XPo-rG-K2Z" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="G7w-dL-bpA"/>
+                            <constraint firstItem="Abe-EI-Uwy" firstAttribute="centerX" secondItem="VBQ-rm-7Bg" secondAttribute="centerX" id="GeZ-5R-e1q"/>
                             <constraint firstItem="zmf-8d-5Xn" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="Nip-OJ-EE7"/>
-                            <constraint firstItem="8oF-ey-PCv" firstAttribute="top" secondItem="eft-wH-lot" secondAttribute="bottom" constant="12" id="OVH-mR-OSY"/>
+                            <constraint firstItem="8oF-ey-PCv" firstAttribute="top" secondItem="eft-wH-lot" secondAttribute="bottom" constant="8" id="OVH-mR-OSY"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="PYa-kQ-AA7"/>
                             <constraint firstItem="8N3-kp-BBW" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="QNr-82-J4N"/>
                             <constraint firstAttribute="trailing" secondItem="edH-Cc-VrI" secondAttribute="trailing" constant="8" id="QOR-tj-UZL"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="U0f-qn-FWX"/>
                             <constraint firstItem="8oF-ey-PCv" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="YsX-49-PjC"/>
                             <constraint firstItem="jcK-0g-cGh" firstAttribute="top" secondItem="zmf-8d-5Xn" secondAttribute="bottom" constant="12" id="aNc-fz-g7z"/>
+                            <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="b6O-tS-WvD"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="leading" secondItem="eft-wH-lot" secondAttribute="trailing" constant="8" id="cev-wW-xed"/>
+                            <constraint firstItem="ptS-mR-j9U" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="fdp-64-BxB"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="baseline" secondItem="Tgm-Dj-Zyy" secondAttribute="baseline" id="fnh-Nx-ThU"/>
                             <constraint firstItem="edH-Cc-VrI" firstAttribute="top" secondItem="h3Q-hv-T6o" secondAttribute="bottom" constant="21" id="g49-wD-jWa"/>
                             <constraint firstAttribute="trailing" secondItem="jcK-0g-cGh" secondAttribute="trailing" constant="8" id="gS7-8W-Hn0"/>
                             <constraint firstItem="8N3-kp-BBW" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="k5m-lg-soN"/>
                             <constraint firstItem="h3Q-hv-T6o" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="l2C-kJ-v6H"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="omh-H5-b5q"/>
+                            <constraint firstItem="Qad-Xj-7FV" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="pSq-LS-0iU"/>
                             <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="r7K-Uc-J7Z"/>
+                            <constraint firstItem="ptS-mR-j9U" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="rZ9-iJ-Wgi"/>
                             <constraint firstItem="eft-wH-lot" firstAttribute="leading" secondItem="xbR-jZ-6Zp" secondAttribute="trailing" constant="16" id="s4s-VX-Hgs"/>
                             <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="top" secondItem="jcK-0g-cGh" secondAttribute="bottom" constant="12" id="uwu-LU-Xi9"/>
                             <constraint firstItem="edH-Cc-VrI" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="uzc-m0-vv0"/>
@@ -382,6 +429,9 @@
         <image name="Twitter_Logo_Blue" width="400" height="400"/>
         <image name="cancel-2-16" width="16" height="16"/>
         <image name="dot" width="7" height="7"/>
+        <image name="heart" width="24" height="24"/>
+        <image name="reply" width="24" height="24"/>
+        <image name="retweet" width="24" height="24"/>
         <image name="verified-6-12" width="12" height="12"/>
     </resources>
 </document>
