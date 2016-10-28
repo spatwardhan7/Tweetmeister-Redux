@@ -24,7 +24,9 @@ class Tweet: NSObject {
     var favoritesCount : Int = 0
     var favorited : Int? = 0
     var verified : Bool?
+    var idStr : String
     var id : Int64 = 0
+    var userMentions : [Any]?
     
     var tweetJSON : JSON
     
@@ -40,6 +42,10 @@ class Tweet: NSObject {
         retweeted = tweetJSON["retweeted"].int
         
         verified = tweetJSON["user"]["verified"].bool
+        
+        idStr = tweetJSON["id_str"].string!
+        
+        userMentions = (tweetJSON["entities"]["user_mentions"].arrayObject) ?? nil
         
         if let retweeted = retweeted{
             if(retweeted == 1){
@@ -60,11 +66,14 @@ class Tweet: NSObject {
         }
         
         
-        print("-- tweet : name : \(name)")
+        print("--- tweet : name : \(name)")
         print("-- tweet : username : \(username)")
-        print("-- tweet : verified : \(verified)")
-        print("-- tweet : retweet count : \(retweetCount)")
-        print("-- tweet : fav count : \(favoritesCount)")
+        print("-- tweet : user mentions : \(userMentions?.count)")
+        //print("- tweet : retweeted : \(retweeted)")
+        //print("- tweet : favorited : \(favorited)")
+        //print("-- tweet : verified : \(verified)")
+        //print("-- tweet : retweet count : \(retweetCount)")
+        //print("-- tweet : fav count : \(favoritesCount)")
     }
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet]{

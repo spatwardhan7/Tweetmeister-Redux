@@ -8,6 +8,7 @@
 
 import UIKit
 import BDBOAuth1Manager
+import SwiftyJSON
 
 class TwitterClient: BDBOAuth1SessionManager {
     
@@ -45,6 +46,53 @@ class TwitterClient: BDBOAuth1SessionManager {
             success()
         }) { (task : URLSessionDataTask?,error: Error) in
                 failure(error)
+        }
+    }
+    
+    func favoriteTweet(params: Any, success: @escaping() -> (), failure: @escaping (Error) -> ()){
+        post("1.1/favorites/create.json", parameters: params, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            success()
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
+    func unfavoriteTweet(params: Any, success: @escaping() -> (), failure: @escaping (Error) -> ()){
+        post("1.1/favorites/destroy.json", parameters: params, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            success()
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
+    func showStatuses(params: String, success: @escaping(NSDictionary) -> (), failure: @escaping (Error) -> ()){
+        let showStatusesBaseUrl = "1.1/statuses/show/{id}.json?include_my_retweet=1"
+        let showStatusUrl = showStatusesBaseUrl.replacingOccurrences(of: "{id}", with: params)
+        get(showStatusUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            let tweet = response as! NSDictionary
+            success(tweet)
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
+    func retweet(params: String, success: @escaping() -> (), failure: @escaping (Error) -> ()){
+        let retweetBaseUrl = "1.1/statuses/retweet/{id}.json"
+        let retweetUrl = retweetBaseUrl.replacingOccurrences(of: "{id}", with: params)
+        post(retweetUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            success()
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
+    func unRetweet(params: String, success: @escaping() -> (), failure: @escaping (Error) -> ()){
+        let unretweetBaseUrl = "1.1/statuses/unretweet/{id}.json"
+        let unretweetUrl = unretweetBaseUrl.replacingOccurrences(of: "{id}", with: params)
+        post(unretweetUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            success()
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
         }
     }
     

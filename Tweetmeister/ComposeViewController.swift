@@ -22,14 +22,35 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     let placeholder = "What's happening?"
     
+    var tweet : Tweet!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        StaticHelper.fadeInImage(posterImageView: profileImageView, posterImageUrl: (User.currentUser?.profileUrl)!)
         
         setupTweetButton()
         setupTextView()
-        StaticHelper.fadeInImage(posterImageView: profileImageView, posterImageUrl: (User.currentUser?.profileUrl)!)
-        
+
+        if(tweet != nil){
+            var mentionsString = tweet.username
+            var tempStr : String = ""
+            var temp2Str : String = ""
+            if(tweet.userMentions != nil) {
+                let mentions = tweet.userMentions as? [[String : Any]]
+                for mention in mentions!{
+                    temp2Str = mention["screen_name"] as! String
+                    tempStr += " @" + temp2Str
+                }
+                mentionsString += tempStr
+            }
+            tweetTextView.textColor = twitterBlack
+            tweetTextView.text = mentionsString + " "
+            setButtonEnabled()
+        } else {
+            setPlaceholder()
+        }
         
     }
     
@@ -43,6 +64,19 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         tweetButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     }
     
+    func setupTextView(){
+        tweetTextView.delegate = self
+        tweetTextView.autocapitalizationType = UITextAutocapitalizationType.sentences
+        tweetTextView.becomeFirstResponder()
+    }
+    
+    func setPlaceholder(){
+        let startPosition : UITextPosition = tweetTextView.beginningOfDocument
+        tweetTextView.text = placeholder
+        tweetTextView.textColor =  darkGray// Dark Gray
+        tweetTextView.selectedTextRange = tweetTextView.textRange(from: startPosition, to: startPosition)
+    }
+    
     func setButtonDisabled(){
         tweetButton.layer.borderWidth = 1
         tweetButton.backgroundColor = self.view.backgroundColor
@@ -53,23 +87,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         tweetButton.layer.borderWidth = 0
         tweetButton.backgroundColor = twitterBlue
         tweetButton.isEnabled = true
-
-    }
-    
-    func setupTextView(){
-        tweetTextView.delegate = self
-        tweetTextView.autocapitalizationType = UITextAutocapitalizationType.sentences
-        tweetTextView.becomeFirstResponder()
-        setPlaceholder()
-    }
-    
-    func setPlaceholder(){
-        let startPosition : UITextPosition = tweetTextView.beginningOfDocument
-        tweetTextView.text = placeholder
-        tweetTextView.textColor =  darkGray// Dark Gray
-        tweetTextView.selectedTextRange = tweetTextView.textRange(from: startPosition, to: startPosition)
         
     }
+    
+
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // Combine the textView text and the replacement text to
@@ -86,7 +107,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             setButtonDisabled()
             return false
         }
-        
+            
             // Else if the text view's placeholder is showing and the
             // length of the replacement string is greater than 0, clear
             // the text view and set its color to dar gray to prepare for

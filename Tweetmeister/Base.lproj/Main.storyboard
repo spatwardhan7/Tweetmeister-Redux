@@ -153,7 +153,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="reply"/>
                                 <connections>
-                                    <action selector="onReplyButton:" destination="UnS-SA-dxL" eventType="touchUpInside" id="hYj-dB-Ugb"/>
+                                    <segue destination="92R-7r-Re9" kind="presentation" identifier="composeReplySegue" id="iVS-cr-vza"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -434,4 +434,7 @@
         <image name="retweet" width="24" height="24"/>
         <image name="verified-6-12" width="12" height="12"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iVS-cr-vza"/>
+    </inferredMetricsTieBreakers>
 </document>
