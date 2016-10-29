@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B10CC4BB4DCE043827A6772D /* Pods_Tweetmeister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239191A2CC0B16C03E1C6DAB /* Pods_Tweetmeister.framework */; };
+		EE09DE031DC49EBA0050897D /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09DE021DC49EBA0050897D /* InfiniteScrollActivityView.swift */; };
 		EE2147361DBFAB2D00CBF9AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2147351DBFAB2D00CBF9AF /* AppDelegate.swift */; };
 		EE21473B1DBFAB2D00CBF9AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2147391DBFAB2D00CBF9AF /* Main.storyboard */; };
 		EE21473D1DBFAB2D00CBF9AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE21473C1DBFAB2D00CBF9AF /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		239191A2CC0B16C03E1C6DAB /* Pods_Tweetmeister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweetmeister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4B84259AD41CB4A25CF0F8 /* Pods-Tweetmeister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweetmeister.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweetmeister/Pods-Tweetmeister.release.xcconfig"; sourceTree = "<group>"; };
 		DC0E5EC690E4905FED630134 /* Pods-Tweetmeister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweetmeister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweetmeister/Pods-Tweetmeister.debug.xcconfig"; sourceTree = "<group>"; };
+		EE09DE021DC49EBA0050897D /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		EE2147321DBFAB2D00CBF9AF /* Tweetmeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tweetmeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2147351DBFAB2D00CBF9AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE21473A1DBFAB2D00CBF9AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE09DE011DC49E9D0050897D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE09DE021DC49EBA0050897D /* InfiniteScrollActivityView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		EE2147291DBFAB2D00CBF9AF = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		EE2147341DBFAB2D00CBF9AF /* Tweetmeister */ = {
 			isa = PBXGroup;
 			children = (
+				EE09DE011DC49E9D0050897D /* Views */,
 				EE36E5B71DC27B8400428DBE /* Helpers */,
 				EE36E5B41DC1E93500428DBE /* Cells */,
 				EEAF75701DC1BAEA009D068D /* Tweetmeister.entitlements */,
@@ -288,6 +299,7 @@
 				EE6622ED1DC3148700D04309 /* TweetDetailsViewController.swift in Sources */,
 				EE36E5B61DC1E98A00428DBE /* TweetCell.swift in Sources */,
 				EE2147491DBFB62A00CBF9AF /* LoginViewController.swift in Sources */,
+				EE09DE031DC49EBA0050897D /* InfiniteScrollActivityView.swift in Sources */,
 				EE48CB6F1DC03E5600BC241A /* TweetsViewController.swift in Sources */,
 				EE2147361DBFAB2D00CBF9AF /* AppDelegate.swift in Sources */,
 				EE48CB691DBFDDE100BC241A /* User.swift in Sources */,

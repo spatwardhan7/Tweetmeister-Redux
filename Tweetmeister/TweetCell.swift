@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AFNetworking
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
@@ -36,7 +36,8 @@ class TweetCell: UITableViewCell {
                 usernameLabel.text = "@"+(tweet.originalTweeter?.name)!
                 tweetTextLabel.text = tweet.text?.replacingOccurrences(of: "RT ", with: "")
                 if(tweet.originalTweeter?.profileUrl != nil){
-                    StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: (tweet.originalTweeter?.profileUrl!)!)
+                    //StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: (tweet.originalTweeter?.profileUrl!)!)
+                    posterImageView.setImageWith((tweet.originalTweeter?.profileUrl!)!)
                 }
             }else {
                 retweetViewHeight.constant = 0
@@ -46,7 +47,8 @@ class TweetCell: UITableViewCell {
                 tweetTextLabel.text = tweet.text
                 
                 if(tweet.profileImageUrl != nil){
-                    StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
+                    //StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
+                    posterImageView.setImageWith(tweet.profileImageUrl!)
                 }
             }
         }

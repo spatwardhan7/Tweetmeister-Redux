@@ -56,31 +56,11 @@ class Tweet: NSObject {
         
         
         if let retweetedStatus = dictionary["retweeted_status"] as? NSDictionary {
-            print("--- tweet : Dict retweet_status not nil")
-    
             let userDictionary = retweetedStatus["user"] as! NSDictionary
             let user = User(dictionary : userDictionary)
             originalTweeter = user
-            
-            print("--- tweet : original tweeter name : \(originalTweeter?.name)")
         }
  
-        
-        
-        if(tweetJSON["retweeted_status"] != nil){
-            //print("--- tweet : JSON retweet_status not nil")
-            //let user : User = tweetJSON["retweeted_status"]["user"] as User
-            
-            //let tweeter = tweetJSON["retweeted_status"]["user"]
-            //originalTweeter = tweeter
-        }
-        
-        /*
-        if(name == "Awesome Tester"){
-            print("--- Awesome Tester tweet : \(tweetJSON)")
-        }
-         */
-        
         if let profileUrlString = tweetJSON["user"]["profile_image_url_https"].string{
             profileImageUrl = URL(string : profileUrlString)
         }
@@ -93,7 +73,6 @@ class Tweet: NSObject {
             timestamp = formatter.date(from: timestampString)
         }
         
-        
         //print("--- tweet : name : \(name)")
         //print("-- tweet : username : \(username)")
         //print("-- tweet : user mentions : \(userMentions?.count)")
@@ -104,13 +83,19 @@ class Tweet: NSObject {
         //print("-- tweet : fav count : \(favoritesCount)")
     }
     
+    static var lowestReceivedId : Int64 = Int64.max
+    
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet]{
         var tweets = [Tweet]()
         
         for dictionary in dictionaries{
             let tweet = Tweet(dictionary: dictionary)
             tweets.append(tweet)
+            if(tweet.id < lowestReceivedId){
+                lowestReceivedId = tweet.id
+            }
         }
+        print("--- Tweet : Lowest Id : \(lowestReceivedId)")
         return tweets
     }
 }

@@ -113,6 +113,20 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func loadMoreHomeTimeline(params: Int64, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()){
+        let params = ["max_id" : params - 1]
+        get("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (task : URLSessionDataTask,response: Any?) in
+            print("--- TwitterClient : home time line response  success")
+            
+            let dictionaries = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+            success(tweets)
+            }, failure: { (task : URLSessionDataTask?, error : Error) in
+                failure(error)
+                
+        })
+    }
+    
     func handleOpenUrl(url: URL){
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential?) in
