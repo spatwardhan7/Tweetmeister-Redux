@@ -8,6 +8,8 @@
 
 import UIKit
 import AFNetworking
+import DateTools
+
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
@@ -22,11 +24,12 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
     var tweet : Tweet!{
         didSet {
+            // Clean up Cell
             retweetNameLabel.text = ""
             retweetView.isHidden = true
             retweetViewHeight.constant = 0
-
             
+            // Set views and labels depending on retweeted_status object
             if tweet.originalTweeter != nil {
                 retweetViewHeight.constant = 19
                 retweetView.isHidden = false
@@ -51,10 +54,13 @@ class TweetCell: UITableViewCell {
                     posterImageView.setImageWith(tweet.profileImageUrl!)
                 }
             }
+            
+            let timeSinceNow = NSDate(timeIntervalSinceNow: (tweet.timestamp?.timeIntervalSinceNow)!)
+            timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+
         }
     }
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         posterImageView.layer.cornerRadius = 5

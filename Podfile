@@ -10,5 +10,6 @@ target 'Tweetmeister' do
   pod 'BDBOAuth1Manager', '2.0.0'
   pod 'SwiftyJSON'
   pod 'MBProgressHUD'
+  pod 'DateTools'
 
 end
