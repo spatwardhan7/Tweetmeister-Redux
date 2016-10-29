@@ -27,6 +27,7 @@ class Tweet: NSObject {
     var idStr : String
     var id : Int64 = 0
     var userMentions : [Any]?
+    var originalTweeter : User?
     
     var tweetJSON : JSON
     
@@ -53,6 +54,33 @@ class Tweet: NSObject {
             }
         }
         
+        
+        if let retweetedStatus = dictionary["retweeted_status"] as? NSDictionary {
+            print("--- tweet : Dict retweet_status not nil")
+    
+            let userDictionary = retweetedStatus["user"] as! NSDictionary
+            let user = User(dictionary : userDictionary)
+            originalTweeter = user
+            
+            print("--- tweet : original tweeter name : \(originalTweeter?.name)")
+        }
+ 
+        
+        
+        if(tweetJSON["retweeted_status"] != nil){
+            //print("--- tweet : JSON retweet_status not nil")
+            //let user : User = tweetJSON["retweeted_status"]["user"] as User
+            
+            //let tweeter = tweetJSON["retweeted_status"]["user"]
+            //originalTweeter = tweeter
+        }
+        
+        /*
+        if(name == "Awesome Tester"){
+            print("--- Awesome Tester tweet : \(tweetJSON)")
+        }
+         */
+        
         if let profileUrlString = tweetJSON["user"]["profile_image_url_https"].string{
             profileImageUrl = URL(string : profileUrlString)
         }
@@ -66,9 +94,9 @@ class Tweet: NSObject {
         }
         
         
-        print("--- tweet : name : \(name)")
-        print("-- tweet : username : \(username)")
-        print("-- tweet : user mentions : \(userMentions?.count)")
+        //print("--- tweet : name : \(name)")
+        //print("-- tweet : username : \(username)")
+        //print("-- tweet : user mentions : \(userMentions?.count)")
         //print("- tweet : retweeted : \(retweeted)")
         //print("- tweet : favorited : \(favorited)")
         //print("-- tweet : verified : \(verified)")

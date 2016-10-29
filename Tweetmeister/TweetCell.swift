@@ -17,17 +17,38 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
+    @IBOutlet weak var retweetNameLabel: UILabel!
+    @IBOutlet weak var retweetView: UIView!
+    @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
     var tweet : Tweet!{
         didSet {
-            nameLabel.text = tweet.name
-            usernameLabel.text = tweet.username
-            tweetTextLabel.text = tweet.text
+            retweetNameLabel.text = ""
+            retweetView.isHidden = true
+            retweetViewHeight.constant = 0
+
             
-            if(tweet.profileImageUrl != nil){
-                StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
+            if tweet.originalTweeter != nil {
+                retweetViewHeight.constant = 19
+                retweetView.isHidden = false
+                retweetNameLabel.text = tweet.name + " Retweeted"
+                
+                nameLabel.text = tweet.originalTweeter?.name
+                usernameLabel.text = "@"+(tweet.originalTweeter?.name)!
+                tweetTextLabel.text = tweet.text?.replacingOccurrences(of: "RT ", with: "")
+                if(tweet.originalTweeter?.profileUrl != nil){
+                    StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: (tweet.originalTweeter?.profileUrl!)!)
+                }
+            }else {
+                retweetViewHeight.constant = 0
+                retweetView.isHidden = true
+                nameLabel.text = tweet.name
+                usernameLabel.text = tweet.username
+                tweetTextLabel.text = tweet.text
+                
+                if(tweet.profileImageUrl != nil){
+                    StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
+                }
             }
-            
-        
         }
     }
     

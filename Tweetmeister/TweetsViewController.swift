@@ -23,6 +23,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableView()
         setupNavigationbar()
         loadHomeTimelineTweets(withProgressHUD: true)
