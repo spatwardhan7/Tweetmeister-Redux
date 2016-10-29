@@ -13,6 +13,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var tweetButton: UIButton!
+    @IBOutlet weak var buttonHolderViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var characterCountLabel: UILabel!
     
     let darkGray = UIColor(red: (101/255.0), green: (119/255.0), blue: (134/255.0), alpha: 1.0)
     
@@ -20,19 +22,34 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     let twitterBlue = UIColor(red: (29/255.0), green: (161/255.0), blue: (242/255.0), alpha: 1.0)
     
+    let twitterExtraLightGray = UIColor(red: (225/255.0), green: (232/255.0), blue: (237/255.0), alpha: 1.0)
+    
+        let twitterRed = UIColor(red: (225/255.0), green: (35/255.0), blue: (83/255.0), alpha: 1.0)
+    
     let placeholder = "What's happening?"
     
     var tweet : Tweet!
     
+    let characterLimit = 140
+    var isPlaceHolderShown : Bool = false
+    
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        
         // Do any additional setup after loading the view.
-
+        
         StaticHelper.fadeInImage(posterImageView: profileImageView, posterImageUrl: (User.currentUser?.profileUrl)!)
         
         setupTweetButton()
         setupTextView()
-
+        
         if(tweet != nil){
             var mentionsString = tweet.username
             var tempStr : String = ""
@@ -47,11 +64,32 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             }
             tweetTextView.textColor = twitterBlack
             tweetTextView.text = mentionsString + " "
+            characterCountLabel.text = "\(characterLimit - tweetTextView.text.characters.count)"
             setButtonEnabled()
         } else {
             setPlaceholder()
         }
         
+    }
+    
+    func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            //let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.buttonHolderViewBottomConstraint?.constant = 0.0
+            } else {
+                self.buttonHolderViewBottomConstraint?.constant = endFrame?.size.height ?? 0.0
+            }
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: animationCurve,
+                           animations: {},
+                           completion: nil)
+        }
     }
     
     func setupTweetButton(){
@@ -79,7 +117,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     func setButtonDisabled(){
         tweetButton.layer.borderWidth = 1
-        tweetButton.backgroundColor = self.view.backgroundColor
+        tweetButton.backgroundColor = twitterExtraLightGray
         tweetButton.isEnabled = false
     }
     
@@ -90,7 +128,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
     }
     
-
+    
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // Combine the textView text and the replacement text to
@@ -101,10 +139,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         // If updated text view will be empty, add the placeholder
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
+            isPlaceHolderShown = true
             textView.text = placeholder
             textView.textColor = darkGray
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             setButtonDisabled()
+            characterCountLabel.text = "\(characterLimit)"
             return false
         }
             
@@ -113,14 +153,35 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             // the text view and set its color to dar gray to prepare for
             // the user's entry
         else if textView.textColor == darkGray && !text.isEmpty {
+            isPlaceHolderShown = false
             textView.text = nil
             textView.textColor = twitterBlack
             setButtonEnabled()
         }
-        
         return true
         
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if(isPlaceHolderShown){
+            characterCountLabel.text = "\(characterLimit)"
+        }  else {
+            let newCount = characterLimit - textView.text.characters.count
+            if(newCount < 20){
+                characterCountLabel.textColor = twitterRed
+            } else {
+                characterCountLabel.textColor = darkGray
+            }
+            if(newCount < 0){
+                setButtonDisabled()
+            } else {
+                setButtonEnabled()
+            }
+            characterCountLabel.text = "\(newCount)"
+        }
+    }
+    
+    
     @IBAction func onTweetButton(_ sender: AnyObject) {
         //let encodedStatus = tweetTextView.text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         var params = [String : String]()

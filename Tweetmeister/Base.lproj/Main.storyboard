@@ -376,13 +376,6 @@
                                             <constraint firstAttribute="width" constant="40" id="Nsh-F8-U4J"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Yc-OlK">
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="   Tweet   "/>
-                                        <connections>
-                                            <action selector="onTweetButton:" destination="92R-7r-Re9" eventType="touchUpInside" id="Xah-BC-Ewb"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-KT-ZZb">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="C8F-qh-Q65"/>
@@ -399,13 +392,11 @@
                                     <constraint firstAttribute="trailing" secondItem="Hln-KT-ZZb" secondAttribute="trailing" constant="8" id="0SF-ax-4qP"/>
                                     <constraint firstItem="uq8-Yc-VwI" firstAttribute="centerY" secondItem="56i-bZ-CF3" secondAttribute="centerY" id="1bY-C5-iR9"/>
                                     <constraint firstAttribute="height" constant="40" id="6IN-jn-Kb2"/>
-                                    <constraint firstItem="AHL-Yc-OlK" firstAttribute="centerY" secondItem="56i-bZ-CF3" secondAttribute="centerY" id="6uH-8z-Jbn"/>
                                     <constraint firstItem="Hln-KT-ZZb" firstAttribute="centerY" secondItem="56i-bZ-CF3" secondAttribute="centerY" id="AJW-hX-iD3"/>
                                     <constraint firstItem="uq8-Yc-VwI" firstAttribute="leading" secondItem="56i-bZ-CF3" secondAttribute="leading" constant="8" id="hhe-tL-V9i"/>
-                                    <constraint firstItem="AHL-Yc-OlK" firstAttribute="centerX" secondItem="56i-bZ-CF3" secondAttribute="centerX" id="rUI-Gl-U86"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-vh-71F">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-vh-71F">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -415,11 +406,38 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oU-8F-AnW" userLabel="Button Holder View">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Yc-OlK">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="   Tweet   "/>
+                                        <connections>
+                                            <action selector="onTweetButton:" destination="92R-7r-Re9" eventType="touchUpInside" id="Xah-BC-Ewb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzP-Fi-04l">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.396078431372549" green="0.46666666666666667" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.88235294117647056" green="0.90980392156862744" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AHL-Yc-OlK" firstAttribute="centerY" secondItem="2oU-8F-AnW" secondAttribute="centerY" id="3Vl-bb-k5r"/>
+                                    <constraint firstAttribute="height" constant="57" id="X5T-tf-ycZ"/>
+                                    <constraint firstItem="BzP-Fi-04l" firstAttribute="centerY" secondItem="2oU-8F-AnW" secondAttribute="centerY" id="b3P-Rf-CnN"/>
+                                    <constraint firstItem="AHL-Yc-OlK" firstAttribute="leading" secondItem="BzP-Fi-04l" secondAttribute="trailing" constant="8" id="j8N-Ab-Uqb"/>
+                                    <constraint firstAttribute="trailing" secondItem="AHL-Yc-OlK" secondAttribute="trailing" constant="8" id="jcr-xN-9Or"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tGl-y6-MMr" firstAttribute="top" secondItem="2oU-8F-AnW" secondAttribute="bottom" id="3rB-RS-xJv"/>
+                            <constraint firstAttribute="trailing" secondItem="2oU-8F-AnW" secondAttribute="trailing" id="4Il-NW-ir0"/>
                             <constraint firstItem="gl3-vh-71F" firstAttribute="top" secondItem="56i-bZ-CF3" secondAttribute="bottom" constant="16" id="5mC-j9-wPU"/>
                             <constraint firstItem="gl3-vh-71F" firstAttribute="leading" secondItem="l9I-6c-PRA" secondAttribute="leading" constant="8" id="Ckf-Qk-Gle"/>
+                            <constraint firstItem="2oU-8F-AnW" firstAttribute="leading" secondItem="l9I-6c-PRA" secondAttribute="leading" id="MkP-HJ-gdJ"/>
                             <constraint firstItem="56i-bZ-CF3" firstAttribute="top" secondItem="hr1-o6-t3N" secondAttribute="bottom" id="P4F-jx-g4X"/>
                             <constraint firstAttribute="trailing" secondItem="56i-bZ-CF3" secondAttribute="trailing" id="PDC-cX-Krp"/>
                             <constraint firstItem="56i-bZ-CF3" firstAttribute="leading" secondItem="l9I-6c-PRA" secondAttribute="leading" id="VpX-FF-EQU"/>
@@ -427,6 +445,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonHolderViewBottomConstraint" destination="3rB-RS-xJv" id="Pte-9q-PYV"/>
+                        <outlet property="characterCountLabel" destination="BzP-Fi-04l" id="0Q1-on-4Jp"/>
                         <outlet property="profileImageView" destination="uq8-Yc-VwI" id="Mu8-Xx-JSt"/>
                         <outlet property="tweetButton" destination="AHL-Yc-OlK" id="4lv-gb-3xD"/>
                         <outlet property="tweetTextView" destination="gl3-vh-71F" id="TQ8-zF-off"/>
@@ -434,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJa-gg-pNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2481" y="-725"/>
+            <point key="canvasLocation" x="2480.8000000000002" y="-725.48725637181417"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iBX-DC-RX8">
