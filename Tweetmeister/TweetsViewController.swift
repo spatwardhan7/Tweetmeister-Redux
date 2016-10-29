@@ -16,6 +16,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isMoreDataLoading = false
     var loadingMoreView:InfiniteScrollActivityView?
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -126,13 +129,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadMoreHomeTimelineTweets(){
         client.loadMoreHomeTimeline(params: Tweet.lowestReceivedId, success: { (newTweets : [Tweet]) in
             
-            //let fromIndexPath = IndexPath(row: self.tweets.count, section: 0)
-            //let toIndexPath = IndexPath(row: (self.tweets.count + newTweets.count - 1),section :  0)
-            
             self.tweets.append(contentsOf: newTweets)
-            
-            
-            //self.tableView.reloadRows(at: [fromIndexPath,toIndexPath], with: .automatic)
             self.tableView.reloadData()
             
             // Update flag
@@ -159,6 +156,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func onReplyButton(_ sender: AnyObject) {
+    }
+    
+    @IBAction func onRetweetButton(_ sender: AnyObject) {
+    }
+    
+    
+    @IBAction func onLikeButton(_ sender: AnyObject) {
+        
+        
+    }
+    
+    
     
     
     

@@ -9,6 +9,7 @@
 import UIKit
 import AFNetworking
 import DateTools
+import SwiftyJSON
 
 class TweetCell: UITableViewCell {
     
@@ -22,6 +23,17 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    var isFav = 0
+    var isRetweeted = 0
+    let client = TwitterClient.sharedInstance
+
+    
     var tweet : Tweet!{
         didSet {
             // Clean up Cell
@@ -39,7 +51,6 @@ class TweetCell: UITableViewCell {
                 usernameLabel.text = "@"+(tweet.originalTweeter?.name)!
                 tweetTextLabel.text = tweet.text?.replacingOccurrences(of: "RT ", with: "")
                 if(tweet.originalTweeter?.profileUrl != nil){
-                    //StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: (tweet.originalTweeter?.profileUrl!)!)
                     posterImageView.setImageWith((tweet.originalTweeter?.profileUrl!)!)
                 }
             }else {
@@ -50,15 +61,97 @@ class TweetCell: UITableViewCell {
                 tweetTextLabel.text = tweet.text
                 
                 if(tweet.profileImageUrl != nil){
-                    //StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
                     posterImageView.setImageWith(tweet.profileImageUrl!)
                 }
             }
             
             let timeSinceNow = NSDate(timeIntervalSinceNow: (tweet.timestamp?.timeIntervalSinceNow)!)
             timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            
+            isFav = (tweet.favorited) ?? 0
+            isRetweeted = (tweet.retweeted) ?? 0
+            
+            setFavImage()
+            setRetweetImage()
 
         }
+    }
+    
+    func setRetweetImage(){
+        if(isRetweeted == 0){
+            retweetButton.setImage(UIImage(named: "retweet"), for: .normal)
+        }else {
+            retweetButton.setImage(UIImage(named: "retweet_green"), for: .normal)
+        }
+    }
+    
+    func setFavImage(){
+        if(isFav == 0){
+            likeButton.setImage(UIImage(named: "heart"), for: .normal)
+        }else {
+            likeButton.setImage(UIImage(named: "heart_red"), for: .normal)
+        }
+    }
+    
+    @IBAction func onRetweetButton(_ sender: AnyObject) {
+        if(isRetweeted == 0){
+            let params = tweet.idStr
+            client?.retweet(params: params, success: {
+                print("--- Home Timeline : Retweet success")
+                }, failure: { (error : Error) in
+                    print("--- Home Timeline : Retweet failed : \(error.localizedDescription)")
+            })
+            isRetweeted = 1
+            
+        } else {
+            var originalTweetId = tweet.idStr
+            var tweetJSON = tweet.tweetJSON
+            
+            if(tweetJSON["retweeted_status"] != nil){
+                let actualOriginalTweetId = tweetJSON["retweeted_status"]["id_str"].string!
+                originalTweetId = actualOriginalTweetId
+            }
+            
+            client?.showStatuses(params: originalTweetId, success: { (originalTweet : NSDictionary) in
+                let originalTweetJson = JSON(originalTweet)
+                let retweetId = originalTweetJson["current_user_retweet"]["id_str"].string
+                
+                print("--- Home Timeline : retweetId : \(retweetId)")
+                
+                self.client?.unRetweet(params: retweetId!, success: {
+                    print("--- Home Timeline : Un Retweet success")
+                    }, failure: { (error : Error) in
+                        print("--- Tweet Details : Un Retweet failed : \(error.localizedDescription)")
+                })
+                
+                }, failure: { (error : Error) in
+                    print("--- Home Timeline  : Show Statuses Failure : \(error.localizedDescription)")
+            })
+            isRetweeted = 0
+        }
+        setRetweetImage()
+    }
+    
+    @IBAction func onLikeButton(_ sender: AnyObject) {
+        var params = [String : String]()
+        params["id"] = tweet.idStr
+        
+        if(isFav == 0){
+            client?.favoriteTweet(params: params, success: {
+                print("--- Home Timeline : LIKE success")
+                }, failure: { (error : Error) in
+                    print("--- Home Timeline : LIKE failed : \(error.localizedDescription)")
+            })
+            isFav = 1
+        } else {
+            client?.unfavoriteTweet(params: params, success: {
+                print("--- Home Timeline: Un Favorite success")
+                }, failure: { (error : Error) in
+                    print("--- Home Timeline : Un Favorite failed : \(error.localizedDescription)")
+            })
+            isFav = 0
+        }
+        setFavImage()
     }
     
     override func awakeFromNib() {
