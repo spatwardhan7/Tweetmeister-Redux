@@ -189,6 +189,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         TwitterClient.sharedInstance?.postTweet(params: params, success: {
             print("--- Compose Tweet Success")
+            self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
             }, failure: { (error : Error) in
                 print("--- Compose Tweet Failure: \(error.localizedDescription)")
@@ -198,6 +199,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func onCancelButton(_ sender: AnyObject) {
+        view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
     
