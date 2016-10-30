@@ -342,10 +342,24 @@
                                     <constraint firstItem="WK7-3a-Se7" firstAttribute="centerY" secondItem="d0O-hr-fcj" secondAttribute="centerY" id="xcr-d5-bS8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD4-hP-ClM" userLabel="Media View">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zeh-Z7-07t"/>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Zeh-Z7-07t" firstAttribute="leading" secondItem="aD4-hP-ClM" secondAttribute="leading" id="5S1-4n-Eay"/>
+                                    <constraint firstAttribute="height" constant="120" id="Jhf-MR-axg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zeh-Z7-07t" secondAttribute="bottom" id="UBc-c5-JB7"/>
+                                    <constraint firstItem="Zeh-Z7-07t" firstAttribute="top" secondItem="aD4-hP-ClM" secondAttribute="top" id="xCf-Vz-Xzn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zeh-Z7-07t" secondAttribute="trailing" id="ybn-lu-zeD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8N3-kp-BBW" firstAttribute="top" secondItem="Ac3-VN-9br" secondAttribute="bottom" constant="8" id="2ji-rX-ujg"/>
+                            <constraint firstAttribute="trailing" secondItem="aD4-hP-ClM" secondAttribute="trailing" constant="40" id="5Zd-gX-FkY"/>
                             <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="5fH-99-pDt"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="top" secondItem="8N3-kp-BBW" secondAttribute="top" id="6Rn-9a-QaJ"/>
                             <constraint firstItem="ptS-mR-j9U" firstAttribute="top" secondItem="XPo-rG-K2Z" secondAttribute="bottom" constant="8" id="6w2-t3-YNe"/>
@@ -353,7 +367,6 @@
                             <constraint firstItem="XPo-rG-K2Z" firstAttribute="leading" secondItem="Abe-EI-Uwy" secondAttribute="trailing" constant="72" id="7xU-9L-Kww"/>
                             <constraint firstItem="Abe-EI-Uwy" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="8z5-8s-fvx"/>
                             <constraint firstItem="Abe-EI-Uwy" firstAttribute="leading" secondItem="Qad-Xj-7FV" secondAttribute="trailing" constant="72" id="Amp-lV-a60"/>
-                            <constraint firstItem="zmf-8d-5Xn" firstAttribute="top" secondItem="edH-Cc-VrI" secondAttribute="bottom" constant="8" id="C5x-4r-6yt"/>
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="leading" secondItem="Z9N-8D-kdq" secondAttribute="trailing" constant="8" id="Co4-6k-tFw"/>
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="centerY" secondItem="Z9N-8D-kdq" secondAttribute="centerY" id="DHS-ZU-oiL"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="leading" secondItem="Tgm-Dj-Zyy" secondAttribute="trailing" constant="8" id="DpS-Qh-bpy"/>
@@ -367,9 +380,11 @@
                             <constraint firstAttribute="trailing" secondItem="edH-Cc-VrI" secondAttribute="trailing" constant="8" id="QOR-tj-UZL"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="U0f-qn-FWX"/>
                             <constraint firstAttribute="trailing" secondItem="Ac3-VN-9br" secondAttribute="trailing" constant="8" id="VZS-69-BU6"/>
+                            <constraint firstItem="zmf-8d-5Xn" firstAttribute="top" secondItem="aD4-hP-ClM" secondAttribute="bottom" constant="8" id="YCi-Pf-dWq"/>
                             <constraint firstItem="8oF-ey-PCv" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="YsX-49-PjC"/>
                             <constraint firstItem="jcK-0g-cGh" firstAttribute="top" secondItem="zmf-8d-5Xn" secondAttribute="bottom" constant="12" id="aNc-fz-g7z"/>
                             <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="b6O-tS-WvD"/>
+                            <constraint firstItem="aD4-hP-ClM" firstAttribute="top" secondItem="edH-Cc-VrI" secondAttribute="bottom" constant="8" id="cCF-rK-0B7"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="leading" secondItem="eft-wH-lot" secondAttribute="trailing" constant="8" id="cev-wW-xed"/>
                             <constraint firstItem="ptS-mR-j9U" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="fdp-64-BxB"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="baseline" secondItem="Tgm-Dj-Zyy" secondAttribute="baseline" id="fnh-Nx-ThU"/>
@@ -380,6 +395,7 @@
                             <constraint firstItem="h3Q-hv-T6o" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="l2C-kJ-v6H"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="omh-H5-b5q"/>
                             <constraint firstItem="Qad-Xj-7FV" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="pSq-LS-0iU"/>
+                            <constraint firstItem="aD4-hP-ClM" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="qfM-LF-nhJ"/>
                             <constraint firstItem="Tgm-Dj-Zyy" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="r7K-Uc-J7Z"/>
                             <constraint firstItem="ptS-mR-j9U" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="rZ9-iJ-Wgi"/>
                             <constraint firstItem="eft-wH-lot" firstAttribute="leading" secondItem="xbR-jZ-6Zp" secondAttribute="trailing" constant="16" id="s4s-VX-Hgs"/>
@@ -393,6 +409,9 @@
                     <connections>
                         <outlet property="likeButton" destination="XPo-rG-K2Z" id="M0s-wN-keg"/>
                         <outlet property="likeCountLabel" destination="eft-wH-lot" id="i4U-iw-AsC"/>
+                        <outlet property="mediaImageView" destination="Zeh-Z7-07t" id="q6c-oK-7qa"/>
+                        <outlet property="mediaView" destination="aD4-hP-ClM" id="4WG-9n-mOy"/>
+                        <outlet property="mediaViewHeight" destination="Jhf-MR-axg" id="AjB-26-d5T"/>
                         <outlet property="nameLabel" destination="Z9N-8D-kdq" id="lMO-n0-XNe"/>
                         <outlet property="posterImageView" destination="8N3-kp-BBW" id="xRX-D6-i6B"/>
                         <outlet property="retweetButton" destination="Abe-EI-Uwy" id="oG3-Pq-awx"/>
@@ -408,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQa-af-JlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2481" y="36"/>
+            <point key="canvasLocation" x="2480.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Tweets View Controller-->
         <scene sceneID="gFz-kb-Ivo">
@@ -429,7 +448,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="255"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuG-s9-MES" id="RyO-K6-yhN">
-                                            <frame key="frameInset" width="375" height="254.5"/>
+                                            <frame key="frameInset" width="375" height="254"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-PV-qtF">
@@ -495,7 +514,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-Jh-TAn" userLabel="Media View">
                                                     <subviews>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-YY-21j"/>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-YY-21j"/>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>

@@ -23,6 +23,9 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var mediaView: UIView!
+    @IBOutlet weak var mediaImageView: UIImageView!
+    @IBOutlet weak var mediaViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var retweetButton: SpringButton!
     @IBOutlet weak var likeButton: SpringButton!
@@ -107,6 +110,17 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
         
         isFav = (tweet.favorited) ?? 0
         isRetweeted = (tweet.retweeted) ?? 0
+        
+        mediaImageView.layer.cornerRadius = 8.0
+        mediaImageView.clipsToBounds = true
+        if(tweet.mediaUrl != nil){
+            mediaImageView.setImageWith(tweet.mediaUrl!)
+            mediaImageView.isHidden = false
+            mediaViewHeight.constant = 120
+        }else {
+            mediaImageView.isHidden = true
+            mediaViewHeight.constant = 0
+        }
         
         setFavImage()
         setRetweetImage()
