@@ -22,6 +22,9 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     
+    @IBOutlet weak var retweetNameLabel: UILabel!
+    @IBOutlet weak var retweetView: UIView!
+    @IBOutlet weak var retweetViewHeightConstraint: NSLayoutConstraint!
     
     var tweet : Tweet!
     let client = TwitterClient.sharedInstance
@@ -38,12 +41,38 @@ class TweetDetailsViewController: UIViewController {
     }
     
     func setDetails(){
-        StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: tweet.profileImageUrl!)
-        nameLabel.text = tweet.name
-        usernameLabel.text = tweet.username
-        tweetTextLabel.text = tweet.text
+
+        // Clean up View
+        retweetNameLabel.text = ""
+        retweetView.isHidden = true
+        retweetViewHeightConstraint.constant = 0
         
+        if tweet.originalTweeter != nil {
+            retweetViewHeightConstraint.constant = 19
+            retweetView.isHidden = false
+            
+            retweetNameLabel.text = tweet.name + " Retweeted"
+            nameLabel.text = tweet.originalTweeter?.name
+            usernameLabel.text = "@"+(tweet.originalTweeter?.name)!
+            tweetTextLabel.text = tweet.text?.replacingOccurrences(of: "RT ", with: "")
+            
+            if(tweet.originalTweeter?.profileUrl != nil){
+                posterImageView.setImageWith((tweet.originalTweeter?.profileUrl!)!)
+            }
+        } else {
+            retweetViewHeightConstraint.constant = 0
+            retweetView.isHidden = true
+            
+            nameLabel.text = tweet.name
+            usernameLabel.text = tweet.username
+            tweetTextLabel.text = tweet.text
+            
+            if(tweet.profileImageUrl != nil){
+                posterImageView.setImageWith(tweet.profileImageUrl!)
+            }
         
+        }
+    
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy, hh:mm a"
         formatter.amSymbol = "AM"
@@ -97,6 +126,7 @@ class TweetDetailsViewController: UIViewController {
                     self.retweetCountLabel.text = "\(self.tweet.retweetCount)"
             })
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
+            tweet.retweeted = 1
             isRetweeted = 1
             
         } else {
@@ -126,6 +156,7 @@ class TweetDetailsViewController: UIViewController {
                 print("--- Tweet Details : Show Statuses Failure : \(error.localizedDescription)")
             })
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
+            tweet.retweeted = 0
             isRetweeted = 0
         }
         setRetweetImage()
@@ -143,6 +174,7 @@ class TweetDetailsViewController: UIViewController {
                     self.likeCountLabel.text = "\(self.tweet.favoritesCount)"
             })
             likeCountLabel.text = "\(Int(likeCountLabel.text!)! + 1)"
+            tweet.favorited = 1
             isFav = 1
         } else {
             client?.unfavoriteTweet(params: params, success: {
@@ -152,6 +184,7 @@ class TweetDetailsViewController: UIViewController {
                     self.likeCountLabel.text = "\(self.tweet.favoritesCount)"
             })
             likeCountLabel.text = "\(Int(likeCountLabel.text!)! - 1)"
+            tweet.favorited = 0
             isFav = 0
         }
         setFavImage()

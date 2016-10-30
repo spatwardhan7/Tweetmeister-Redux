@@ -109,6 +109,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : Retweet failed : \(error.localizedDescription)")
             })
+            tweet.retweeted = 1
             isRetweeted = 1
             
         } else {
@@ -135,6 +136,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline  : Show Statuses Failure : \(error.localizedDescription)")
             })
+            tweet.retweeted = 0
             isRetweeted = 0
         }
         setRetweetImage()
@@ -150,6 +152,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : LIKE failed : \(error.localizedDescription)")
             })
+            tweet.favorited = 1
             isFav = 1
         } else {
             client?.unfavoriteTweet(params: params, success: {
@@ -157,6 +160,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : Un Favorite failed : \(error.localizedDescription)")
             })
+            tweet.favorited = 0
             isFav = 0
         }
         setFavImage()

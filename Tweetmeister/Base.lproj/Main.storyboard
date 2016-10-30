@@ -94,12 +94,14 @@
                                     <constraint firstAttribute="height" constant="1" id="spn-yh-Fd8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RETWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-jZ-6Zp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RETWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-jZ-6Zp">
+                                <frame key="frameInset" minX="42" minY="256" width="79" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIKES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BU-6c-Uko">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LIKES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BU-6c-Uko">
+                                <frame key="frameInset" minX="171" minY="256" width="42" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -156,10 +158,34 @@
                                     <segue destination="92R-7r-Re9" kind="presentation" identifier="composeReplySegue" id="iVS-cr-vza"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-VN-9br">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="d0O-hr-fcj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="BZ5-LL-TSS"/>
+                                            <constraint firstAttribute="width" constant="16" id="s8X-T5-qXk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saurabh Patwardhan Retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WK7-3a-Se7">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                        <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d0O-hr-fcj" firstAttribute="leading" secondItem="Ac3-VN-9br" secondAttribute="leading" constant="24" id="95z-J8-ehy"/>
+                                    <constraint firstItem="WK7-3a-Se7" firstAttribute="leading" secondItem="d0O-hr-fcj" secondAttribute="trailing" constant="8" id="kMq-da-AWX"/>
+                                    <constraint firstAttribute="height" constant="19" id="nkV-zj-Vdn"/>
+                                    <constraint firstItem="d0O-hr-fcj" firstAttribute="centerY" secondItem="Ac3-VN-9br" secondAttribute="centerY" id="wtY-mZ-By2"/>
+                                    <constraint firstItem="WK7-3a-Se7" firstAttribute="centerY" secondItem="d0O-hr-fcj" secondAttribute="centerY" id="xcr-d5-bS8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8N3-kp-BBW" firstAttribute="top" secondItem="Ac3-VN-9br" secondAttribute="bottom" constant="8" id="2ji-rX-ujg"/>
                             <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="5fH-99-pDt"/>
+                            <constraint firstItem="Z9N-8D-kdq" firstAttribute="top" secondItem="8N3-kp-BBW" secondAttribute="top" id="6Rn-9a-QaJ"/>
                             <constraint firstItem="ptS-mR-j9U" firstAttribute="top" secondItem="XPo-rG-K2Z" secondAttribute="bottom" constant="8" id="6w2-t3-YNe"/>
                             <constraint firstItem="h3Q-hv-T6o" firstAttribute="top" secondItem="Z9N-8D-kdq" secondAttribute="bottom" constant="6" id="7AV-bk-AtI"/>
                             <constraint firstItem="XPo-rG-K2Z" firstAttribute="leading" secondItem="Abe-EI-Uwy" secondAttribute="trailing" constant="72" id="7xU-9L-Kww"/>
@@ -169,16 +195,16 @@
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="leading" secondItem="Z9N-8D-kdq" secondAttribute="trailing" constant="8" id="Co4-6k-tFw"/>
                             <constraint firstItem="rPO-tb-nb7" firstAttribute="centerY" secondItem="Z9N-8D-kdq" secondAttribute="centerY" id="DHS-ZU-oiL"/>
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="leading" secondItem="Tgm-Dj-Zyy" secondAttribute="trailing" constant="8" id="DpS-Qh-bpy"/>
+                            <constraint firstItem="Ac3-VN-9br" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="ETY-q9-hAu"/>
                             <constraint firstAttribute="trailing" secondItem="8oF-ey-PCv" secondAttribute="trailing" constant="8" id="EpI-Ze-gRA"/>
                             <constraint firstItem="9BU-6c-Uko" firstAttribute="baseline" secondItem="eft-wH-lot" secondAttribute="baseline" id="Far-TJ-fRJ"/>
                             <constraint firstItem="XPo-rG-K2Z" firstAttribute="top" secondItem="8oF-ey-PCv" secondAttribute="bottom" constant="8" id="G7w-dL-bpA"/>
                             <constraint firstItem="Abe-EI-Uwy" firstAttribute="centerX" secondItem="VBQ-rm-7Bg" secondAttribute="centerX" id="GeZ-5R-e1q"/>
                             <constraint firstItem="zmf-8d-5Xn" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="Nip-OJ-EE7"/>
                             <constraint firstItem="8oF-ey-PCv" firstAttribute="top" secondItem="eft-wH-lot" secondAttribute="bottom" constant="8" id="OVH-mR-OSY"/>
-                            <constraint firstItem="Z9N-8D-kdq" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="PYa-kQ-AA7"/>
-                            <constraint firstItem="8N3-kp-BBW" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="QNr-82-J4N"/>
                             <constraint firstAttribute="trailing" secondItem="edH-Cc-VrI" secondAttribute="trailing" constant="8" id="QOR-tj-UZL"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="U0f-qn-FWX"/>
+                            <constraint firstAttribute="trailing" secondItem="Ac3-VN-9br" secondAttribute="trailing" constant="8" id="VZS-69-BU6"/>
                             <constraint firstItem="8oF-ey-PCv" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="YsX-49-PjC"/>
                             <constraint firstItem="jcK-0g-cGh" firstAttribute="top" secondItem="zmf-8d-5Xn" secondAttribute="bottom" constant="12" id="aNc-fz-g7z"/>
                             <constraint firstAttribute="trailing" secondItem="ptS-mR-j9U" secondAttribute="trailing" constant="8" id="b6O-tS-WvD"/>
@@ -187,6 +213,7 @@
                             <constraint firstItem="xbR-jZ-6Zp" firstAttribute="baseline" secondItem="Tgm-Dj-Zyy" secondAttribute="baseline" id="fnh-Nx-ThU"/>
                             <constraint firstItem="edH-Cc-VrI" firstAttribute="top" secondItem="h3Q-hv-T6o" secondAttribute="bottom" constant="21" id="g49-wD-jWa"/>
                             <constraint firstAttribute="trailing" secondItem="jcK-0g-cGh" secondAttribute="trailing" constant="8" id="gS7-8W-Hn0"/>
+                            <constraint firstItem="Ac3-VN-9br" firstAttribute="top" secondItem="9lg-Z6-Tg5" secondAttribute="bottom" constant="8" id="ht5-7h-0fy"/>
                             <constraint firstItem="8N3-kp-BBW" firstAttribute="leading" secondItem="VBQ-rm-7Bg" secondAttribute="leading" constant="8" id="k5m-lg-soN"/>
                             <constraint firstItem="h3Q-hv-T6o" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="l2C-kJ-v6H"/>
                             <constraint firstItem="Z9N-8D-kdq" firstAttribute="leading" secondItem="8N3-kp-BBW" secondAttribute="trailing" constant="8" id="omh-H5-b5q"/>
@@ -208,6 +235,9 @@
                         <outlet property="posterImageView" destination="8N3-kp-BBW" id="xRX-D6-i6B"/>
                         <outlet property="retweetButton" destination="Abe-EI-Uwy" id="28v-vI-caI"/>
                         <outlet property="retweetCountLabel" destination="Tgm-Dj-Zyy" id="fr3-Yb-lwg"/>
+                        <outlet property="retweetNameLabel" destination="WK7-3a-Se7" id="Vuf-Yq-fVB"/>
+                        <outlet property="retweetView" destination="Ac3-VN-9br" id="1tp-Vv-Nw8"/>
+                        <outlet property="retweetViewHeightConstraint" destination="nkV-zj-Vdn" id="keB-dw-BzF"/>
                         <outlet property="timeLabel" destination="zmf-8d-5Xn" id="GDe-vz-vhU"/>
                         <outlet property="tweetTextLabel" destination="edH-Cc-VrI" id="dwm-3m-tJe"/>
                         <outlet property="usernameLabel" destination="h3Q-hv-T6o" id="Niu-tA-nMb"/>
@@ -536,6 +566,6 @@
         <image name="verified-6-12" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GEG-pG-Q1z"/>
+        <segue reference="iVS-cr-vza"/>
     </inferredMetricsTieBreakers>
 </document>
