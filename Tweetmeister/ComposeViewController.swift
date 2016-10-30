@@ -192,8 +192,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         params["status"] = tweetTextView.text
         
         let currentUser = User.currentUser
+        let username = "@" + (currentUser?.screenName)!
         let now = Date()
-        let newTweet = Tweet(name: (currentUser?.name)!, username: (currentUser?.screenName)!, tweetText: tweetTextView.text, profileImageUrl: (currentUser?.profileUrl)!,currentTime : now)
+        let newTweet = Tweet(name: (currentUser?.name)!, username: username, tweetText: tweetTextView.text, profileImageUrl: (currentUser?.profileUrl)!,currentTime : now)
         
         TwitterClient.sharedInstance?.postTweet(params: params, success: {
             print("--- Compose Tweet Success")

@@ -9,7 +9,11 @@
 import UIKit
 import SwiftyJSON
 
-class TweetDetailsViewController: UIViewController {
+protocol TweetDetailsViewControllerDelegate {
+    func didComposeFromDetails(tweet: Tweet)
+}
+
+class TweetDetailsViewController: UIViewController , ComposeViewControllerDelegate{
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,6 +34,7 @@ class TweetDetailsViewController: UIViewController {
     let client = TwitterClient.sharedInstance
     var isFav = 0
     var isRetweeted = 0
+    var delegate : TweetDetailsViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +118,10 @@ class TweetDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func didComposeTweet(tweet: Tweet) {
+            delegate?.didComposeFromDetails(tweet: tweet)
     }
     
     @IBAction func onRetweetButton(_ sender: AnyObject) {
@@ -203,6 +212,7 @@ class TweetDetailsViewController: UIViewController {
         if(segue.identifier == "composeReplySegue"){
             let composeViewController = segue.destination as! ComposeViewController
             composeViewController.tweet = tweet
+            composeViewController.delegate = self
             
         }
      }

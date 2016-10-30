@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate, TweetDetailsViewControllerDelegate {
     
     var tweets : [Tweet]!
     let client = TwitterClient.sharedInstance!
@@ -82,11 +82,18 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func didComposeFromDetails(tweet: Tweet) {
+        tweetComposed(tweet: tweet)
+    }
+    
     func didComposeTweet(tweet: Tweet) {
+        tweetComposed(tweet: tweet)
+    }
+    
+    func tweetComposed(tweet : Tweet){
         self.tweets.insert(tweet, at: 0)
         //tableView.setContentOffset(CGPoint(x: 0.0, y: -tableView.contentInset.top), animated: false)
         tableView.reloadData()
-        loadHomeTimelineTweets(withProgressHUD: false)
     }
     
     func onReplyButtonTapped(tweet: Tweet) {
@@ -200,6 +207,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let tweetDetailsViewController = segue.destination as! TweetDetailsViewController
             tweetDetailsViewController.tweet = tweet
+            tweetDetailsViewController.delegate = self
         }
     }
     
