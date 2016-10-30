@@ -92,7 +92,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tweetComposed(tweet : Tweet){
         self.tweets.insert(tweet, at: 0)
-        //tableView.setContentOffset(CGPoint(x: 0.0, y: -tableView.contentInset.top), animated: false)
         tableView.reloadData()
     }
     
@@ -103,7 +102,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         composeViewController.tweet = tweet
         composeViewController.delegate = self
         present(composeViewController, animated: true) { 
-            print("--- completion from compose")
         }
         
     }
@@ -190,7 +188,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
         composeViewController.delegate = self
         present(composeViewController, animated: true) {
-            print("--- completion from compose")
         }
     }
     
