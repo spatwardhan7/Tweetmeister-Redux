@@ -23,7 +23,9 @@ class User: NSObject {
     var profileBannerUrl : URL?
     var followersCount : Int?
     var followingCount : Int?
-    var descriptionUrl : URL?
+    var descriptionUrl : String?
+    var verified : Bool?
+    var location : String?
     
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
@@ -46,10 +48,9 @@ class User: NSObject {
         
         followersCount = (userJSON?["followers_count"].int) ?? 0
         followingCount = (userJSON?["friends_count"].int) ?? 0
-        
-        if let descriptionUrlString = userJSON?["url"].string{
-            descriptionUrl = URL(string : descriptionUrlString)
-        }
+        location = (userJSON?["location"].string) ?? nil
+        verified = (userJSON?["verified"].bool) ?? false
+        descriptionUrl = (userJSON?["url"].string) ?? nil
     }
     
     

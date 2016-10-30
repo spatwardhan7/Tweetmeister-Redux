@@ -36,6 +36,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Do any additional setup after loading the view.
     }
+
+
     
     func setupTableView(){
         tableView.dataSource = self
@@ -95,6 +97,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
     }
     
+    func onMentionTapped(username : String){
+        print("--- tweets view got user name : \(username)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        profileViewController.username = username
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
     func onReplyButtonTapped(tweet: Tweet) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
@@ -105,6 +115,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
+    
+
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         loadHomeTimelineTweets(withProgressHUD: false)
@@ -190,6 +202,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         present(composeViewController, animated: true) {
         }
     }
+    
     
     // MARK: - Navigation
     

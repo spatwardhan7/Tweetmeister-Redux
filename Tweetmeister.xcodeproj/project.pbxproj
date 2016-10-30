@@ -57,6 +57,7 @@
 		EEB9FD861DC5E6630071366D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEB9FD801DC5E6630071366D /* Info.plist */; };
 		EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD811DC5E6630071366D /* RegexParser.swift */; };
 		EEB9FD881DC5E6630071366D /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */; };
+		EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD891DC66CC40071366D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		EEB9FD801DC5E6630071366D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEB9FD811DC5E6630071366D /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
 		EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
+		EEB9FD891DC66CC40071366D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				EE48CB6E1DC03E5600BC241A /* TweetsViewController.swift */,
 				EE6622EA1DC2D2EA00D04309 /* ComposeViewController.swift */,
 				EE6622EC1DC3148700D04309 /* TweetDetailsViewController.swift */,
+				EEB9FD891DC66CC40071366D /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				EEB9FD5F1DC5CD6C0071366D /* AsyncImageView.swift in Sources */,
 				EE6622EB1DC2D2EA00D04309 /* ComposeViewController.swift in Sources */,
 				EEB9FD671DC5CD6C0071366D /* DesignableTextView.swift in Sources */,
+				EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */,
 				EEB9FD611DC5CD6C0071366D /* BlurView.swift in Sources */,
 				EEB9FD6E1DC5CD6C0071366D /* Misc.swift in Sources */,
 				EEB9FD701DC5CD6C0071366D /* Spring.swift in Sources */,
