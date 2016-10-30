@@ -100,8 +100,7 @@
                                 <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LIKES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BU-6c-Uko">
-                                <frame key="frameInset" minX="171" minY="256" width="42" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIKES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BU-6c-Uko">
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.39607843139999999" green="0.46666666670000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -317,7 +316,6 @@
                                                             <state key="normal" title="Button" image="reply"/>
                                                             <connections>
                                                                 <action selector="onReplyButton:" destination="uuG-s9-MES" eventType="touchUpInside" id="sLK-zW-oZt"/>
-                                                                <segue destination="92R-7r-Re9" kind="presentation" identifier="replyFromHomeSegue" id="GEG-pG-Q1z"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-pg-O8Z">
@@ -425,7 +423,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="IYc-1x-vp8">
                             <connections>
-                                <segue destination="92R-7r-Re9" kind="presentation" id="kmY-h1-HaP"/>
+                                <action selector="onComposeButton:" destination="Q1u-vH-z0k" id="R1r-9I-1ne"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -565,7 +563,4 @@
         <image name="retweet" width="24" height="24"/>
         <image name="verified-6-12" width="12" height="12"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="iVS-cr-vza"/>
-    </inferredMetricsTieBreakers>
 </document>

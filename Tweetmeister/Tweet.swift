@@ -83,11 +83,12 @@ class Tweet: NSObject {
         //print("-- tweet : fav count : \(favoritesCount)")
     }
     
-    init(name: String, username: String, tweetText: String,profileImageUrl : URL){
+    init(name: String, username: String, tweetText: String,profileImageUrl : URL, currentTime: Date){
         self.name = name
         self.username = username
         self.text = tweetText
         self.profileImageUrl = profileImageUrl
+        self.timestamp = currentTime
         self.tweetJSON = []
     }
     

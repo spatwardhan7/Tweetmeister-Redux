@@ -83,7 +83,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func didComposeTweet(tweet: Tweet) {
-        // TO DO
+        self.tweets.insert(tweet, at: 0)
+        //tableView.setContentOffset(CGPoint(x: 0.0, y: -tableView.contentInset.top), animated: false)
+        tableView.reloadData()
+        loadHomeTimelineTweets(withProgressHUD: false)
     }
     
     func onReplyButtonTapped(tweet: Tweet) {
@@ -91,6 +94,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
         
         composeViewController.tweet = tweet
+        composeViewController.delegate = self
         present(composeViewController, animated: true) { 
             print("--- completion from compose")
         }
@@ -174,6 +178,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
+    @IBAction func onComposeButton(_ sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
+        composeViewController.delegate = self
+        present(composeViewController, animated: true) {
+            print("--- completion from compose")
+        }
+    }
     
     // MARK: - Navigation
     
@@ -189,20 +201,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let tweetDetailsViewController = segue.destination as! TweetDetailsViewController
             tweetDetailsViewController.tweet = tweet
         }
-        //else if(segue.identifier == "replyFromHomeSegue"){
-            /*
-            let cell = sender as! TweetCell
-            let indexPath = tableView.indexPath(for: cell)
-            let tweet = tweets[(indexPath! as NSIndexPath).row]
-            
-            let composeViewController = segue.destination as! ComposeViewController
-            composeViewController.tweet = tweet
- 
-        }
- */
-        
-        
     }
-    
     
 }
