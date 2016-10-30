@@ -28,6 +28,7 @@ class Tweet: NSObject {
     var id : Int64? = 0
     var userMentions : [Any]?
     var originalTweeter : User?
+    var mediaUrl : URL?
     
     var tweetJSON : JSON
     
@@ -72,6 +73,12 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
         }
+        
+        if let mediaUrlString = tweetJSON["entities"]["media"][0]["media_url_https"].string{
+            mediaUrl = URL(string : mediaUrlString)
+            print("--- got media url : \(mediaUrlString)")
+        }
+        
         
         //print("--- tweet : name : \(name)")
         //print("-- tweet : username : \(username)")

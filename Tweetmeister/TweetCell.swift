@@ -26,6 +26,8 @@ class TweetCell: UITableViewCell {
     //@IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: ActiveLabel!
     
+    @IBOutlet weak var mediaViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
@@ -47,6 +49,11 @@ class TweetCell: UITableViewCell {
             retweetNameLabel.text = ""
             retweetView.isHidden = true
             retweetViewHeight.constant = 0
+            
+            mediaImageView.layer.cornerRadius = 8.0
+            mediaImageView.clipsToBounds = true
+            mediaImageView.isHidden = true
+            mediaViewHeight.constant = 0
             
             // Set views and labels depending on retweeted_status object
             if tweet.originalTweeter != nil {
@@ -74,6 +81,12 @@ class TweetCell: UITableViewCell {
             
             let timeSinceNow = NSDate(timeIntervalSinceNow: (tweet.timestamp?.timeIntervalSinceNow)!)
             timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            
+            if(tweet.mediaUrl != nil){
+                mediaImageView.setImageWith(tweet.mediaUrl!)
+                mediaImageView.isHidden = false
+                mediaViewHeight.constant = 120
+            }
             
             isFav = (tweet.favorited) ?? 0
             isRetweeted = (tweet.retweeted) ?? 0
