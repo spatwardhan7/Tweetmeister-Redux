@@ -24,8 +24,8 @@ class Tweet: NSObject {
     var favoritesCount : Int = 0
     var favorited : Int? = 0
     var verified : Bool?
-    var idStr : String
-    var id : Int64 = 0
+    var idStr : String?
+    var id : Int64? = 0
     var userMentions : [Any]?
     var originalTweeter : User?
     
@@ -83,6 +83,14 @@ class Tweet: NSObject {
         //print("-- tweet : fav count : \(favoritesCount)")
     }
     
+    init(name: String, username: String, tweetText: String,profileImageUrl : URL){
+        self.name = name
+        self.username = username
+        self.text = tweetText
+        self.profileImageUrl = profileImageUrl
+        self.tweetJSON = []
+    }
+    
     static var lowestReceivedId : Int64 = Int64.max
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet]{
@@ -91,8 +99,8 @@ class Tweet: NSObject {
         for dictionary in dictionaries{
             let tweet = Tweet(dictionary: dictionary)
             tweets.append(tweet)
-            if(tweet.id < lowestReceivedId){
-                lowestReceivedId = tweet.id
+            if(tweet.id! < lowestReceivedId){
+                lowestReceivedId = tweet.id!
             }
         }
         print("--- Tweet : Lowest Id : \(lowestReceivedId)")

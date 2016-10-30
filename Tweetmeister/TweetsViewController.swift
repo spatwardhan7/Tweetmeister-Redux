@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate {
     
     var tweets : [Tweet]!
     let client = TwitterClient.sharedInstance!
@@ -80,6 +80,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.delegate = self
         
         return cell
+    }
+    
+    func didComposeTweet(tweet: Tweet) {
+        // TO DO
     }
     
     func onReplyButtonTapped(tweet: Tweet) {

@@ -119,7 +119,7 @@ class TweetDetailsViewController: UIViewController {
         
         if(isRetweeted == 0){
             let params = tweet.idStr
-            client?.retweet(params: params, success: {
+            client?.retweet(params: params!, success: {
                 print("--- Tweet Details : Retweet success")
                 }, failure: { (error : Error) in
                     print("--- Tweet Details : Retweet failed : \(error.localizedDescription)")
@@ -139,7 +139,7 @@ class TweetDetailsViewController: UIViewController {
                 originalTweetId = actualOriginalTweetId
             }
             
-            client?.showStatuses(params: originalTweetId, success: { (originalTweet : NSDictionary) in
+            client?.showStatuses(params: originalTweetId!, success: { (originalTweet : NSDictionary) in
                 let originalTweetJson = JSON(originalTweet)
                 let retweetId = originalTweetJson["current_user_retweet"]["id_str"].string
                 

@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol ComposeViewControllerDelegate{
+    func didComposeTweet(tweet: Tweet)
+}
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -29,6 +32,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     let placeholder = "What's happening?"
     
     var tweet : Tweet!
+    var delegate : ComposeViewControllerDelegate?
     
     let characterLimit = 140
     var isPlaceHolderShown : Bool = false
@@ -187,6 +191,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         var params = [String : String]()
         params["status"] = tweetTextView.text
         
+        let currentUser = User.currentUser
+        
+        let newTweet = Tweet(name: (currentUser?.name)!, username: (currentUser?.screenName)!, tweetText: tweetTextView.text, profileImageUrl: (currentUser?.profileUrl)!)
+        
         TwitterClient.sharedInstance?.postTweet(params: params, success: {
             print("--- Compose Tweet Success")
             self.view.endEditing(true)
@@ -195,7 +203,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
                 print("--- Compose Tweet Failure: \(error.localizedDescription)")
         })
         
-        
+        delegate?.didComposeTweet(tweet: newTweet)
     }
     
     @IBAction func onCancelButton(_ sender: AnyObject) {

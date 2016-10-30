@@ -104,7 +104,7 @@ class TweetCell: UITableViewCell {
     @IBAction func onRetweetButton(_ sender: AnyObject) {
         if(isRetweeted == 0){
             let params = tweet.idStr
-            client?.retweet(params: params, success: {
+            client?.retweet(params: params!, success: {
                 print("--- Home Timeline : Retweet success")
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : Retweet failed : \(error.localizedDescription)")
@@ -122,7 +122,7 @@ class TweetCell: UITableViewCell {
                 originalTweetId = actualOriginalTweetId
             }
             
-            client?.showStatuses(params: originalTweetId, success: { (originalTweet : NSDictionary) in
+            client?.showStatuses(params: originalTweetId!, success: { (originalTweet : NSDictionary) in
                 let originalTweetJson = JSON(originalTweet)
                 let retweetId = originalTweetJson["current_user_retweet"]["id_str"].string
                 
