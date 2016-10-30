@@ -15,11 +15,11 @@ protocol TweetDetailsViewControllerDelegate {
 
 class TweetDetailsViewController: UIViewController , ComposeViewControllerDelegate{
     
+    @IBOutlet weak var tweetTextLabel: ActiveLabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var verifiedImageView: UIImageView!
-    @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -41,6 +41,19 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
         
         print("--- Tweet Details : got tweet : \(tweet)")
         setDetails()
+        
+        tweetTextLabel.handleURLTap { (url : URL) in
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+        tweetTextLabel.handleMentionTap { (username : String) in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+            profileViewController.username = username
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        }
+        
         
         // Do any additional setup after loading the view.
     }
