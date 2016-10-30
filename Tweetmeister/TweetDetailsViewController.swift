@@ -23,9 +23,9 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var retweetButton: UIButton!
     
+    @IBOutlet weak var retweetButton: SpringButton!
+    @IBOutlet weak var likeButton: SpringButton!
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeightConstraint: NSLayoutConstraint!
@@ -125,7 +125,8 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
     }
     
     @IBAction func onRetweetButton(_ sender: AnyObject) {
-        
+        retweetButton.animation = "pop"
+
         if(isRetweeted == 0){
             let params = tweet.idStr
             client?.retweet(params: params!, success: {
@@ -170,12 +171,14 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
             tweet.retweeted = 0
             isRetweeted = 0
         }
+        retweetButton.animate()
         setRetweetImage()
     }
     
     @IBAction func onLikeButton(_ sender: AnyObject) {
         var params = [String : String]()
         params["id"] = tweet.idStr
+        likeButton.animation = "pop"
         
         if(isFav == 0){
             client?.favoriteTweet(params: params, success: {
@@ -200,6 +203,7 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
             tweet.favorited = 0
             isFav = 0
         }
+        likeButton.animate()
         setFavImage()
     }
     

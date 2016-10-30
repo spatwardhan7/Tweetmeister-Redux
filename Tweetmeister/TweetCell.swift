@@ -30,8 +30,9 @@ class TweetCell: UITableViewCell {
     
     
     @IBOutlet weak var replyButton: UIButton!
-    @IBOutlet weak var retweetButton: UIButton!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var retweetButton: SpringButton!
+    @IBOutlet weak var likeButton: SpringButton!
+    
     
     var isFav = 0
     var isRetweeted = 0
@@ -102,6 +103,7 @@ class TweetCell: UITableViewCell {
         delegate?.onReplyButtonTapped(tweet: tweet)
     }
     @IBAction func onRetweetButton(_ sender: AnyObject) {
+        retweetButton.animation = "pop"
         if(isRetweeted == 0){
             let params = tweet.idStr
             client?.retweet(params: params!, success: {
@@ -142,12 +144,13 @@ class TweetCell: UITableViewCell {
             isRetweeted = 0
         }
         setRetweetImage()
+        retweetButton.animate()
     }
     
     @IBAction func onLikeButton(_ sender: AnyObject) {
         var params = [String : String]()
         params["id"] = tweet.idStr
-        
+        likeButton.animation = "pop"
         if(isFav == 0){
             client?.favoriteTweet(params: params, success: {
                 print("--- Home Timeline : LIKE success")
@@ -168,6 +171,7 @@ class TweetCell: UITableViewCell {
             isFav = 0
         }
         setFavImage()
+        likeButton.animate()
     }
     
     override func awakeFromNib() {

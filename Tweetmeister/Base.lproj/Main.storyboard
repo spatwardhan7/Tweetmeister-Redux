@@ -127,7 +127,7 @@
                                     <constraint firstAttribute="height" constant="1" id="Yok-cX-2KA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-EI-Uwy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-EI-Uwy" customClass="SpringButton" customModule="Tweetmeister" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="OWj-sc-vsI"/>
                                     <constraint firstAttribute="height" constant="24" id="aJf-Ur-URL"/>
@@ -137,7 +137,7 @@
                                     <action selector="onRetweetButton:" destination="UnS-SA-dxL" eventType="touchUpInside" id="Dq4-1C-9q6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-rG-K2Z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-rG-K2Z" customClass="SpringButton" customModule="Tweetmeister" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="ONU-dr-R7w"/>
                                     <constraint firstAttribute="width" constant="24" id="g9r-Yx-6LI"/>
@@ -228,11 +228,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="yCP-cI-3gD"/>
                     <connections>
-                        <outlet property="likeButton" destination="XPo-rG-K2Z" id="a9l-km-ryQ"/>
+                        <outlet property="likeButton" destination="XPo-rG-K2Z" id="M0s-wN-keg"/>
                         <outlet property="likeCountLabel" destination="eft-wH-lot" id="i4U-iw-AsC"/>
                         <outlet property="nameLabel" destination="Z9N-8D-kdq" id="lMO-n0-XNe"/>
                         <outlet property="posterImageView" destination="8N3-kp-BBW" id="xRX-D6-i6B"/>
-                        <outlet property="retweetButton" destination="Abe-EI-Uwy" id="28v-vI-caI"/>
+                        <outlet property="retweetButton" destination="Abe-EI-Uwy" id="oG3-Pq-awx"/>
                         <outlet property="retweetCountLabel" destination="Tgm-Dj-Zyy" id="fr3-Yb-lwg"/>
                         <outlet property="retweetNameLabel" destination="WK7-3a-Se7" id="Vuf-Yq-fVB"/>
                         <outlet property="retweetView" destination="Ac3-VN-9br" id="1tp-Vv-Nw8"/>
@@ -298,7 +298,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="iih-KH-abp"/>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2K-Di-Xai">
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E87-DG-KqW">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E87-DG-KqW" customClass="SpringButton" customModule="Tweetmeister" customModuleProvider="target">
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="1OM-bw-6k8"/>
                                                                 <constraint firstAttribute="height" constant="16" id="sSQ-4o-sZU"/>
@@ -318,7 +318,7 @@
                                                                 <action selector="onReplyButton:" destination="uuG-s9-MES" eventType="touchUpInside" id="sLK-zW-oZt"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-pg-O8Z">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-pg-O8Z" customClass="SpringButton" customModule="Tweetmeister" customModuleProvider="target">
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="3Qq-kl-r9C"/>
                                                                 <constraint firstAttribute="height" constant="16" id="mF7-2D-fAi"/>
@@ -389,11 +389,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="likeButton" destination="WSK-pg-O8Z" id="F6f-ry-5kN"/>
+                                            <outlet property="likeButton" destination="WSK-pg-O8Z" id="BEb-jt-iu1"/>
                                             <outlet property="nameLabel" destination="fO6-Zf-nwi" id="zll-LO-GOv"/>
                                             <outlet property="posterImageView" destination="oAi-PV-qtF" id="5jL-oy-2qe"/>
                                             <outlet property="replyButton" destination="iJE-e1-Mx5" id="TZX-V1-f3v"/>
-                                            <outlet property="retweetButton" destination="E87-DG-KqW" id="8T5-wo-HVY"/>
+                                            <outlet property="retweetButton" destination="E87-DG-KqW" id="kEh-V3-a6s"/>
                                             <outlet property="retweetNameLabel" destination="PME-oc-D3D" id="C5c-yl-XfA"/>
                                             <outlet property="retweetView" destination="7hc-XF-VQ1" id="UUu-oH-fcH"/>
                                             <outlet property="retweetViewHeight" destination="Uje-KP-Nub" id="RQk-vJ-DrB"/>
