@@ -22,7 +22,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var separatorDotImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    //@IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: ActiveLabel!
     
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
@@ -32,7 +33,6 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: SpringButton!
     @IBOutlet weak var likeButton: SpringButton!
-    
     
     var isFav = 0
     var isRetweeted = 0
@@ -180,6 +180,10 @@ class TweetCell: UITableViewCell {
         posterImageView.clipsToBounds = true
         
         self.selectionStyle = .none
+        
+        tweetTextLabel.handleURLTap { (url : URL) in
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
         // Initialization code
     }
 

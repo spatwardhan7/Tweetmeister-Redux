@@ -51,6 +51,12 @@
 		EEB9FD781DC5CD6C0071366D /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD5B1DC5CD6C0071366D /* TransitionManager.swift */; };
 		EEB9FD791DC5CD6C0071366D /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD5C1DC5CD6C0071366D /* TransitionZoom.swift */; };
 		EEB9FD7A1DC5CD6C0071366D /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD5D1DC5CD6C0071366D /* UnwindSegue.swift */; };
+		EEB9FD831DC5E6630071366D /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD7C1DC5E6630071366D /* ActiveBuilder.swift */; };
+		EEB9FD841DC5E6630071366D /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD7E1DC5E6630071366D /* ActiveLabel.swift */; };
+		EEB9FD851DC5E6630071366D /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD7F1DC5E6630071366D /* ActiveType.swift */; };
+		EEB9FD861DC5E6630071366D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEB9FD801DC5E6630071366D /* Info.plist */; };
+		EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD811DC5E6630071366D /* RegexParser.swift */; };
+		EEB9FD881DC5E6630071366D /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +111,13 @@
 		EEB9FD5B1DC5CD6C0071366D /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		EEB9FD5C1DC5CD6C0071366D /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		EEB9FD5D1DC5CD6C0071366D /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		EEB9FD7C1DC5E6630071366D /* ActiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveBuilder.swift; sourceTree = "<group>"; };
+		EEB9FD7D1DC5E6630071366D /* ActiveLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveLabel.h; sourceTree = "<group>"; };
+		EEB9FD7E1DC5E6630071366D /* ActiveLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveLabel.swift; sourceTree = "<group>"; };
+		EEB9FD7F1DC5E6630071366D /* ActiveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveType.swift; sourceTree = "<group>"; };
+		EEB9FD801DC5E6630071366D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEB9FD811DC5E6630071366D /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
+		EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +178,7 @@
 		EE2147341DBFAB2D00CBF9AF /* Tweetmeister */ = {
 			isa = PBXGroup;
 			children = (
+				EEB9FD7B1DC5E6630071366D /* ActiveLabel */,
 				EEB9FD3F1DC5CD6C0071366D /* Spring */,
 				EE09DE011DC49E9D0050897D /* Views */,
 				EE36E5B71DC27B8400428DBE /* Helpers */,
@@ -264,6 +278,20 @@
 			path = Spring;
 			sourceTree = "<group>";
 		};
+		EEB9FD7B1DC5E6630071366D /* ActiveLabel */ = {
+			isa = PBXGroup;
+			children = (
+				EEB9FD7C1DC5E6630071366D /* ActiveBuilder.swift */,
+				EEB9FD7D1DC5E6630071366D /* ActiveLabel.h */,
+				EEB9FD7E1DC5E6630071366D /* ActiveLabel.swift */,
+				EEB9FD7F1DC5E6630071366D /* ActiveType.swift */,
+				EEB9FD801DC5E6630071366D /* Info.plist */,
+				EEB9FD811DC5E6630071366D /* RegexParser.swift */,
+				EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */,
+			);
+			path = ActiveLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,6 +363,7 @@
 			files = (
 				EEB9FD6A1DC5CD6C0071366D /* Info.plist in Resources */,
 				EE2147401DBFAB2D00CBF9AF /* LaunchScreen.storyboard in Resources */,
+				EEB9FD861DC5E6630071366D /* Info.plist in Resources */,
 				EE21473D1DBFAB2D00CBF9AF /* Assets.xcassets in Resources */,
 				EE21473B1DBFAB2D00CBF9AF /* Main.storyboard in Resources */,
 				EEB9FD6D1DC5CD6C0071366D /* LoadingView.xib in Resources */,
@@ -398,6 +427,7 @@
 			files = (
 				EEB9FD761DC5CD6C0071366D /* SpringTextView.swift in Sources */,
 				EEB9FD651DC5CD6C0071366D /* DesignableTabBarController.swift in Sources */,
+				EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */,
 				EEB9FD5F1DC5CD6C0071366D /* AsyncImageView.swift in Sources */,
 				EE6622EB1DC2D2EA00D04309 /* ComposeViewController.swift in Sources */,
 				EEB9FD671DC5CD6C0071366D /* DesignableTextView.swift in Sources */,
@@ -412,8 +442,10 @@
 				EE6622ED1DC3148700D04309 /* TweetDetailsViewController.swift in Sources */,
 				EEB9FD661DC5CD6C0071366D /* DesignableTextField.swift in Sources */,
 				EE36E5B61DC1E98A00428DBE /* TweetCell.swift in Sources */,
+				EEB9FD841DC5E6630071366D /* ActiveLabel.swift in Sources */,
 				EE2147491DBFB62A00CBF9AF /* LoginViewController.swift in Sources */,
 				EE09DE031DC49EBA0050897D /* InfiniteScrollActivityView.swift in Sources */,
+				EEB9FD831DC5E6630071366D /* ActiveBuilder.swift in Sources */,
 				EEB9FD631DC5CD6C0071366D /* DesignableImageView.swift in Sources */,
 				EE48CB6F1DC03E5600BC241A /* TweetsViewController.swift in Sources */,
 				EEB9FD681DC5CD6C0071366D /* DesignableView.swift in Sources */,
@@ -426,7 +458,9 @@
 				EEB9FD6C1DC5CD6C0071366D /* LoadingView.swift in Sources */,
 				EEB9FD731DC5CD6C0071366D /* SpringImageView.swift in Sources */,
 				EEB9FD621DC5CD6C0071366D /* DesignableButton.swift in Sources */,
+				EEB9FD881DC5E6630071366D /* StringTrimExtension.swift in Sources */,
 				EEB9FD601DC5CD6C0071366D /* AutoTextView.swift in Sources */,
+				EEB9FD851DC5E6630071366D /* ActiveType.swift in Sources */,
 				EEB9FD6F1DC5CD6C0071366D /* SoundPlayer.swift in Sources */,
 				EE48CB691DBFDDE100BC241A /* User.swift in Sources */,
 				EE36E5B91DC27BAB00428DBE /* StaticHelper.swift in Sources */,
