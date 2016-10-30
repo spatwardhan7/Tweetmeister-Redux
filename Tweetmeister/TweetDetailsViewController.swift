@@ -126,6 +126,7 @@ class TweetDetailsViewController: UIViewController {
                     self.retweetCountLabel.text = "\(self.tweet.retweetCount)"
             })
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
+            tweet.retweetCount  += 1
             tweet.retweeted = 1
             isRetweeted = 1
             
@@ -156,6 +157,7 @@ class TweetDetailsViewController: UIViewController {
                 print("--- Tweet Details : Show Statuses Failure : \(error.localizedDescription)")
             })
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
+            tweet.retweetCount -= 1
             tweet.retweeted = 0
             isRetweeted = 0
         }
@@ -174,6 +176,7 @@ class TweetDetailsViewController: UIViewController {
                     self.likeCountLabel.text = "\(self.tweet.favoritesCount)"
             })
             likeCountLabel.text = "\(Int(likeCountLabel.text!)! + 1)"
+            tweet.favoritesCount += 1
             tweet.favorited = 1
             isFav = 1
         } else {
@@ -184,6 +187,7 @@ class TweetDetailsViewController: UIViewController {
                     self.likeCountLabel.text = "\(self.tweet.favoritesCount)"
             })
             likeCountLabel.text = "\(Int(likeCountLabel.text!)! - 1)"
+            tweet.favoritesCount -= 1
             tweet.favorited = 0
             isFav = 0
         }

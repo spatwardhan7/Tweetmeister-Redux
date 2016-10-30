@@ -109,6 +109,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : Retweet failed : \(error.localizedDescription)")
             })
+            tweet.retweetCount += 1
             tweet.retweeted = 1
             isRetweeted = 1
             
@@ -136,6 +137,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline  : Show Statuses Failure : \(error.localizedDescription)")
             })
+            tweet.retweetCount -= 1
             tweet.retweeted = 0
             isRetweeted = 0
         }
@@ -152,6 +154,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : LIKE failed : \(error.localizedDescription)")
             })
+            tweet.favoritesCount += 1
             tweet.favorited = 1
             isFav = 1
         } else {
@@ -160,6 +163,7 @@ class TweetCell: UITableViewCell {
                 }, failure: { (error : Error) in
                     print("--- Home Timeline : Un Favorite failed : \(error.localizedDescription)")
             })
+            tweet.favoritesCount -= 1
             tweet.favorited = 0
             isFav = 0
         }
