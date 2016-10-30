@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] When composing, you should have a countdown in the upper right for the tweet limit.
-- [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+- [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [x] Retweeting and favoriting should increment the retweet and favorite count.
 - [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
@@ -27,7 +27,17 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Spring Animations for buttons
+- [x] Quick Actions (Retweet,Reply and Like) on home timeline 
+- [x] Enable/Disable Tweet button 
+- [x] Twitter like placeholder while composing a tweet
+- [x] Auto Caps for sentences while composing a tweet
+- [x] Progress HUD
+- [ ] Tweeter profile 
+- [ ] tab bar for own profile 
+- [ ] click on nav bar to scroll 
+- [ ] click on tab to scroll   
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
