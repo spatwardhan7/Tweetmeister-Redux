@@ -285,6 +285,10 @@
                                                                 <constraint firstAttribute="height" constant="16" id="Uda-9n-qJK"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="reply"/>
+                                                            <connections>
+                                                                <action selector="onReplyButton:" destination="uuG-s9-MES" eventType="touchUpInside" id="sLK-zW-oZt"/>
+                                                                <segue destination="92R-7r-Re9" kind="presentation" identifier="replyFromHomeSegue" id="GEG-pG-Q1z"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-pg-O8Z">
                                                             <constraints>
@@ -406,7 +410,7 @@
         <!--Compose View Controller-->
         <scene sceneID="eSu-bv-EHH">
             <objects>
-                <viewController id="92R-7r-Re9" customClass="ComposeViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="composeViewController" id="92R-7r-Re9" customClass="ComposeViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hr1-o6-t3N"/>
                         <viewControllerLayoutGuide type="bottom" id="tGl-y6-MMr"/>
@@ -501,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJa-gg-pNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480.8000000000002" y="-725.48725637181417"/>
+            <point key="canvasLocation" x="1977" y="980"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iBX-DC-RX8">
@@ -532,6 +536,6 @@
         <image name="verified-6-12" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iVS-cr-vza"/>
+        <segue reference="GEG-pG-Q1z"/>
     </inferredMetricsTieBreakers>
 </document>

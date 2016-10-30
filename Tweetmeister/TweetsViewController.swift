@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate {
     
     var tweets : [Tweet]!
     let client = TwitterClient.sharedInstance!
@@ -77,8 +77,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
+        cell.delegate = self
         
         return cell
+    }
+    
+    func onReplyButtonTapped(tweet: Tweet) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
+        
+        composeViewController.tweet = tweet
+        present(composeViewController, animated: true) { 
+            print("--- completion from compose")
+        }
+        
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -157,21 +169,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onReplyButton(_ sender: AnyObject) {
-    }
-    
-    @IBAction func onRetweetButton(_ sender: AnyObject) {
-    }
-    
-    
-    @IBAction func onLikeButton(_ sender: AnyObject) {
-        
-        
-    }
-    
-    
-    
-    
+
     
     // MARK: - Navigation
     
@@ -179,16 +177,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        /*
-         let cell = sender as! UITableViewCell
-         let indexPath = tableView.indexPath(for: cell)
-         let movie = movies![(indexPath! as NSIndexPath).row]
-         
-         let detailViewController = segue.destination as! DetailViewController
-         detailViewController.movie = movie
-         
-         */
-        
         if(segue.identifier == "tweetDetailsSegue") {
             let cell = sender as! TweetCell
             let indexPath = tableView.indexPath(for: cell)
@@ -197,6 +185,17 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let tweetDetailsViewController = segue.destination as! TweetDetailsViewController
             tweetDetailsViewController.tweet = tweet
         }
+        //else if(segue.identifier == "replyFromHomeSegue"){
+            /*
+            let cell = sender as! TweetCell
+            let indexPath = tableView.indexPath(for: cell)
+            let tweet = tweets[(indexPath! as NSIndexPath).row]
+            
+            let composeViewController = segue.destination as! ComposeViewController
+            composeViewController.tweet = tweet
+ 
+        }
+ */
         
         
     }

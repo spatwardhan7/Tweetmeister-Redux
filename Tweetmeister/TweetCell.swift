@@ -11,6 +11,10 @@ import AFNetworking
 import DateTools
 import SwiftyJSON
 
+protocol TweetCellDelegate {
+    func onReplyButtonTapped(tweet: Tweet)
+}
+
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
@@ -32,6 +36,7 @@ class TweetCell: UITableViewCell {
     var isFav = 0
     var isRetweeted = 0
     let client = TwitterClient.sharedInstance
+    var delegate: TweetCellDelegate?
 
     
     var tweet : Tweet!{
@@ -93,6 +98,9 @@ class TweetCell: UITableViewCell {
         }
     }
     
+    @IBAction func onReplyButton(_ sender: AnyObject) {
+        delegate?.onReplyButtonTapped(tweet: tweet)
+    }
     @IBAction func onRetweetButton(_ sender: AnyObject) {
         if(isRetweeted == 0){
             let params = tweet.idStr
