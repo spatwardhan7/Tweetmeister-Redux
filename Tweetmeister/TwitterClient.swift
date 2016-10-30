@@ -65,6 +65,20 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func getUserDetails(params: String, success: @escaping(User) -> (), failure: @escaping (Error) -> ()){
+        let getDetailsBaseUrl = "1.1/users/show.json?screen_name={id}"
+        let getDetailsUrl = getDetailsBaseUrl.replacingOccurrences(of: "{id}", with: params)
+        get(getDetailsUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            let userDictionary = response as! NSDictionary
+            let userDetails = User(dictionary: userDictionary)
+            success(userDetails)
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
+    
+    
     /* showStatus has to be called before calling unretweet to get
      * the correct retweed id in case a tweet has been retweeted by
      * a bunch of people

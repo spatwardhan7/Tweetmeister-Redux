@@ -20,6 +20,11 @@ class User: NSObject {
     var dictionary : NSDictionary?
     var userJSON : JSON?
     
+    var profileBannerUrl : URL?
+    var followersCount : Int?
+    var followingCount : Int?
+    var descriptionUrl : URL?
+    
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
         self.userJSON = JSON(dictionary)
@@ -33,6 +38,17 @@ class User: NSObject {
         
         if let taglineString = userJSON?["description"].string{
             tagline = taglineString
+        }
+        
+        if let profileBannerUrlString = userJSON?["profile_background_image_url_https"].string{
+            profileBannerUrl = URL(string : profileBannerUrlString)
+        }
+        
+        followersCount = (userJSON?["followers_count"].int) ?? 0
+        followingCount = (userJSON?["friends_count"].int) ?? 0
+        
+        if let descriptionUrlString = userJSON?["url"].string{
+            descriptionUrl = URL(string : descriptionUrlString)
         }
     }
     

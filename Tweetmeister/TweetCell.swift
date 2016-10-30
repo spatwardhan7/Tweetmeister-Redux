@@ -184,6 +184,11 @@ class TweetCell: UITableViewCell {
         tweetTextLabel.handleURLTap { (url : URL) in
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+        
+        tweetTextLabel.handleMentionTap { (username : String) in
+            print("--- username : \(username)")
+        }
+        
         // Initialization code
     }
 
