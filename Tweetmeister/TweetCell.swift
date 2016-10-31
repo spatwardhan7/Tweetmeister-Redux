@@ -14,6 +14,7 @@ import SwiftyJSON
 protocol TweetCellDelegate {
     func onReplyButtonTapped(tweet: Tweet)
     func onMentionTapped(username : String)
+    func onHashtagTapped(hashtag : String)
 }
 
 class TweetCell: UITableViewCell {
@@ -202,6 +203,10 @@ class TweetCell: UITableViewCell {
         tweetTextLabel.handleMentionTap { (username : String) in
             print("--- username : \(username)")
             self.delegate?.onMentionTapped(username: username)
+        }
+        
+        tweetTextLabel.handleHashtagTap { (hashtag : String) in
+            self.delegate?.onHashtagTapped(hashtag: hashtag)
         }
         
         // Initialization code

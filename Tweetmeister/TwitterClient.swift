@@ -77,6 +77,20 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func searchTweets(params: String, success: @escaping([Tweet]) -> (), failure: @escaping (Error) -> ()){
+        let getDetailsBaseUrl = "1.1/search/tweets.json?q=%23{id}&result_type=recent"
+        let getDetailsUrl = getDetailsBaseUrl.replacingOccurrences(of: "{id}", with: params)
+        get(getDetailsUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
+            
+            let dictionary = response as! NSDictionary
+            let dictionaries = dictionary["statuses"] as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+            success(tweets)
+        }) { (task : URLSessionDataTask?,error: Error) in
+            failure(error)
+        }
+    }
+    
     
     
     /* showStatus has to be called before calling unretweet to get

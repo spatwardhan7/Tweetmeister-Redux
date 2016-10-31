@@ -97,6 +97,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
     }
     
+    func onHashtagTapped(hashtag : String){
+        client.searchTweets(params: hashtag, success: { (searchTweets : [Tweet]) in
+            print("--- got search tweets : \(searchTweets.count)")
+        }) { (error : Error) in
+                print("--- searctTweets failure : \(error.localizedDescription)")
+        }
+    }
+    
     func onMentionTapped(username : String){
         print("--- tweets view got user name : \(username)")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

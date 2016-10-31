@@ -76,18 +76,8 @@ class Tweet: NSObject {
         
         if let mediaUrlString = tweetJSON["entities"]["media"][0]["media_url_https"].string{
             mediaUrl = URL(string : mediaUrlString)
-            print("--- got media url : \(mediaUrlString)")
         }
         
-        
-        //print("--- tweet : name : \(name)")
-        //print("-- tweet : username : \(username)")
-        //print("-- tweet : user mentions : \(userMentions?.count)")
-        //print("- tweet : retweeted : \(retweeted)")
-        //print("- tweet : favorited : \(favorited)")
-        //print("-- tweet : verified : \(verified)")
-        //print("-- tweet : retweet count : \(retweetCount)")
-        //print("-- tweet : fav count : \(favoritesCount)")
     }
     
     init(name: String, username: String, tweetText: String,profileImageUrl : URL, currentTime: Date){
