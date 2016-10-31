@@ -115,6 +115,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func onProfileImageTapped(username : String){
+        print("--- tweets view got user name : \(username)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        profileViewController.username = username
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
     func onMentionTapped(username : String){
         print("--- tweets view got user name : \(username)")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -15,6 +15,7 @@ protocol TweetCellDelegate {
     func onReplyButtonTapped(tweet: Tweet)
     func onMentionTapped(username : String)
     func onHashtagTapped(hashtag : String)
+    func onProfileImageTapped(username : String)
 }
 
 class TweetCell: UITableViewCell {
@@ -42,6 +43,7 @@ class TweetCell: UITableViewCell {
     var isRetweeted = 0
     let client = TwitterClient.sharedInstance
     var delegate: TweetCellDelegate?
+    var tap : UITapGestureRecognizer?
 
     
     var tweet : Tweet!{
@@ -209,7 +211,15 @@ class TweetCell: UITableViewCell {
             self.delegate?.onHashtagTapped(hashtag: hashtag)
         }
         
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tapImage(_:)))
+        posterImageView.addGestureRecognizer(tap!)
+        posterImageView.isUserInteractionEnabled = true
+        
         // Initialization code
+    }
+    
+    func tapImage(_ sender: UITapGestureRecognizer) {
+        delegate?.onProfileImageTapped(username: tweet.username)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

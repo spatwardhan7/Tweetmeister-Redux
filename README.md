@@ -34,18 +34,17 @@ The following **additional** features are implemented:
 - [x] Media Image in timeline tweet and details view 
 - [x] Spring Animations for buttons
 - [x] Quick Actions (Retweet,Reply and Like) on home timeline 
+- [x] Verified icon for verified users
 - [x] Enable/Disable Tweet button 
 - [x] Twitter like placeholder while composing a tweet
 - [x] Auto Caps for sentences while composing a tweet
 - [x] Progress HUD
 
 
-
-
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Play video in app?! 
+
 
 ## Video Walkthrough
 
@@ -55,8 +54,8 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
+I am not sure if I am doing something wrong or if there is something wrong with my xcode. I came across a bunch of pods which specifically mentioned that the support Xcode 8 and Swift 3. After pod install however, I always had to Convert to Swift 3 and the pod had a ton of conversion errors. I ended up having to manually add the pod folder which worked but it would be nice for pods to do their job. 
 
-Describe any challenges encountered while building the app.
 
 ## License
 
