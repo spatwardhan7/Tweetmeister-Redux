@@ -44,11 +44,11 @@ class ProfileViewController: UIViewController {
         posterImageView.layer.cornerRadius = 8.0
         posterImageView.clipsToBounds = true
 
-        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        //self.navigationController?.navigationBar.tintColor = UIColor.white;
 
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
         MBProgressHUD.showAdded(to: self.view, animated: true)
         loadUserDetails()
         
