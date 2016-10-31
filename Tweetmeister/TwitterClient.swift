@@ -78,7 +78,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func searchTweets(params: String, success: @escaping([Tweet]) -> (), failure: @escaping (Error) -> ()){
-        let getDetailsBaseUrl = "1.1/search/tweets.json?q=%23{id}&result_type=recent"
+        let getDetailsBaseUrl = "1.1/search/tweets.json?q=%23{id}"
         let getDetailsUrl = getDetailsBaseUrl.replacingOccurrences(of: "{id}", with: params)
         get(getDetailsUrl, parameters: nil, progress: nil, success: { (task : URLSessionDataTask,response : Any?) in
             

@@ -100,6 +100,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func onHashtagTapped(hashtag : String){
         client.searchTweets(params: hashtag, success: { (searchTweets : [Tweet]) in
             print("--- got search tweets : \(searchTweets.count)")
+            
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let searchViewController = storyboard.instantiateViewController(withIdentifier: "searchViewController") as! SearchViewController
+            searchViewController.tweets = searchTweets
+            self.navigationController?.pushViewController(searchViewController, animated: true)
+            
+            
+            
+            
         }) { (error : Error) in
                 print("--- searctTweets failure : \(error.localizedDescription)")
         }
