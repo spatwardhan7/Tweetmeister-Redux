@@ -32,6 +32,7 @@ The following **additional** features are implemented:
 - [x] Attributed mentions (@), clicking on it takes user to Profile Details
 - [x] Attributed hashtag, clicking on which fetches more tweets for that hashtag
 - [x] Media Image in timeline tweet and details view 
+- [x] Clicking on profile pic on home timeline opens profile details
 - [x] Spring Animations for buttons
 - [x] Quick Actions (Retweet,Reply and Like) on home timeline 
 - [x] Verified icon for verified users
