@@ -35,6 +35,7 @@ The following **additional** features are implemented:
 - [x] Clicking on profile pic on home timeline opens profile details
 - [x] Spring Animations for buttons
 - [x] Quick Actions (Retweet,Reply and Like) on home timeline 
+- [x] If a tweet has multiple mentions, hitting reply on it adds all mentions directly to compose reply
 - [x] Verified icon for verified users
 - [x] Enable/Disable Tweet button 
 - [x] Twitter like placeholder while composing a tweet
