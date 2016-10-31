@@ -2,7 +2,7 @@
 
 **Tweetmeister** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **35** hours spent in total
 
 ## User Stories
 
@@ -27,16 +27,19 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
+
+- [x] Attributed link for videos and photos
+- [x] Attributed mentions (@), clicking on it takes user to Profile Details
+- [x] Attributed hashtag, clicking on which fetches more tweets for that hashtag
+- [x] Media Image in timeline tweet and details view 
 - [x] Spring Animations for buttons
 - [x] Quick Actions (Retweet,Reply and Like) on home timeline 
 - [x] Enable/Disable Tweet button 
 - [x] Twitter like placeholder while composing a tweet
 - [x] Auto Caps for sentences while composing a tweet
 - [x] Progress HUD
-- [ ] Tweeter profile 
-- [ ] tab bar for own profile 
-- [ ] click on nav bar to scroll 
-- [ ] click on tab to scroll   
+
+
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
