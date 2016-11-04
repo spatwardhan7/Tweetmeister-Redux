@@ -219,10 +219,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTweetCell" rowHeight="246" id="869-yq-lOj" customClass="SearchTweetCell" customModule="Tweetmeister" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="246"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="869-yq-lOj" id="hsS-py-9Gm">
-                                            <frame key="frameInset" width="375" height="245"/>
+                                            <frame key="frameInset" width="1000" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hqt-NC-NHn">
@@ -597,10 +597,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="255" id="uuG-s9-MES" customClass="TweetCell" customModule="Tweetmeister" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="255"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="255"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuG-s9-MES" id="RyO-K6-yhN">
-                                            <frame key="frameInset" width="375" height="254"/>
+                                            <frame key="frameInset" width="1000" height="255"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-PV-qtF">
@@ -897,6 +897,112 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJa-gg-pNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1977" y="980"/>
+        </scene>
+        <!--Hamburger View Controller-->
+        <scene sceneID="O7w-EU-Lio">
+            <objects>
+                <viewController storyboardIdentifier="hamburgerViewController" id="p80-uU-YSa" customClass="HamburgerViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NTV-vG-uBV"/>
+                        <viewControllerLayoutGuide type="bottom" id="omO-lG-qUG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qdv-ya-6tV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgJ-KL-QGH" userLabel="Menu View">
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrV-tr-RET" userLabel="Content View">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lyg-nY-uDa" appends="YES" id="OKY-MX-0SM"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KgJ-KL-QGH" secondAttribute="trailing" id="7wV-KX-B30"/>
+                            <constraint firstItem="KgJ-KL-QGH" firstAttribute="top" secondItem="Qdv-ya-6tV" secondAttribute="top" id="AcS-hU-ejD"/>
+                            <constraint firstItem="omO-lG-qUG" firstAttribute="top" secondItem="KgJ-KL-QGH" secondAttribute="bottom" id="NfJ-2k-xaw"/>
+                            <constraint firstItem="BrV-tr-RET" firstAttribute="leading" secondItem="Qdv-ya-6tV" secondAttribute="leading" id="dG5-Lo-sgA"/>
+                            <constraint firstItem="BrV-tr-RET" firstAttribute="width" secondItem="Qdv-ya-6tV" secondAttribute="width" id="hJB-zx-4X0"/>
+                            <constraint firstItem="omO-lG-qUG" firstAttribute="top" secondItem="BrV-tr-RET" secondAttribute="bottom" id="nrT-6J-Z5a"/>
+                            <constraint firstItem="KgJ-KL-QGH" firstAttribute="leading" secondItem="Qdv-ya-6tV" secondAttribute="leading" id="o6H-Sq-oFm"/>
+                            <constraint firstItem="BrV-tr-RET" firstAttribute="top" secondItem="Qdv-ya-6tV" secondAttribute="top" id="ycZ-zH-jWt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="BrV-tr-RET" id="WeX-aB-gRZ"/>
+                        <outlet property="leftMarginConstraint" destination="dG5-Lo-sgA" id="QGG-Bz-tJt"/>
+                        <outlet property="menuView" destination="KgJ-KL-QGH" id="M6k-tl-wMQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evH-3Y-Prj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="lyg-nY-uDa">
+                    <connections>
+                        <action selector="onPanGesture:" destination="p80-uU-YSa" id="0Er-CT-Nod"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="700" y="-1450.5247376311845"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="Fhb-6w-aXD">
+            <objects>
+                <viewController storyboardIdentifier="menuViewController" automaticallyAdjustsScrollViewInsets="NO" id="oLG-xz-1lj" customClass="MenuViewController" customModule="Tweetmeister" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UnN-vd-Jqa"/>
+                        <viewControllerLayoutGuide type="bottom" id="THu-Pi-Gv9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ev-lW-OrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="biH-XU-upN">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="68" id="UXf-Yn-hpi" customClass="MenuCell" customModule="Tweetmeister" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXf-Yn-hpi" id="kca-oG-v8E">
+                                            <frame key="frameInset" width="375" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-zL-yjm">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wg5-zL-yjm" firstAttribute="centerX" secondItem="kca-oG-v8E" secondAttribute="centerX" id="0jn-bD-yvk"/>
+                                                <constraint firstItem="wg5-zL-yjm" firstAttribute="centerY" secondItem="kca-oG-v8E" secondAttribute="centerY" id="Ahl-gU-Tei"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="menuTitleLabel" destination="wg5-zL-yjm" id="Dyv-wq-cRy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="THu-Pi-Gv9" firstAttribute="top" secondItem="biH-XU-upN" secondAttribute="bottom" id="8ES-RV-BSd"/>
+                            <constraint firstItem="biH-XU-upN" firstAttribute="top" secondItem="UnN-vd-Jqa" secondAttribute="bottom" id="PLV-1d-VhO"/>
+                            <constraint firstAttribute="trailing" secondItem="biH-XU-upN" secondAttribute="trailing" id="Rmq-om-occ"/>
+                            <constraint firstItem="biH-XU-upN" firstAttribute="leading" secondItem="9Ev-lW-OrQ" secondAttribute="leading" id="w7G-cV-cSG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="biH-XU-upN" id="SV5-Mp-7xp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kpz-6q-BkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.60000000000002" y="-708.39580209895053"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iBX-DC-RX8">

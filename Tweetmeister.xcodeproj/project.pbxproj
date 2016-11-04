@@ -60,6 +60,9 @@
 		EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD811DC5E6630071366D /* RegexParser.swift */; };
 		EEB9FD881DC5E6630071366D /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */; };
 		EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD891DC66CC40071366D /* ProfileViewController.swift */; };
+		EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */; };
+		EEC99FE11DCC59A60017E63C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE01DCC59A60017E63C /* MenuCell.swift */; };
+		EEC99FE31DCC5A7B0017E63C /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +127,9 @@
 		EEB9FD811DC5E6630071366D /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
 		EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
 		EEB9FD891DC66CC40071366D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EEC99FE01DCC59A60017E63C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,8 @@
 				EE6622EC1DC3148700D04309 /* TweetDetailsViewController.swift */,
 				EEB9FD891DC66CC40071366D /* ProfileViewController.swift */,
 				EE95BF5C1DC6D616003E833B /* SearchViewController.swift */,
+				EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */,
+				EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -221,6 +229,7 @@
 			children = (
 				EE36E5B51DC1E98A00428DBE /* TweetCell.swift */,
 				EE95BF5E1DC6DC6F003E833B /* SearchTweetCell.swift */,
+				EEC99FE01DCC59A60017E63C /* MenuCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				EEB9FD651DC5CD6C0071366D /* DesignableTabBarController.swift in Sources */,
 				EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */,
 				EEB9FD5F1DC5CD6C0071366D /* AsyncImageView.swift in Sources */,
+				EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */,
 				EE6622EB1DC2D2EA00D04309 /* ComposeViewController.swift in Sources */,
 				EEB9FD671DC5CD6C0071366D /* DesignableTextView.swift in Sources */,
 				EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */,
@@ -446,7 +456,9 @@
 				EEB9FD701DC5CD6C0071366D /* Spring.swift in Sources */,
 				EEB9FD6B1DC5CD6C0071366D /* KeyboardLayoutConstraint.swift in Sources */,
 				EEB9FD721DC5CD6C0071366D /* SpringButton.swift in Sources */,
+				EEC99FE31DCC5A7B0017E63C /* HamburgerViewController.swift in Sources */,
 				EEB9FD771DC5CD6C0071366D /* SpringView.swift in Sources */,
+				EEC99FE11DCC59A60017E63C /* MenuCell.swift in Sources */,
 				EE48CB6D1DC0302B00BC241A /* TwitterClient.swift in Sources */,
 				EEB9FD5E1DC5CD6C0071366D /* AsyncButton.swift in Sources */,
 				EE6622ED1DC3148700D04309 /* TweetDetailsViewController.swift in Sources */,
