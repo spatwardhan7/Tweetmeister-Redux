@@ -57,6 +57,9 @@ class ProfileViewController: UIViewController {
     
     
     func loadUserDetails(){
+        if(username == nil){
+            username = User.currentUser?.screenName
+        }
         client.getUserDetails(params: username, success: { (user : User) in
             self.userProfile = user
             self.updateLabels()

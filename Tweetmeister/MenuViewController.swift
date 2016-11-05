@@ -12,6 +12,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var tweetsNavController : UINavigationController!
+    private var mentionsNavController : UINavigationController!
+    
+    
     private var tweetsViewController : UIViewController!
     private var profileViewController : UIViewController!
     var viewControllers : [UIViewController] = []
@@ -26,15 +30,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        tweetsViewController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+        tweetsNavController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController") as! UINavigationController
+        let tVC = tweetsNavController.topViewController as! TweetsViewController
+        tVC.isHomeTimeline = true
+        tVC.isMentionsTimeline = false
+        
+        mentionsNavController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController") as! UINavigationController
+        let mentionsViewController = mentionsNavController.topViewController as! TweetsViewController
+        mentionsViewController.isHomeTimeline = false
+        mentionsViewController.isMentionsTimeline = true
+        
         profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController")
-        
-        viewControllers.append(tweetsViewController)
-        viewControllers.append(profileViewController)
-        
 
         
-        hamburgerViewController.contentViewController = tweetsViewController
+        hamburgerViewController.contentViewController = tweetsNavController
         // Do any additional setup after loading the view.
     }
     
@@ -59,9 +68,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
-        
-        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        if indexPath.row == 0 {
+            hamburgerViewController.contentViewController = tweetsNavController
+        } else if indexPath.row == 1 {
+            hamburgerViewController.contentViewController = profileViewController
+        } else if indexPath.row == 2 {
+            hamburgerViewController.contentViewController = mentionsNavController
+        }
     }
     
 

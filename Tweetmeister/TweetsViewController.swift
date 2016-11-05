@@ -20,6 +20,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     
+    var isHomeTimeline : Bool!
+    var isMentionsTimeline : Bool!
+    
+    
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
@@ -36,8 +40,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
     
     func setupTableView(){
         tableView.dataSource = self
@@ -101,7 +105,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         client.searchTweets(params: hashtag, success: { (searchTweets : [Tweet]) in
             print("--- got search tweets : \(searchTweets.count)")
             
-
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let searchViewController = storyboard.instantiateViewController(withIdentifier: "searchViewController") as! SearchViewController
             searchViewController.tweets = searchTweets
@@ -111,7 +115,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
         }) { (error : Error) in
-                print("--- searctTweets failure : \(error.localizedDescription)")
+            print("--- searctTweets failure : \(error.localizedDescription)")
         }
     }
     
@@ -137,12 +141,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         composeViewController.tweet = tweet
         composeViewController.delegate = self
-        present(composeViewController, animated: true) { 
+        present(composeViewController, animated: true) {
         }
         
     }
     
-
+    
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         loadHomeTimelineTweets(withProgressHUD: false)
@@ -170,23 +174,37 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func loadHomeTimelineTweets(withProgressHUD : Bool){
-        print("--- Tweets VC : calling home time line")
+        print("--- Tweets VC : calling time line")
         
         if withProgressHUD{
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
         
-        client.homeTimeline(success: { (tweets : [Tweet]) in
-            print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
-            
-            self.tweets = tweets
-            self.tableView.reloadData()
-            self.cleanUpUI()
-            
-            }, failure: { (error : Error) in
+        if isHomeTimeline == true {
+            client.homeTimeline(success: { (tweets : [Tweet]) in
+                print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
+                
+                self.tweets = tweets
+                self.tableView.reloadData()
                 self.cleanUpUI()
-                print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
-        })
+                
+                }, failure: { (error : Error) in
+                    self.cleanUpUI()
+                    print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
+            })
+        } else if isMentionsTimeline == true {
+            client.getMentionsTimeline(success: { (tweets : [Tweet]) in
+                print("--- Tweets VC : home time line success: got \(tweets.count) tweets")
+                
+                self.tweets = tweets
+                self.tableView.reloadData()
+                self.cleanUpUI()
+                
+                }, failure: { (error : Error) in
+                    self.cleanUpUI()
+                    print("---- Tweets VC : homeTimeline failure : \(error.localizedDescription)")
+            })
+        }
     }
     
     func loadMoreHomeTimelineTweets(){
@@ -220,7 +238,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     @IBAction func onComposeButton(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
