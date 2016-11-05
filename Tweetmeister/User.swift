@@ -23,6 +23,7 @@ class User: NSObject {
     var profileBannerUrl : URL?
     var followersCount : Int?
     var followingCount : Int?
+    var tweetsCount : Int?
     var descriptionUrl : String?
     var verified : Bool?
     var location : String?
@@ -48,6 +49,7 @@ class User: NSObject {
         
         followersCount = (userJSON?["followers_count"].int) ?? 0
         followingCount = (userJSON?["friends_count"].int) ?? 0
+        tweetsCount = (userJSON?["statuses_count"].int) ?? 0
         location = (userJSON?["location"].string) ?? nil
         verified = (userJSON?["verified"].bool) ?? false
         descriptionUrl = (userJSON?["url"].string) ?? nil

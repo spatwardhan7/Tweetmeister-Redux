@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var pinImageView: UIImageView!
     
+    @IBOutlet weak var tweetsLabel: UILabel!
     
     @IBOutlet weak var clipImageView: UIImageView!
     var username : String!
@@ -109,8 +110,10 @@ class ProfileViewController: UIViewController {
         
         let followersNum = numString(num: userProfile.followersCount!)
         let followingNum = numString(num: userProfile.followingCount!)
-        followersLabel.text = followersNum + " FOLLOWERS"
-        followingLabel.text = followingNum + " FOLLOWING"
+        let tweetsNum = numString(num: userProfile.tweetsCount!)
+        followersLabel.text = followersNum
+        followingLabel.text = followingNum
+        tweetsLabel.text = tweetsNum
     }
     
     override func didReceiveMemoryWarning() {
