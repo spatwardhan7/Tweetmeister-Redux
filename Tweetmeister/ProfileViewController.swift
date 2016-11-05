@@ -20,9 +20,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: ActiveLabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var urlLabel: ActiveLabel!
+    @IBOutlet weak var locationViewHeight: NSLayoutConstraint!
     @IBOutlet weak var urlViewHeight: NSLayoutConstraint!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var pinImageView: UIImageView!
     
     
     @IBOutlet weak var clipImageView: UIImageView!
@@ -88,8 +90,12 @@ class ProfileViewController: UIViewController {
             verifiedImageView.isHidden = false
         }
         
-        if(userProfile.location != nil ){
+        if(userProfile.location != nil && userProfile.location != "" ){
             locationLabel.text = userProfile.location
+        } else {
+            locationViewHeight.constant = 0
+            locationLabel.isHidden = true
+            pinImageView.isHidden = true
         }
         
         if(userProfile.descriptionUrl != nil){
