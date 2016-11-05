@@ -60,6 +60,8 @@
 		EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD811DC5E6630071366D /* RegexParser.swift */; };
 		EEB9FD881DC5E6630071366D /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */; };
 		EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD891DC66CC40071366D /* ProfileViewController.swift */; };
+		EEBBCBA41DCE95CF0044A178 /* TweetCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */; };
+		EEBBCBA51DCE95CF0044A178 /* TweetCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */; };
 		EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */; };
 		EEC99FE11DCC59A60017E63C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE01DCC59A60017E63C /* MenuCell.swift */; };
 		EEC99FE31DCC5A7B0017E63C /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */; };
@@ -127,6 +129,8 @@
 		EEB9FD811DC5E6630071366D /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
 		EEB9FD821DC5E6630071366D /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
 		EEB9FD891DC66CC40071366D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCellNib.swift; sourceTree = "<group>"; };
+		EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCellNib.xib; sourceTree = "<group>"; };
 		EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EEC99FE01DCC59A60017E63C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 				EE36E5B51DC1E98A00428DBE /* TweetCell.swift */,
 				EE95BF5E1DC6DC6F003E833B /* SearchTweetCell.swift */,
 				EEC99FE01DCC59A60017E63C /* MenuCell.swift */,
+				EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */,
+				EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				EEB9FD6A1DC5CD6C0071366D /* Info.plist in Resources */,
 				EE2147401DBFAB2D00CBF9AF /* LaunchScreen.storyboard in Resources */,
 				EEB9FD861DC5E6630071366D /* Info.plist in Resources */,
+				EEBBCBA51DCE95CF0044A178 /* TweetCellNib.xib in Resources */,
 				EE21473D1DBFAB2D00CBF9AF /* Assets.xcassets in Resources */,
 				EE21473B1DBFAB2D00CBF9AF /* Main.storyboard in Resources */,
 				EEB9FD6D1DC5CD6C0071366D /* LoadingView.xib in Resources */,
@@ -488,6 +495,7 @@
 				EEB9FD6F1DC5CD6C0071366D /* SoundPlayer.swift in Sources */,
 				EE48CB691DBFDDE100BC241A /* User.swift in Sources */,
 				EE36E5B91DC27BAB00428DBE /* StaticHelper.swift in Sources */,
+				EEBBCBA41DCE95CF0044A178 /* TweetCellNib.swift in Sources */,
 				EEB9FD641DC5CD6C0071366D /* DesignableLabel.swift in Sources */,
 				EEB9FD751DC5CD6C0071366D /* SpringTextField.swift in Sources */,
 				EE48CB6B1DBFDDEE00BC241A /* Tweet.swift in Sources */,
