@@ -116,7 +116,7 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
         if(tweet.mediaUrl != nil){
             mediaImageView.setImageWith(tweet.mediaUrl!)
             mediaImageView.isHidden = false
-            mediaViewHeight.constant = 120
+            mediaViewHeight.constant = 240
         }else {
             mediaImageView.isHidden = true
             mediaViewHeight.constant = 0
