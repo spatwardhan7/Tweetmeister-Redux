@@ -25,6 +25,7 @@ class ProfileViewCell: UITableViewCell {
     @IBOutlet weak var pinImageView: UIImageView!
     @IBOutlet weak var tweetsLabel: UILabel!
     @IBOutlet weak var clipImageView: UIImageView!
+    @IBOutlet weak var pControl: UIPageControl!
     
     var username : String!{
         didSet{
@@ -48,6 +49,9 @@ class ProfileViewCell: UITableViewCell {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         
+//        pageControl.addTarget(self, action: #selector(self.pageControlChangedValue(_:)), for: .valueChanged)
+        
+        pControl.addTarget(self, action: #selector(self.pageControlChangedValue(_:)), for: .touchUpInside)
         posterImageView.layer.cornerRadius = 8.0
         posterImageView.clipsToBounds = true
         
@@ -119,6 +123,17 @@ class ProfileViewCell: UITableViewCell {
         
         return returnString
     }
+
+
+    func pageControlChangedValue(_ sender: UIPageControl) {
+        print("print")
+    }
+    
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        
+        print("print")
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
