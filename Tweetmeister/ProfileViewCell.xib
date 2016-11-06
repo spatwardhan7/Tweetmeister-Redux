@@ -171,17 +171,24 @@
                                                     <constraint firstItem="rt3-vz-Gcz" firstAttribute="centerY" secondItem="mgc-kJ-2Ni" secondAttribute="centerY" id="yhN-Uh-rfx"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-SV-P6V" userLabel="view3">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="9L9-SV-P6V" firstAttribute="top" secondItem="H9T-l0-DL4" secondAttribute="top" id="1fL-VE-LMe"/>
+                                            <constraint firstAttribute="bottom" secondItem="9L9-SV-P6V" secondAttribute="bottom" id="3hq-nx-yJc"/>
+                                            <constraint firstItem="9L9-SV-P6V" firstAttribute="leading" secondItem="mgc-kJ-2Ni" secondAttribute="trailing" id="51Z-ge-pQA"/>
+                                            <constraint firstItem="9L9-SV-P6V" firstAttribute="width" secondItem="mgc-kJ-2Ni" secondAttribute="width" id="HfI-RY-fRL"/>
                                             <constraint firstItem="mgc-kJ-2Ni" firstAttribute="top" secondItem="H9T-l0-DL4" secondAttribute="top" id="IRw-Jl-3Xr"/>
                                             <constraint firstItem="mgc-kJ-2Ni" firstAttribute="leading" secondItem="rrg-Ez-W1j" secondAttribute="trailing" id="SyE-nE-Xz3"/>
                                             <constraint firstItem="rrg-Ez-W1j" firstAttribute="top" secondItem="H9T-l0-DL4" secondAttribute="top" id="Xct-4h-g5S"/>
-                                            <constraint firstAttribute="trailing" secondItem="mgc-kJ-2Ni" secondAttribute="trailing" id="Zoi-UZ-lVb"/>
                                             <constraint firstItem="mgc-kJ-2Ni" firstAttribute="width" secondItem="rrg-Ez-W1j" secondAttribute="width" id="aRB-PX-yvh"/>
                                             <constraint firstAttribute="bottom" secondItem="rrg-Ez-W1j" secondAttribute="bottom" id="bn1-8C-m5r"/>
                                             <constraint firstAttribute="bottom" secondItem="mgc-kJ-2Ni" secondAttribute="bottom" id="dH1-92-5H7"/>
                                             <constraint firstItem="rrg-Ez-W1j" firstAttribute="leading" secondItem="H9T-l0-DL4" secondAttribute="leading" id="pFT-77-8cr"/>
+                                            <constraint firstAttribute="trailing" secondItem="9L9-SV-P6V" secondAttribute="trailing" id="rw2-ZJ-ekz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
