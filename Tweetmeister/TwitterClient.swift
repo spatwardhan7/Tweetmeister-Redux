@@ -12,16 +12,17 @@ import SwiftyJSON
 
 class TwitterClient: BDBOAuth1SessionManager {
     
-    /*
+    
     static let sharedInstance = TwitterClient(baseURL : URL(string: "https://api.twitter.com")!,
                                               consumerKey: "OG97Dv5gaqvQG7cHs068NJ19G",
                                               consumerSecret: "Zvid40WID75Dr21UoZe6JfJDD12EvZfBKMEhZNQJV0sQB3uRAh")
-    */
-    // Secondary App in case of emergency
-    static let sharedInstance = TwitterClient(baseURL : URL(string: "https://api.twitter.com")!,
-                                              consumerKey: "gPe11enPIjuGD4xcWWqfNFU9L",
-                                              consumerSecret: "61ZvB73BlNvtcaVuiEiiktjtrQFSUoBvniwm5gIcyxIrfmPcVR")
     
+    // Secondary App in case of emergency
+    
+//    static let sharedInstance = TwitterClient(baseURL : URL(string: "https://api.twitter.com")!,
+//                                              consumerKey: "gPe11enPIjuGD4xcWWqfNFU9L",
+//                                              consumerSecret: "61ZvB73BlNvtcaVuiEiiktjtrQFSUoBvniwm5gIcyxIrfmPcVR")
+//    
     
     
     var loginSuccess: (() -> ())?

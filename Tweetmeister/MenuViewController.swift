@@ -53,7 +53,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuCell
         
-        let titles = ["Timeline", "Profile", "Mentions"]
+        let titles = ["Timeline", "Profile", "Mentions", "Accounts"]
         cell.menuTitleLabel.text = titles[indexPath.row]
         
         return cell
