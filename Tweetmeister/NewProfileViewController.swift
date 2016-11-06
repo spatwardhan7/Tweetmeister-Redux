@@ -12,49 +12,38 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
     
     var username:String!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tweetsTableView: UITableView!
     let client = TwitterClient.sharedInstance!
-    var tweets : [Tweet]!
+    var tweets = [Tweet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupTweetsTableView()
-    
     }
     
     func setupTableView(){
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 160
+        tableView.estimatedRowHeight = 300
         tableView.register(UINib(nibName: "ProfileViewCell", bundle : nil), forCellReuseIdentifier: "profileViewCell")
-
-    }
-    
-    func setupTweetsTableView(){
-        tweetsTableView.dataSource = self
-        tweetsTableView.delegate = self
-        tweetsTableView.rowHeight = UITableViewAutomaticDimension
-        tweetsTableView.estimatedRowHeight = 160
-        tweetsTableView.register(UINib(nibName: "TweetCellNib", bundle : nil), forCellReuseIdentifier: "tweetCellNib")
+        tableView.register(UINib(nibName: "TweetCellNib", bundle : nil), forCellReuseIdentifier: "tweetCellNib")
         getUserTweets()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(tableView == self.tableView){
+        if section == 0{
             return 1
         } else {
-            if(tweets != nil){
-                return tweets.count
-            } else {
-                return 0
-            }
+            return tweets.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(tableView == self.tableView){
+        if(indexPath.section == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: "profileViewCell") as! ProfileViewCell
             
             if(username == nil){
@@ -80,7 +69,7 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
         }
         client.getUserTweets(params: params, success: { (tweets : [Tweet]) in
                 self.tweets = tweets
-            self.tweetsTableView.reloadData()
+            self.tableView.reloadData()
             }, failure: { (error : Error) in
         })
     }

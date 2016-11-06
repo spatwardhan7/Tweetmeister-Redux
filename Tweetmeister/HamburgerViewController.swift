@@ -26,9 +26,9 @@ class HamburgerViewController: UIViewController {
     }
     
     var contentViewController : UIViewController! {
+        /*
         didSet(oldContentViewController){
             view.layoutIfNeeded()
-            
             
             if oldContentViewController != nil {
                 oldContentViewController.willMove(toParentViewController: nil)
@@ -36,19 +36,32 @@ class HamburgerViewController: UIViewController {
                 oldContentViewController.didMove(toParentViewController: nil)
             }
             
-            
             contentViewController.willMove(toParentViewController: self)
             contentView.addSubview(contentViewController.view)
             contentViewController.didMove(toParentViewController: self)
-            
-            
-            
             
             UIView.animate(withDuration: 0.3) { 
                 self.leftMarginConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
+        }
+         */
+        
+        didSet {
+            if (oldValue != nil) {
+                oldValue.willMove(toParentViewController: nil)
+                oldValue.view.removeFromSuperview()
+                oldValue.removeFromParentViewController()
+            }
+            self.addChildViewController(contentViewController)
+            contentViewController.willMove(toParentViewController: self)
+            contentView.addSubview(contentViewController.view)
+            contentViewController.didMove(toParentViewController: self)
             
+            UIView.animate(withDuration: 0.3) {
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
@@ -84,9 +97,11 @@ class HamburgerViewController: UIViewController {
                 // opening
                 if velocity.x > 0 {
                     self.leftMarginConstraint.constant = self.view.frame.size.width - 50
+                    self.contentView.subviews[0].isUserInteractionEnabled = false
                 } else {
                     // closing
                     self.leftMarginConstraint.constant = 0
+                    self.contentView.subviews[0].isUserInteractionEnabled = true
                 }
                 self.view.layoutIfNeeded()
             })
