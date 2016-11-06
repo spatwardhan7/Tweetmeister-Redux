@@ -146,9 +146,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9T-l0-DL4" userLabel="scrollContentView">
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrg-Ez-W1j" userLabel="view1">
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgc-kJ-2Ni" userLabel="view2">
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gh9-Ad-AJj">
                                                         <constraints>
@@ -157,14 +154,17 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="gh9-Ad-AJj" firstAttribute="centerY" secondItem="mgc-kJ-2Ni" secondAttribute="centerY" id="boY-ph-PRO"/>
-                                                    <constraint firstItem="gh9-Ad-AJj" firstAttribute="centerX" secondItem="mgc-kJ-2Ni" secondAttribute="centerX" id="rGs-Ld-tKc"/>
+                                                    <constraint firstItem="gh9-Ad-AJj" firstAttribute="centerX" secondItem="rrg-Ez-W1j" secondAttribute="centerX" id="22o-Bn-8E2"/>
+                                                    <constraint firstItem="gh9-Ad-AJj" firstAttribute="centerY" secondItem="rrg-Ez-W1j" secondAttribute="centerY" id="Din-m9-OcE"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgc-kJ-2Ni" userLabel="view2">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="mgc-kJ-2Ni" firstAttribute="top" secondItem="H9T-l0-DL4" secondAttribute="top" id="IRw-Jl-3Xr"/>
                                             <constraint firstItem="mgc-kJ-2Ni" firstAttribute="leading" secondItem="rrg-Ez-W1j" secondAttribute="trailing" id="SyE-nE-Xz3"/>
@@ -177,6 +177,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="H9T-l0-DL4" secondAttribute="trailing" id="X9P-GO-Aza"/>
                                     <constraint firstItem="H9T-l0-DL4" firstAttribute="leading" secondItem="x8M-Jy-awb" secondAttribute="leading" id="bJc-zj-YOh"/>
