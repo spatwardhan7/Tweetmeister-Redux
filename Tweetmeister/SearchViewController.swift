@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetCellNibDelegate, ComposeViewControllerDelegate {
-
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetCellNibDelegate, ComposeViewControllerDelegate, TweetDetailsViewControllerDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var tweets : [Tweet]!
@@ -33,6 +33,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else {
             return 0
         }
+    }
+    
+    func didComposeFromDetails(tweet: Tweet) {
+        tweetComposed(tweet: tweet)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,18 +68,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func onProfileImageTapped(username : String){
         print("--- tweets view got user name : \(username)")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
-        profileViewController.username = username
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        navigateToNewProfileScreen(username: username)
     }
     
     func onMentionTapped(username : String){
         print("--- tweets view got user name : \(username)")
+        navigateToNewProfileScreen(username: username)
+    }
+    
+    func navigateToNewProfileScreen(username : String){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        let profileViewNavController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController") as! UINavigationController
+        let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
         profileViewController.username = username
         self.navigationController?.pushViewController(profileViewController, animated: true)
+        
     }
     
     func onReplyButtonTapped(tweet: Tweet) {
@@ -87,6 +94,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         present(composeViewController, animated: true) {
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tweet = tweets[indexPath.row]
+        
+        onCellSelected(tweet: tweet)
+    }
+    
+    func onCellSelected(tweet : Tweet){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tweetDetailsViewController = storyboard.instantiateViewController(withIdentifier: "tweetDetailsViewController") as! TweetDetailsViewController
+        tweetDetailsViewController.tweet = tweet
+        tweetDetailsViewController.delegate = self
+        self.navigationController?.pushViewController(tweetDetailsViewController, animated: true)
     }
     
     func didComposeTweet(tweet: Tweet) {

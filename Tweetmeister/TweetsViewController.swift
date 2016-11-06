@@ -122,18 +122,21 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func onProfileImageTapped(username : String){
         print("--- tweets view got user name : \(username)")
+        navigateToNewProfileScreen(username: username)
+    }
+    
+    func navigateToNewProfileScreen(username : String){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        let profileViewNavController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController") as! UINavigationController
+        let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
         profileViewController.username = username
         self.navigationController?.pushViewController(profileViewController, animated: true)
+        
     }
     
     func onMentionTapped(username : String){
         print("--- tweets view got user name : \(username)")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
-        profileViewController.username = username
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        navigateToNewProfileScreen(username: username)
     }
     
     func onReplyButtonTapped(tweet: Tweet) {
@@ -248,6 +251,19 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func onCellSelected(tweet : Tweet){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tweetDetailsViewController = storyboard.instantiateViewController(withIdentifier: "tweetDetailsViewController") as! TweetDetailsViewController
+        tweetDetailsViewController.tweet = tweet
+        tweetDetailsViewController.delegate = self
+        self.navigationController?.pushViewController(tweetDetailsViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tweet = tweets[indexPath.row]
+        
+        onCellSelected(tweet: tweet)
+    }
     
     // MARK: - Navigation
     

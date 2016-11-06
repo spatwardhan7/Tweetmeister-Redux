@@ -62,6 +62,7 @@
 		EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9FD891DC66CC40071366D /* ProfileViewController.swift */; };
 		EEBBCBA41DCE95CF0044A178 /* TweetCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */; };
 		EEBBCBA51DCE95CF0044A178 /* TweetCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */; };
+		EEBBCBA71DCEC59A0044A178 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA61DCEC59A0044A178 /* NewProfileViewController.swift */; };
 		EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */; };
 		EEC99FE11DCC59A60017E63C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE01DCC59A60017E63C /* MenuCell.swift */; };
 		EEC99FE31DCC5A7B0017E63C /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */; };
@@ -131,6 +132,7 @@
 		EEB9FD891DC66CC40071366D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCellNib.swift; sourceTree = "<group>"; };
 		EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCellNib.xib; sourceTree = "<group>"; };
+		EEBBCBA61DCEC59A0044A178 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
 		EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EEC99FE01DCC59A60017E63C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				EE95BF5C1DC6D616003E833B /* SearchViewController.swift */,
 				EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */,
 				EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */,
+				EEBBCBA61DCEC59A0044A178 /* NewProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				EEB9FD871DC5E6630071366D /* RegexParser.swift in Sources */,
 				EEB9FD5F1DC5CD6C0071366D /* AsyncImageView.swift in Sources */,
 				EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */,
+				EEBBCBA71DCEC59A0044A178 /* NewProfileViewController.swift in Sources */,
 				EE6622EB1DC2D2EA00D04309 /* ComposeViewController.swift in Sources */,
 				EEB9FD671DC5CD6C0071366D /* DesignableTextView.swift in Sources */,
 				EEB9FD8A1DC66CC40071366D /* ProfileViewController.swift in Sources */,

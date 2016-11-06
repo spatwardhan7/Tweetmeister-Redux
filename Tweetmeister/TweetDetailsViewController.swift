@@ -51,14 +51,20 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
         
         tweetTextLabel.handleMentionTap { (username : String) in
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
-            profileViewController.username = username
-            self.navigationController?.pushViewController(profileViewController, animated: true)
+            self.navigateToNewProfileScreen(username: username)
         }
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func navigateToNewProfileScreen(username : String){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileViewNavController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController") as! UINavigationController
+        let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
+        profileViewController.username = username
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
     }
     
     func setDetails(){
