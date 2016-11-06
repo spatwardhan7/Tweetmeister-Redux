@@ -126,6 +126,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func navigateToNewProfileScreen(username : String){
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let profileViewNavController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController") as! UINavigationController
         let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
@@ -133,6 +134,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.pushViewController(profileViewController, animated: true)
         
     }
+    
     
     func onMentionTapped(username : String){
         print("--- tweets view got user name : \(username)")

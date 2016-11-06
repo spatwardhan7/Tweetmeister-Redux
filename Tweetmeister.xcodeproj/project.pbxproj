@@ -63,6 +63,8 @@
 		EEBBCBA41DCE95CF0044A178 /* TweetCellNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */; };
 		EEBBCBA51DCE95CF0044A178 /* TweetCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */; };
 		EEBBCBA71DCEC59A0044A178 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA61DCEC59A0044A178 /* NewProfileViewController.swift */; };
+		EEBBCBAA1DCECF9E0044A178 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBBCBA81DCECF9E0044A178 /* ProfileViewCell.swift */; };
+		EEBBCBAB1DCECF9E0044A178 /* ProfileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBBCBA91DCECF9E0044A178 /* ProfileViewCell.xib */; };
 		EEC99FDF1DCC593C0017E63C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */; };
 		EEC99FE11DCC59A60017E63C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE01DCC59A60017E63C /* MenuCell.swift */; };
 		EEC99FE31DCC5A7B0017E63C /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */; };
@@ -133,6 +135,8 @@
 		EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCellNib.swift; sourceTree = "<group>"; };
 		EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCellNib.xib; sourceTree = "<group>"; };
 		EEBBCBA61DCEC59A0044A178 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
+		EEBBCBA81DCECF9E0044A178 /* ProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
+		EEBBCBA91DCECF9E0044A178 /* ProfileViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewCell.xib; sourceTree = "<group>"; };
 		EEC99FDE1DCC593C0017E63C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EEC99FE01DCC59A60017E63C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		EEC99FE21DCC5A7B0017E63C /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				EEC99FE01DCC59A60017E63C /* MenuCell.swift */,
 				EEBBCBA21DCE95CF0044A178 /* TweetCellNib.swift */,
 				EEBBCBA31DCE95CF0044A178 /* TweetCellNib.xib */,
+				EEBBCBA81DCECF9E0044A178 /* ProfileViewCell.swift */,
+				EEBBCBA91DCECF9E0044A178 /* ProfileViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEBBCBAB1DCECF9E0044A178 /* ProfileViewCell.xib in Resources */,
 				EEB9FD6A1DC5CD6C0071366D /* Info.plist in Resources */,
 				EE2147401DBFAB2D00CBF9AF /* LaunchScreen.storyboard in Resources */,
 				EEB9FD861DC5E6630071366D /* Info.plist in Resources */,
@@ -489,6 +496,7 @@
 				EEB9FD711DC5CD6C0071366D /* SpringAnimation.swift in Sources */,
 				EEB9FD781DC5CD6C0071366D /* TransitionManager.swift in Sources */,
 				EE95BF5D1DC6D616003E833B /* SearchViewController.swift in Sources */,
+				EEBBCBAA1DCECF9E0044A178 /* ProfileViewCell.swift in Sources */,
 				EEB9FD7A1DC5CD6C0071366D /* UnwindSegue.swift in Sources */,
 				EEB9FD6C1DC5CD6C0071366D /* LoadingView.swift in Sources */,
 				EEB9FD731DC5CD6C0071366D /* SpringImageView.swift in Sources */,

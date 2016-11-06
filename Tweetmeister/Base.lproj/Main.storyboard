@@ -409,19 +409,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DWY-pS-eIm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DWY-pS-eIm">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="440" id="b8C-hg-Rjl"/>
+                                </constraints>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U0I-dG-BHc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DWY-pS-eIm" secondAttribute="trailing" id="AKR-8v-2Bq"/>
+                            <constraint firstItem="U0I-dG-BHc" firstAttribute="top" secondItem="DWY-pS-eIm" secondAttribute="bottom" id="E6S-w6-0i1"/>
+                            <constraint firstItem="U0I-dG-BHc" firstAttribute="leading" secondItem="aE5-yp-fLW" secondAttribute="leading" id="GCr-gH-kMY"/>
+                            <constraint firstItem="kUP-f8-auu" firstAttribute="top" secondItem="U0I-dG-BHc" secondAttribute="bottom" id="Se8-fH-y69"/>
                             <constraint firstItem="DWY-pS-eIm" firstAttribute="top" secondItem="lfI-el-xyF" secondAttribute="bottom" id="iBo-Ke-0Ba"/>
-                            <constraint firstItem="kUP-f8-auu" firstAttribute="top" secondItem="DWY-pS-eIm" secondAttribute="bottom" id="jtY-1s-0TN"/>
+                            <constraint firstAttribute="trailing" secondItem="U0I-dG-BHc" secondAttribute="trailing" id="iCV-bG-1xA"/>
                             <constraint firstItem="DWY-pS-eIm" firstAttribute="leading" secondItem="aE5-yp-fLW" secondAttribute="leading" id="nTK-8E-4eJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QgQ-ai-hXq"/>
+                    <connections>
+                        <outlet property="tableView" destination="DWY-pS-eIm" id="REk-ca-Q9b"/>
+                        <outlet property="tweetsTableView" destination="U0I-dG-BHc" id="0ny-Ae-Zib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGZ-Hb-jK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
