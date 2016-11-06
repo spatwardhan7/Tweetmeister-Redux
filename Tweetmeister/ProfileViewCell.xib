@@ -39,22 +39,6 @@
                             <constraint firstAttribute="height" constant="12" id="tMo-SV-xvr"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="This is a tagline description which can go on forever and we therefor have to account for vertical space" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-vz-Gcz" customClass="ActiveLabel" customModule="Tweetmeister" customModuleProvider="target">
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <color key="textColor" red="0.078431372550000003" green="0.090196078430000007" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="URLColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="hashtagColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="mentionColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-Mr-jWs" userLabel="Location View">
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="d6h-PJ-WLV">
@@ -161,7 +145,31 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgc-kJ-2Ni" userLabel="view2">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="This is a tagline description which can go on forever and we therefor have to account for vertical space" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-vz-Gcz" customClass="ActiveLabel" customModule="Tweetmeister" customModuleProvider="target">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                        <color key="textColor" red="0.078431372550000003" green="0.090196078430000007" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="URLColor">
+                                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="hashtagColor">
+                                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="mentionColor">
+                                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="rt3-vz-Gcz" secondAttribute="trailing" constant="8" id="Jeq-5k-DTa"/>
+                                                    <constraint firstItem="rt3-vz-Gcz" firstAttribute="leading" secondItem="mgc-kJ-2Ni" secondAttribute="leading" constant="8" id="hCr-s0-ZZk"/>
+                                                    <constraint firstItem="rt3-vz-Gcz" firstAttribute="centerX" secondItem="mgc-kJ-2Ni" secondAttribute="centerX" id="its-io-XOt"/>
+                                                    <constraint firstItem="rt3-vz-Gcz" firstAttribute="centerY" secondItem="mgc-kJ-2Ni" secondAttribute="centerY" id="yhN-Uh-rfx"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -210,7 +218,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="9VH-lt-7v8" firstAttribute="top" secondItem="5Ad-aJ-tKj" secondAttribute="bottom" constant="6" id="1qC-aJ-3GG"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9VH-lt-7v8" secondAttribute="bottom" constant="8" id="4WM-2h-EA8"/>
+                    <constraint firstItem="mwH-Mr-jWs" firstAttribute="top" secondItem="dpA-vz-JVe" secondAttribute="bottom" constant="16" id="4qd-7c-tFf"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9VH-lt-7v8" secondAttribute="bottom" constant="8" id="8fX-oP-9R4"/>
                     <constraint firstItem="NPz-dT-Y3K" firstAttribute="leading" secondItem="5Ad-aJ-tKj" secondAttribute="trailing" constant="50" id="9FE-Xf-QeR"/>
                     <constraint firstItem="iSV-l2-gzm" firstAttribute="centerX" secondItem="L2p-Lx-tfq" secondAttribute="centerX" id="9I0-dC-D8C"/>
                     <constraint firstItem="dpA-vz-JVe" firstAttribute="top" secondItem="j6G-h1-4Rv" secondAttribute="bottom" constant="4" id="BkV-g7-gLQ"/>
@@ -218,8 +227,6 @@
                     <constraint firstItem="j6G-h1-4Rv" firstAttribute="top" secondItem="bPY-Nx-vOL" secondAttribute="bottom" constant="16" id="DHu-A3-Rbd"/>
                     <constraint firstItem="5Ad-aJ-tKj" firstAttribute="top" secondItem="1NA-K8-Jg4" secondAttribute="bottom" constant="8" id="DtQ-Jj-TFf"/>
                     <constraint firstItem="5Ad-aJ-tKj" firstAttribute="centerY" secondItem="L2p-Lx-tfq" secondAttribute="centerY" id="GAc-LW-AzO"/>
-                    <constraint firstItem="mwH-Mr-jWs" firstAttribute="top" secondItem="rt3-vz-Gcz" secondAttribute="bottom" constant="8" id="Hm3-gG-RmY"/>
-                    <constraint firstItem="rt3-vz-Gcz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KMl-h8-jej"/>
                     <constraint firstAttribute="trailing" secondItem="mwH-Mr-jWs" secondAttribute="trailing" constant="8" id="QIq-Zn-ghf"/>
                     <constraint firstItem="MiF-Yy-orU" firstAttribute="leading" secondItem="j6G-h1-4Rv" secondAttribute="trailing" constant="4" id="T9N-GN-ZBh"/>
                     <constraint firstItem="5Ad-aJ-tKj" firstAttribute="leading" secondItem="L2p-Lx-tfq" secondAttribute="trailing" constant="50" id="TBY-Gz-DYp"/>
@@ -229,8 +236,6 @@
                     <constraint firstItem="XDf-pa-i6y" firstAttribute="centerX" secondItem="NPz-dT-Y3K" secondAttribute="centerX" id="ZpS-zv-m0L"/>
                     <constraint firstAttribute="trailing" secondItem="1NA-K8-Jg4" secondAttribute="trailing" constant="8" id="b5k-8f-XjF"/>
                     <constraint firstItem="j6G-h1-4Rv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bgU-YY-JZ6"/>
-                    <constraint firstAttribute="trailing" secondItem="rt3-vz-Gcz" secondAttribute="trailing" constant="8" id="cPd-3I-00U"/>
-                    <constraint firstItem="rt3-vz-Gcz" firstAttribute="top" secondItem="dpA-vz-JVe" secondAttribute="bottom" constant="8" id="enH-zK-rnd"/>
                     <constraint firstItem="5Ad-aJ-tKj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="j7Z-7O-5oJ"/>
                     <constraint firstItem="bPY-Nx-vOL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jsr-ii-ITb"/>
                     <constraint firstItem="rrg-Ez-W1j" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="kGE-bR-0BE"/>
