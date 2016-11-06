@@ -8,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="359" id="KGk-i7-Jjw" customClass="TweetCellNib" customModule="Tweetmeister" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCellNib" rowHeight="359" id="KGk-i7-Jjw" customClass="TweetCellNib" customModule="Tweetmeister" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="349" height="362"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="349" height="362"/>
+                <frame key="frameInset" width="349" height="361"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mj5-uj-k0N" userLabel="Retweet View">
@@ -96,6 +96,9 @@
                                     <constraint firstAttribute="height" constant="16" id="aCn-S3-C3J"/>
                                 </constraints>
                                 <state key="normal" image="retweet"/>
+                                <connections>
+                                    <action selector="onRetweetButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EqS-Fs-mV4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4z-Xb-2Oq">
                                 <constraints>
@@ -103,6 +106,9 @@
                                     <constraint firstAttribute="width" constant="16" id="gpi-zy-MS2"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="reply"/>
+                                <connections>
+                                    <action selector="onReplyButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WCr-Nc-Qxg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lg-L8-RWG" customClass="SpringButton" customModule="Tweetmeister" customModuleProvider="target">
                                 <constraints>
@@ -110,6 +116,9 @@
                                     <constraint firstAttribute="height" constant="16" id="F83-WV-xvJ"/>
                                 </constraints>
                                 <state key="normal" image="heart"/>
+                                <connections>
+                                    <action selector="onLikeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6jx-88-Wmh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,6 +161,21 @@
                     <constraint firstAttribute="trailing" secondItem="eNA-V5-dgu" secondAttribute="trailing" constant="8" id="z83-8Z-3q5"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="likeButton" destination="1Lg-L8-RWG" id="9PT-TR-6AR"/>
+                <outlet property="mediaImageView" destination="7dq-y2-oVt" id="dfc-YN-MaS"/>
+                <outlet property="mediaViewHeight" destination="YY6-OB-J8i" id="edD-38-neZ"/>
+                <outlet property="nameLabel" destination="RrY-0M-Sav" id="gIS-jI-Dvg"/>
+                <outlet property="posterImageView" destination="Zds-e6-FNb" id="W9i-iG-sJl"/>
+                <outlet property="replyButton" destination="V4z-Xb-2Oq" id="Ktk-MG-BeP"/>
+                <outlet property="retweetButton" destination="vgU-iq-JhP" id="FOB-8o-bvf"/>
+                <outlet property="retweetNameLabel" destination="6Jh-Dy-0fc" id="CmM-KP-H6s"/>
+                <outlet property="retweetView" destination="Mj5-uj-k0N" id="boz-wJ-KDL"/>
+                <outlet property="retweetViewHeight" destination="7z6-D0-HIR" id="Chy-z9-3rV"/>
+                <outlet property="timeLabel" destination="Hxv-6O-HRn" id="wUl-7U-urG"/>
+                <outlet property="tweetTextLabel" destination="eNA-V5-dgu" id="EVF-cz-CY8"/>
+                <outlet property="usernameLabel" destination="9za-Fm-iyI" id="6Z2-gU-hcY"/>
+            </connections>
             <point key="canvasLocation" x="132.5" y="210"/>
         </tableViewCell>
     </objects>

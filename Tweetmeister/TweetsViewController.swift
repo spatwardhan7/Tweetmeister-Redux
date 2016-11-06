@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate, TweetDetailsViewControllerDelegate {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, TweetCellNibDelegate, ComposeViewControllerDelegate, TweetDetailsViewControllerDelegate {
     
     var tweets : [Tweet]!
     let client = TwitterClient.sharedInstance!
@@ -49,6 +49,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160
         tableView.insertSubview(refreshControl, at: 0)
+        tableView.register(UINib(nibName: "TweetCellNib", bundle : nil), forCellReuseIdentifier: "tweetCellNib")
     }
     
     func setupNavigationbar(){
@@ -80,7 +81,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCellNib", for: indexPath) as! TweetCellNib
         
         cell.tweet = tweets[indexPath.row]
         cell.delegate = self
