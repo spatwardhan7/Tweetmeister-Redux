@@ -37,6 +37,8 @@ class Tweet: NSObject {
         self.name = tweetJSON["user"]["name"].string!
         self.username = "@" + tweetJSON["user"]["screen_name"].string!
         text = tweetJSON["text"].string?.replacingOccurrences(of: "&amp;", with: "&")
+        text = text?.replacingOccurrences(of: "&lt;", with: "<")
+        text = text?.replacingOccurrences(of: "&gt;", with: ">")
         retweetCount = (tweetJSON["retweet_count"].int) ?? 0
         favoritesCount = (tweetJSON["favorite_count"].int) ?? 0
         favorited = tweetJSON["favorited"].int

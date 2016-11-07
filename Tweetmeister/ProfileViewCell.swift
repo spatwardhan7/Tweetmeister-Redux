@@ -134,26 +134,20 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print ("decelerate")
         pControl.currentPage = Int(scrollView.contentOffset.x / scrollView.bounds.width)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("did scroll")
         let offset = scrollView.contentOffset.x / scrollView.bounds.width
-        
         self.opacityView.alpha = CGFloat(offset * 0.5)
-
     }
     
     
     var opacity : CGFloat = 0
     
     func updateHeight(y : CGFloat){
-    
         holderHeight.constant = originalHeight + y
         opacityView.alpha += 0.03
-        
         self.layoutIfNeeded()
     }
     
@@ -165,11 +159,9 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         }
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    
 }

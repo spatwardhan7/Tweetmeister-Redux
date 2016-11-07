@@ -86,7 +86,7 @@ class TweetCellNib: UITableViewCell {
             if(tweet.mediaUrl != nil){
                 mediaImageView.setImageWith(tweet.mediaUrl!)
                 mediaImageView.isHidden = false
-                mediaViewHeight.constant = 220
+                mediaViewHeight.constant = 260
             }
             
             isFav = (tweet.favorited) ?? 0
