@@ -27,14 +27,10 @@ class TweetCellNib: UITableViewCell {
     @IBOutlet weak var tweetTextLabel: ActiveLabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var mediaViewHeight: NSLayoutConstraint!
     @IBOutlet weak var retweetNameLabel: UILabel!
-    
     @IBOutlet weak var mediaImageView: UIImageView!
-    
     @IBOutlet weak var replyButton: UIButton!
-    
     @IBOutlet weak var likeButton: SpringButton!
     @IBOutlet weak var retweetButton: SpringButton!
     
@@ -94,7 +90,6 @@ class TweetCellNib: UITableViewCell {
             
             setFavImage()
             setRetweetImage()
-            
         }
     }
     

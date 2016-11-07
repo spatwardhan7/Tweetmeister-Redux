@@ -25,16 +25,12 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var separatorDotImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
-    //@IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: ActiveLabel!
-    
     @IBOutlet weak var mediaViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: SpringButton!
     @IBOutlet weak var likeButton: SpringButton!
@@ -45,7 +41,6 @@ class TweetCell: UITableViewCell {
     var delegate: TweetCellDelegate?
     var tap : UITapGestureRecognizer?
 
-    
     var tweet : Tweet!{
         didSet {
             // Clean up Cell
@@ -96,7 +91,6 @@ class TweetCell: UITableViewCell {
             
             setFavImage()
             setRetweetImage()
-
         }
     }
     
@@ -224,7 +218,6 @@ class TweetCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

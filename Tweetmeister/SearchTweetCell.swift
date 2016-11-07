@@ -13,20 +13,15 @@ class SearchTweetCell: UITableViewCell {
     @IBOutlet weak var retweetNameLabel: UILabel!
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweetViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var mediaViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: ActiveLabel!
     let client = TwitterClient.sharedInstance
 
-
-    
     var tweet : Tweet!{
         didSet {
             // Clean up Cell
@@ -75,20 +70,16 @@ class SearchTweetCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         posterImageView.layer.cornerRadius = 5
         posterImageView.clipsToBounds = true
-        
         self.selectionStyle = .none
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

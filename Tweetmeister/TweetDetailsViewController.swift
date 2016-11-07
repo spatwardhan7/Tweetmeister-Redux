@@ -54,7 +54,6 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
             self.navigateToNewProfileScreen(username: username)
         }
         
-        
         // Do any additional setup after loading the view.
     }
     
@@ -64,11 +63,9 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
         let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
         profileViewController.username = username
         self.navigationController?.pushViewController(profileViewController, animated: true)
-        
     }
     
     func setDetails(){
-
         // Clean up View
         retweetNameLabel.text = ""
         retweetView.isHidden = true
@@ -97,7 +94,6 @@ class TweetDetailsViewController: UIViewController , ComposeViewControllerDelega
             if(tweet.profileImageUrl != nil){
                 posterImageView.setImageWith(tweet.profileImageUrl!)
             }
-        
         }
     
         let formatter = DateFormatter()

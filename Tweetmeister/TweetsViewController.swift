@@ -23,7 +23,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isHomeTimeline : Bool = true
     var isMentionsTimeline : Bool!
     
-    
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
@@ -40,8 +39,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Do any additional setup after loading the view.
     }
-    
-    
     
     func setupTableView(){
         tableView.dataSource = self
@@ -106,15 +103,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         client.searchTweets(params: hashtag, success: { (searchTweets : [Tweet]) in
             print("--- got search tweets : \(searchTweets.count)")
             
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let searchViewController = storyboard.instantiateViewController(withIdentifier: "searchViewController") as! SearchViewController
             searchViewController.tweets = searchTweets
             self.navigationController?.pushViewController(searchViewController, animated: true)
-            
-            
-            
-            
         }) { (error : Error) in
             print("--- searctTweets failure : \(error.localizedDescription)")
         }
@@ -126,13 +118,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func navigateToNewProfileScreen(username : String){
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let profileViewNavController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController") as! UINavigationController
         let profileViewController  = profileViewNavController.topViewController as! NewProfileViewController
         profileViewController.username = username
         self.navigationController?.pushViewController(profileViewController, animated: true)
-        
     }
     
     
@@ -144,15 +134,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func onReplyButtonTapped(tweet: Tweet) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
-        
         composeViewController.tweet = tweet
         composeViewController.delegate = self
         present(composeViewController, animated: true) {
         }
         
     }
-    
-    
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         loadHomeTimelineTweets(withProgressHUD: false)
@@ -244,7 +231,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func onComposeButton(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let composeViewController = storyboard.instantiateViewController(withIdentifier: "composeViewController") as! ComposeViewController
@@ -283,5 +269,4 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             tweetDetailsViewController.delegate = self
         }
     }
-    
 }

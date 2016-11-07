@@ -52,14 +52,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         client.searchTweets(params: hashtag, success: { (searchTweets : [Tweet]) in
             print("--- got search tweets : \(searchTweets.count)")
             
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let searchViewController = storyboard.instantiateViewController(withIdentifier: "searchViewController") as! SearchViewController
             searchViewController.tweets = searchTweets
             self.navigationController?.pushViewController(searchViewController, animated: true)
-            
-            
-            
             
         }) { (error : Error) in
             print("--- searctTweets failure : \(error.localizedDescription)")
@@ -98,7 +94,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tweet = tweets[indexPath.row]
-        
         onCellSelected(tweet: tweet)
     }
     

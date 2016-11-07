@@ -42,12 +42,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         mentionsViewController.isHomeTimeline = false
         mentionsViewController.isMentionsTimeline = true
         
-        //profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController")
-        //newProfileViewNavigationController
-        
         profileViewController = storyboard.instantiateViewController(withIdentifier: "newProfileViewNavigationController")
 
-        
         hamburgerViewController.contentViewController = tweetsNavController
         // Do any additional setup after loading the view.
     }

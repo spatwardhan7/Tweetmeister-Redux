@@ -47,14 +47,8 @@ class ProfileViewController: UIViewController {
         posterImageView.layer.cornerRadius = 8.0
         posterImageView.clipsToBounds = true
 
-        //self.navigationController?.navigationBar.tintColor = UIColor.white;
-
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
         MBProgressHUD.showAdded(to: self.view, animated: true)
         loadUserDetails()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -74,12 +68,10 @@ class ProfileViewController: UIViewController {
     
     func updateLabels(){
         if(userProfile.profileBannerUrl != nil){
-            //posterBackgroundImageView.setImageWith(userProfile.profileBannerUrl!)
             StaticHelper.fadeInImage(posterImageView: posterBackgroundImageView, posterImageUrl: userProfile.profileBannerUrl!)
         }
         
         if(userProfile.profileUrl != nil ){
-            //posterImageView.setImageWith(userProfile.profileUrl!)
             StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: userProfile.profileUrl!)
         }
         
@@ -107,7 +99,6 @@ class ProfileViewController: UIViewController {
             urlLabel.isHidden = true
         }
         
-        
         let followersNum = numString(num: userProfile.followersCount!)
         let followingNum = numString(num: userProfile.followingCount!)
         let tweetsNum = numString(num: userProfile.tweetsCount!)
@@ -131,7 +122,6 @@ class ProfileViewController: UIViewController {
             let result = numFloat/thousand
             returnString = "\(result)k"
         }
-        
         return returnString
     }
     

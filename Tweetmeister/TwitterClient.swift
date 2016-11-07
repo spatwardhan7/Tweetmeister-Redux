@@ -24,7 +24,6 @@ class TwitterClient: BDBOAuth1SessionManager {
 //                                              consumerSecret: "61ZvB73BlNvtcaVuiEiiktjtrQFSUoBvniwm5gIcyxIrfmPcVR")
 //    
     
-    
     var loginSuccess: (() -> ())?
     var loginFailure: ((Error) -> ())?
 
@@ -39,7 +38,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task : URLSessionDataTask?, error : Error) in
                 failure(error)
         })
-        
     }
     
     func postTweet(params: Any, success: @escaping() -> (), failure: @escaping (Error) -> ()){

@@ -44,7 +44,6 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         // Initialization code
         
-        
         urlLabel.handleURLTap { (url : URL) in
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
@@ -58,7 +57,6 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         posterImageView.clipsToBounds = true
         
         originalHeight = holderHeight.constant
-        
     }
     
     func loadUserDetails(){
@@ -103,7 +101,6 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
             urlLabel.isHidden = true
         }
         
-        
         let followersNum = numString(num: userProfile.followersCount!)
         let followingNum = numString(num: userProfile.followingCount!)
         let tweetsNum = numString(num: userProfile.tweetsCount!)
@@ -142,7 +139,6 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         self.opacityView.alpha = CGFloat(offset * 0.5)
     }
     
-    
     var opacity : CGFloat = 0
     
     func updateHeight(y : CGFloat){
@@ -161,7 +157,6 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 }

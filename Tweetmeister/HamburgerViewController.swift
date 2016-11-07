@@ -19,34 +19,11 @@ class HamburgerViewController: UIViewController {
     var menuViewController : UIViewController! {
         didSet{
             view.layoutIfNeeded()
-            
             menuView.addSubview(menuViewController.view)
-            
         }
     }
     
     var contentViewController : UIViewController! {
-        /*
-        didSet(oldContentViewController){
-            view.layoutIfNeeded()
-            
-            if oldContentViewController != nil {
-                oldContentViewController.willMove(toParentViewController: nil)
-                oldContentViewController.view.removeFromSuperview()
-                oldContentViewController.didMove(toParentViewController: nil)
-            }
-            
-            contentViewController.willMove(toParentViewController: self)
-            contentView.addSubview(contentViewController.view)
-            contentViewController.didMove(toParentViewController: self)
-            
-            UIView.animate(withDuration: 0.3) { 
-                self.leftMarginConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            }
-        }
-         */
-        
         didSet {
             if (oldValue != nil) {
                 oldValue.willMove(toParentViewController: nil)
@@ -90,13 +67,10 @@ class HamburgerViewController: UIViewController {
             }
             
             if velocity.y > 0 {
-            
             }
             
         } else if sender.state == UIGestureRecognizerState.ended{
            
-            
-            
             UIView.animate(withDuration: 0.3, animations: {
                 // opening
                 if velocity.x > 0 {

@@ -45,8 +45,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        
         // Do any additional setup after loading the view.
         
         StaticHelper.fadeInImage(posterImageView: profileImageView, posterImageUrl: (User.currentUser?.profileUrl)!)
@@ -132,8 +130,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    
-    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // Combine the textView text and the replacement text to
         // create the updated text string
@@ -211,7 +207,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

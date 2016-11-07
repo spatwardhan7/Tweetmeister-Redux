@@ -57,7 +57,6 @@ class Tweet: NSObject {
             }
         }
         
-        
         if let retweetedStatus = dictionary["retweeted_status"] as? NSDictionary {
             let userDictionary = retweetedStatus["user"] as! NSDictionary
             let user = User(dictionary : userDictionary)
