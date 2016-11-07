@@ -64,7 +64,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPY-Nx-vOL" userLabel="scrollHolderView">
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYm-n9-LTD"/>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-de-u0W" userLabel="opacityView">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-de-u0W" userLabel="opacityView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8M-Jy-awb">
@@ -203,7 +203,7 @@
                                     <constraint firstAttribute="bottom" secondItem="H9T-l0-DL4" secondAttribute="bottom" id="rGj-o3-LAT"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="-1" id="xb5-gm-ujd"/>
+                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="xOB-YI-glb"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -225,7 +225,7 @@
                             <constraint firstAttribute="trailing" secondItem="mYm-n9-LTD" secondAttribute="trailing" id="qXf-dy-hWw"/>
                         </constraints>
                     </view>
-                    <pageControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="cxf-cp-Uml">
+                    <pageControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cxf-cp-Uml">
                         <gestureRecognizers/>
                         <color key="pageIndicatorTintColor" red="0.88235294119999996" green="0.90980392160000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -270,10 +270,12 @@
                 <outlet property="locationLabel" destination="HeG-WZ-B36" id="Vj4-xA-MJa"/>
                 <outlet property="locationViewHeight" destination="3v9-4N-sf7" id="kWQ-ak-bnf"/>
                 <outlet property="nameLabel" destination="j6G-h1-4Rv" id="gyN-Ef-dSB"/>
+                <outlet property="opacityView" destination="z2r-de-u0W" id="7Yp-sI-kt7"/>
                 <outlet property="pControl" destination="cxf-cp-Uml" id="2eK-Jg-tPl"/>
                 <outlet property="pinImageView" destination="d6h-PJ-WLV" id="cbB-CP-2JK"/>
                 <outlet property="posterBackgroundImageView" destination="mYm-n9-LTD" id="ZzE-hI-H7o"/>
                 <outlet property="posterImageView" destination="gh9-Ad-AJj" id="N0H-zf-Bxp"/>
+                <outlet property="scrollView" destination="x8M-Jy-awb" id="cYj-AC-1MZ"/>
                 <outlet property="tweetsLabel" destination="XDf-pa-i6y" id="RfE-zq-N6E"/>
                 <outlet property="urlLabel" destination="Gaa-O5-RL4" id="sSi-jC-jsR"/>
                 <outlet property="urlViewHeight" destination="Y0k-mL-cvy" id="kTj-sH-2WB"/>

@@ -51,6 +51,7 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
             } else {
                 cell.username = username
             }
+            cell.selectionStyle = .none
             
             return cell
         } else {

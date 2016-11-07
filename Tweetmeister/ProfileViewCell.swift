@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ProfileViewCell: UITableViewCell {
+class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
 
+    @IBOutlet weak var opacityView: UIView!
     @IBOutlet weak var posterBackgroundImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,6 +20,7 @@ class ProfileViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var urlLabel: ActiveLabel!
     @IBOutlet weak var locationViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var urlViewHeight: NSLayoutConstraint!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
@@ -49,9 +51,7 @@ class ProfileViewCell: UITableViewCell {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         
-//        pageControl.addTarget(self, action: #selector(self.pageControlChangedValue(_:)), for: .valueChanged)
-        
-        pControl.addTarget(self, action: #selector(self.pageControlChangedValue(_:)), for: .touchUpInside)
+        opacityView.alpha = 0
         posterImageView.layer.cornerRadius = 8.0
         posterImageView.clipsToBounds = true
         
@@ -123,15 +123,25 @@ class ProfileViewCell: UITableViewCell {
         
         return returnString
     }
-
-
-    func pageControlChangedValue(_ sender: UIPageControl) {
-        print("print")
-    }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
         
-        print("print")
+        let xOffset = scrollView.bounds.width * CGFloat(pControl.currentPage)
+        
+        scrollView.setContentOffset(CGPoint(x: xOffset, y:0), animated: true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print ("decelerate")
+        pControl.currentPage = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("did scroll")
+        let offset = scrollView.contentOffset.x / scrollView.bounds.width
+        
+        self.opacityView.alpha = CGFloat(offset * 0.5)
+
     }
     
 
