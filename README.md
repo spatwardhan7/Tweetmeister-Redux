@@ -1,6 +1,6 @@
 # Project 4 - *Tweetmeister-Redux*
 
-Time spent: **X** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -18,30 +18,29 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Profile Page
-   - [ ] Implement the paging view for the user description.
-   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-   - [ ] Pulling down the profile page should blur and resize the header image.
-- [ ] Account switching
-   - [ ] Long press on tab bar to bring up Account view with animation
-   - [ ] Tap account to switch to
-   - [ ] Include a plus button to Add an Account
-   - [ ] Swipe to delete an account
-
+- [x] Profile Page
+   - [x] Implement the paging view for the user description.
+   - [x] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+   - [x] Pulling down the profile page should blur and resize the header image.
 
 The following **additional** features are implemented:
 
-- [ ] 
+- [x] Media Image inside tweet cell 
+- [x] Attributed hashtags, mentions and urls
+- [x] Attributed urls in profile scroll view 
+- [x] Use xibs for profile cell and tweet cell
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-  1.
-  2.
+  1. Account Switching
+  2. Pull down guesture on Profile Page
 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+
+![Video Walkthrough](tweetmeister-redux-take1.gif)
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
@@ -49,10 +48,13 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+I had to rebuild most of my existing project to start using xibs. After that, implementing scroll view for profile page took all of my time. I had over looked certain issues which crept up during this implementation. 
+
+Also, licecap cannot capture video as is. Especially the profile view where it cannot quite capture the page control and the background image. I bumped it up to 24 FPS, any higher than that and it will probably result in gif's bigger than 100 MB 
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2016 Saurabh Patwardhan
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
