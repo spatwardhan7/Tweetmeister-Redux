@@ -146,13 +146,20 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
 
     }
     
+    
+    var opacity : CGFloat = 0
+    
     func updateHeight(y : CGFloat){
+    
         holderHeight.constant = originalHeight + y
+        opacityView.alpha += 0.03
+        
         self.layoutIfNeeded()
     }
     
     func restoreHeight(){
         holderHeight.constant = originalHeight
+        opacityView.alpha = opacity
         UIView.animate(withDuration: 0.2) {
             self.layoutIfNeeded()
         }
