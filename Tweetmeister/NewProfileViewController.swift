@@ -34,6 +34,10 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
         return 2
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return 1
@@ -41,6 +45,26 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
             return tweets.count
         }
     }
+    @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
+        let location = sender.translation(in: view)
+        
+        if sender.state == .began {
+            
+        } else if sender.state == .changed {
+            profileCell.updateHeight(y: location.y)
+            UIView.setAnimationsEnabled(false)
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+        }
+        else if sender.state == .ended {
+            profileCell.restoreHeight()
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+        
+    }
+    var profileCell : ProfileViewCell!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
@@ -51,6 +75,9 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
             } else {
                 cell.username = username
             }
+            
+            profileCell = cell
+            
             cell.selectionStyle = .none
             
             return cell

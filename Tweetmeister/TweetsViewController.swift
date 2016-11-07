@@ -20,7 +20,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     
-    var isHomeTimeline : Bool!
+    var isHomeTimeline : Bool = true
     var isMentionsTimeline : Bool!
     
     

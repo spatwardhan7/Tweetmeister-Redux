@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrollHolderView: UIView!
+    @IBOutlet weak var holderHeight: NSLayoutConstraint!
     @IBOutlet weak var opacityView: UIView!
     @IBOutlet weak var posterBackgroundImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -36,7 +38,7 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     var userProfile : User!
     let client = TwitterClient.sharedInstance!
-    
+    var originalHeight : CGFloat!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +57,8 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         posterImageView.layer.cornerRadius = 8.0
         posterImageView.clipsToBounds = true
         
+        originalHeight = holderHeight.constant
+        
     }
     
     func loadUserDetails(){
@@ -68,12 +72,10 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
     
     func updateLabels(){
         if(userProfile.profileBannerUrl != nil){
-            //posterBackgroundImageView.setImageWith(userProfile.profileBannerUrl!)
             StaticHelper.fadeInImage(posterImageView: posterBackgroundImageView, posterImageUrl: userProfile.profileBannerUrl!)
         }
         
         if(userProfile.profileUrl != nil ){
-            //posterImageView.setImageWith(userProfile.profileUrl!)
             StaticHelper.fadeInImage(posterImageView: posterImageView, posterImageUrl: userProfile.profileUrl!)
         }
         
@@ -142,6 +144,18 @@ class ProfileViewCell: UITableViewCell, UIScrollViewDelegate {
         
         self.opacityView.alpha = CGFloat(offset * 0.5)
 
+    }
+    
+    func updateHeight(y : CGFloat){
+        holderHeight.constant = originalHeight + y
+        self.layoutIfNeeded()
+    }
+    
+    func restoreHeight(){
+        holderHeight.constant = originalHeight
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
     }
     
 

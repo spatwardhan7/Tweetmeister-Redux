@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="338"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="376" height="337.5"/>
+                <frame key="frameInset" width="376" height="338"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ManUtd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpA-vz-JVe">
@@ -236,10 +236,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="9VH-lt-7v8" firstAttribute="top" secondItem="5Ad-aJ-tKj" secondAttribute="bottom" constant="6" id="1qC-aJ-3GG"/>
+                    <constraint firstItem="j6G-h1-4Rv" firstAttribute="top" secondItem="bPY-Nx-vOL" secondAttribute="bottom" constant="50" id="30y-lh-Aes"/>
                     <constraint firstItem="NPz-dT-Y3K" firstAttribute="leading" secondItem="5Ad-aJ-tKj" secondAttribute="trailing" constant="50" id="9FE-Xf-QeR"/>
                     <constraint firstItem="iSV-l2-gzm" firstAttribute="centerX" secondItem="L2p-Lx-tfq" secondAttribute="centerX" id="9I0-dC-D8C"/>
                     <constraint firstItem="dpA-vz-JVe" firstAttribute="top" secondItem="j6G-h1-4Rv" secondAttribute="bottom" constant="4" id="BkV-g7-gLQ"/>
-                    <constraint firstItem="j6G-h1-4Rv" firstAttribute="top" secondItem="bPY-Nx-vOL" secondAttribute="bottom" constant="50" id="DHu-A3-Rbd"/>
                     <constraint firstItem="5Ad-aJ-tKj" firstAttribute="centerY" secondItem="L2p-Lx-tfq" secondAttribute="centerY" id="GAc-LW-AzO"/>
                     <constraint firstItem="cxf-cp-Uml" firstAttribute="top" secondItem="bPY-Nx-vOL" secondAttribute="bottom" constant="4" id="IVz-8M-5zu"/>
                     <constraint firstItem="MiF-Yy-orU" firstAttribute="leading" secondItem="j6G-h1-4Rv" secondAttribute="trailing" constant="4" id="T9N-GN-ZBh"/>
@@ -267,6 +267,7 @@
                 <outlet property="descriptionLabel" destination="rt3-vz-Gcz" id="Wkh-gw-PcG"/>
                 <outlet property="followersLabel" destination="iSV-l2-gzm" id="e9v-5c-ji4"/>
                 <outlet property="followingLabel" destination="9VH-lt-7v8" id="px7-f3-6EY"/>
+                <outlet property="holderHeight" destination="dH9-TN-Uw3" id="tdm-zU-Psj"/>
                 <outlet property="locationLabel" destination="HeG-WZ-B36" id="Vj4-xA-MJa"/>
                 <outlet property="locationViewHeight" destination="3v9-4N-sf7" id="kWQ-ak-bnf"/>
                 <outlet property="nameLabel" destination="j6G-h1-4Rv" id="gyN-Ef-dSB"/>
@@ -275,6 +276,7 @@
                 <outlet property="pinImageView" destination="d6h-PJ-WLV" id="cbB-CP-2JK"/>
                 <outlet property="posterBackgroundImageView" destination="mYm-n9-LTD" id="ZzE-hI-H7o"/>
                 <outlet property="posterImageView" destination="gh9-Ad-AJj" id="N0H-zf-Bxp"/>
+                <outlet property="scrollHolderView" destination="bPY-Nx-vOL" id="Bf8-hO-WGq"/>
                 <outlet property="scrollView" destination="x8M-Jy-awb" id="cYj-AC-1MZ"/>
                 <outlet property="tweetsLabel" destination="XDf-pa-i6y" id="RfE-zq-N6E"/>
                 <outlet property="urlLabel" destination="Gaa-O5-RL4" id="sSi-jC-jsR"/>
