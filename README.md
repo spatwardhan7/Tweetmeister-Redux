@@ -47,7 +47,6 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
 I had to rebuild most of my existing project to start using xibs. After that, implementing scroll view for profile page took all of my time. I had over looked certain issues which crept up during this implementation. 
 
 Also, licecap cannot capture video as is. Especially the profile view where it cannot quite capture the page control and the background image. I bumped it up to 24 FPS, any higher than that and it will probably result in gif's bigger than 100 MB 
