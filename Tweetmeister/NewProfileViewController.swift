@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     var username:String!
     @IBOutlet weak var tableView: UITableView!
@@ -51,11 +51,13 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
         if sender.state == .began {
             
         } else if sender.state == .changed {
+            if location.y > 0 {
             profileCell.updateHeight(y: location.y)
             UIView.setAnimationsEnabled(false)
             tableView.beginUpdates()
             tableView.endUpdates()
             UIView.setAnimationsEnabled(true)
+            }
         }
         else if sender.state == .ended {
             profileCell.restoreHeight()
@@ -100,6 +102,10 @@ class NewProfileViewController: UIViewController, UITableViewDataSource, UITable
             self.tableView.reloadData()
             }, failure: { (error : Error) in
         })
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {

@@ -89,6 +89,10 @@ class HamburgerViewController: UIViewController {
                 leftMarginConstraint.constant = originalLeftMargin + translation.x
             }
             
+            if velocity.y > 0 {
+            
+            }
+            
         } else if sender.state == UIGestureRecognizerState.ended{
            
             
